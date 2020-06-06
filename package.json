@@ -8,7 +8,23 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.5.0",
+    "bootstrap-datepicker": "^1.9.0",
+    "bootstrap-vue": "^2.15.0",
+    "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
+    "daterangepicker": "^3.1.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "jquery-knob": "^1.2.11",
+    "jquery-ui": "^1.12.1",
+    "jqvmap": "^1.5.1",
+    "moment": "^2.26.0",
+    "overlayscrollbars": "^1.12.0",
+    "popper.js": "^1.16.1",
+    "sparklines": "^1.2.0",
+    "summernote": "^0.8.18",
+    "tempusdominus-bootstrap-4": "^5.1.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
@@ -40,8 +56,7 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "rules": {}
+    }
   },
   "browserslist": [
     "> 1%",
