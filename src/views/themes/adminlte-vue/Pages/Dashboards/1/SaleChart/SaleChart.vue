@@ -21,7 +21,7 @@
           <!-- Morris chart - Sales -->
           <div class="chart tab-pane active" id="revenue-chart"
                style="position: relative; height: 300px;">
-            <canvas ref="revenue_chart_canvas" id="revenue_chart_canvas" height="300" style="height: 300px;"></canvas>
+            <canvas ref="revenue_chart_canvas" id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
           </div>
           <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
             <canvas ref="sales_chart_canvas" id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
@@ -32,9 +32,9 @@
   </Card>
 </template>
 <script>
-import Card from '../../views/themes/adminlte-vue/Widget/Card/Card'
-import CardHeader from '../../views/themes/adminlte-vue/Widget/Card/CardHeader'
-import CardBody from '../../views/themes/adminlte-vue/Widget/Card/CardBody'
+import Card from '../../../../../adminlte-vue/Widget/Card/Card'
+import CardHeader from '../../../../../adminlte-vue/Widget/Card/CardHeader'
+import CardBody from '../../../../../adminlte-vue/Widget/Card/CardBody'
 import Chart from 'chart.js'
 import salesChart from './sale_chart_data'
 import pieChart from './pie_chart_data'

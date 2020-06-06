@@ -8,7 +8,7 @@
             <h1 class="m-0 text-dark">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <Breadcrumb/>
+            <Breadcrumb :items="[{url:'#', label:'Home'}, {label:'Dashboard v1', class:'active'}]"/>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -308,16 +308,17 @@
   </div>
 </template>
 <script>
-import Card from './Widget/Card/Card'
-import Breadcrumb from './DashBoard1/Breadcrumb'
-import CardIndicator from './Widget/CardIndicator'
-import CardFooter from './Widget/Card/CardFooter'
-import CardBody from './Widget/Card/CardBody'
-import CardHeader from './Widget/Card/CardHeader'
-import SaleChart from '../../../components/SaleChart/SaleChart'
-import VisitorsChart from '../../../components/VisitorsChart/VisitorsChart'
-import SalesGraph from '../../../components/SalesGraph/SalesGraph'
-import CardCalendar from '../../../components/Dashboard1/CardCalendar'
+import Card from '../../../Widget/Card/Card'
+import Breadcrumb from './Breadcrumb'
+import CardIndicator from '../../../Widget/CardIndicator'
+import CardFooter from '../../../Widget/Card/CardFooter'
+import CardBody from '../../../Widget/Card/CardBody'
+import CardHeader from '../../../Widget/Card/CardHeader'
+import SaleChart from './SaleChart/SaleChart'
+import VisitorsChart from './VisitorsChart/VisitorsChart'
+import SalesGraph from './SalesGraph/SalesGraph'
+import CardCalendar from './CardCalendar'
+
 export default {
   components: {
     Breadcrumb,

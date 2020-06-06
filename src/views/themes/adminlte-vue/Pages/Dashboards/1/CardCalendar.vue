@@ -32,9 +32,9 @@
   </Card>
 </template>
 <script>
-import Card from '../../views/themes/adminlte-vue/Widget/Card/Card'
-import CardHeader from '../../views/themes/adminlte-vue/Widget/Card/CardHeader'
-import CardBody from '../../views/themes/adminlte-vue/Widget/Card/CardBody'
+import Card from '../../../../adminlte-vue/Widget/Card/Card'
+import CardHeader from '../../../../adminlte-vue/Widget/Card/CardHeader'
+import CardBody from '../../../../adminlte-vue/Widget/Card/CardBody'
 import $ from 'jquery'
 window.jQuery = window.$ = $
 require('bootstrap-datepicker')

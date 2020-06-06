@@ -1,13 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Home from '../views/Home.vue'
-import Dashboard1 from '../views/themes/adminlte-vue/Dashboard1.vue'
+// import LayoutDefault from '../views/themes/adminlte-vue/Layouts/LayoutDefault'
+import Layout1 from '../views/themes/adminlte-vue/Layouts/Layout1'
+// import Dashboard1 from '../views/themes/adminlte-vue/Pages/Dashboards/1/Dashboard1'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/theme', component: Dashboard1
+    path: '/',
+    component: Layout1
+  },
+  {
+    path: '/layout/',
+    component: Layout1,
+    children: [
+      { path: ':layout/:page?', component: Layout1 }
+      // { path: 'two/:page?', component: Layout2 },
+    ]
   }
 ]
 

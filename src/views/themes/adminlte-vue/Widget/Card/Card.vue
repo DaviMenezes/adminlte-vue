@@ -7,14 +7,3 @@
     <slot name="card_footer"/>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    title: { type: String }
-  }
-}
-</script>
-
-<style scoped>
-
-</style>
