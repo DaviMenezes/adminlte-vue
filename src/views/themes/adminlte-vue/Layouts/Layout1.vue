@@ -13,6 +13,7 @@ import Dashboard1 from '../Pages/Dashboards/1/Dashboard1'
 import Dashboard2 from '../Pages/Dashboards/2/Dashboard2'
 import Dashboard3 from '../Pages/Dashboards/3/Dashboard3'
 import PageProfile from '../Pages/PageProfile'
+import PageWidgets from '../Pages/PageWidgets'
 export default {
   components: {
     Navbar,
@@ -32,6 +33,8 @@ export default {
           return Dashboard3
         case 'profile' :
           return PageProfile
+        case 'widgets' :
+          return PageWidgets
         default :
           return Dashboard1
       }
