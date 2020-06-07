@@ -1,5 +1,9 @@
 <template>
   <div class="small-box">
+    <!-- Loading (remove the following to stop the loading)-->
+    <div class="overlay" v-if="loading">
+      <i class="fas fa-3x fa-sync-alt"></i>
+    </div>
     <div class="inner">
       <slot name="value"></slot>
       <slot name="text"></slot>
@@ -15,7 +19,8 @@
 export default {
   props: {
     action_text: { type: String, default: 'More info' },
-    icon: { type: String }
+    icon: { type: String },
+    loading: { type: Boolean, default: false }
   }
 }
 </script>

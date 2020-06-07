@@ -65,16 +65,16 @@
             <!-- Info Boxes Style 2 -->
             <InfoBox class="mb-3 bg-warning"
                icon_class="info-box-icon" icon="fas fa-tag"
-               text="Inventory" number="5,200" elevation=""
+               text="Inventory" number="5,200" no_elevation
             />
             <!-- /.info-box -->
             <InfoBox class="mb-3 bg-success" icon="far fa-heart" icon_class="info-box-icon"
-              text="Mentions" number="92,050" elevation=""
+              text="Mentions" number="92,050" no_elevation
             />
             <InfoBox class="mb-3 bg-danger" icon_class="info-box-icon" icon="fas fa-cloud-download-alt"
-               text="Downloads" number="114,381" elevation=""/>
+               text="Downloads" number="114,381" no_elevation/>
             <!-- /.info-box -->
-            <InfoBox class="mb-3 bg-info" icon_class="info-box-icon" icon="far fa-comment" elevation=""
+            <InfoBox class="mb-3 bg-info" icon_class="info-box-icon" icon="far fa-comment" no_elevation
               text="Direct Messages" number="163,921"
             />
             <BrowserUsage/>

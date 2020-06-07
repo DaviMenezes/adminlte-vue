@@ -17,445 +17,205 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <h5 class="mb-2">Info Box</h5>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Messages</span>
-                <span class="info-box-number">1,410</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+            <InfoBox text="Messages" number="1,410" icon="far fa-envelope" icon_class="bg-info"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Bookmarks</span>
-                <span class="info-box-number">410</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+            <InfoBox text="Bookmarks" number="410" icon="far fa-flag" icon_class="bg-success"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Uploads</span>
-                <span class="info-box-number">13,648</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+            <InfoBox text="Uploads" number="13,648" icon="far fa-copy" icon_class="bg-warning"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">93,139</span>
-              </div>
-              <!-- /.info-box-content -->
+            <InfoBox text="Likes" number="93,139" icon="far fa-star" icon_class="bg-danger"/>
             </div>
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
         <!-- =========================================================== -->
         <h5 class="mt-4 mb-2">Info Box With <code>bg-*</code></h5>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-info">
-              <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Bookmarks</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
+            <InfoBox class="bg-info" text="Bookmarks" number="41,410" icon="far fa-bookmark" no_elevation>
+              <template slot="content_footer">
+                <BProgress ><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                   70% Increase in 30 Days
                 </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+              </template>
+            </InfoBox>
           </div>
+
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-success">
-              <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
+            <InfoBox class="bg-success" text="Likes" number="41,410" icon="far fa-thumbs-up">
+              <template slot="content_footer">
+                <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                   70% Increase in 30 Days
                 </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+              </template>
+            </InfoBox>
           </div>
-          <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-warning">
-              <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Events</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
+            <InfoBox class="bg-warning" text="Events" number="41,410" icon="far fa-calendar-alt">
+              <template slot="content_footer">
+                <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                   70% Increase in 30 Days
                 </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+              </template>
+            </InfoBox>
           </div>
-          <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-danger">
-              <span class="info-box-icon"><i class="fas fa-comments"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Comments</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
+            <InfoBox class="bg-danger" text="Comments" number="41,410" icon="fas fa-comments">
+              <template slot="content_footer">
+                <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                   70% Increase in 30 Days
                 </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
+              </template>
+            </InfoBox>
+         </div>
         </div>
-        <!-- /.row -->
 
         <!-- =========================================================== -->
         <h5 class="mt-4 mb-2">Info Box With <code>bg-gradient-*</code></h5>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-info">
-              <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Bookmarks</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
+            <InfoBox class="bg-gradient-info" text="Bookmarks" number="41,410" icon="far fa-bookmark" no_elevation>
+              <template slot="content_footer">
+                <BProgress ><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
-                  70% Increase in 30 Days
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+                      70% Increase in 30 Days
+                    </span>
+              </template>
+            </InfoBox>
           </div>
+
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-success">
-              <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
+            <InfoBox class="bg-gradient-success" text="Likes" number="41,410" icon="far fa-thumbs-up">
+              <template slot="content_footer">
+                <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
-                  70% Increase in 30 Days
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+                      70% Increase in 30 Days
+                    </span>
+              </template>
+            </InfoBox>
           </div>
-          <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-warning">
-              <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Events</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
+            <InfoBox class="bg-gradient-warning" text="Events" number="41,410" icon="far fa-calendar-alt">
+              <template slot="content_footer">
+                <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
-                  70% Increase in 30 Days
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+                      70% Increase in 30 Days
+                    </span>
+              </template>
+            </InfoBox>
           </div>
-          <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-gradient-danger">
-              <span class="info-box-icon"><i class="fas fa-comments"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Comments</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
-                </div>
+            <InfoBox class="bg-gradient-danger" text="Comments" number="41,410" icon="fas fa-comments">
+              <template slot="content_footer">
+                <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
-                  70% Increase in 30 Days
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+                      70% Increase in 30 Days
+                    </span>
+              </template>
+            </InfoBox>
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-
         <!-- =========================================================== -->
 
         <!-- Small Box (Stat card) -->
         <h5 class="mb-2 mt-4">Small Box</h5>
         <div class="row">
           <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-shopping-cart"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
+            <CardIndicator class="bg-info" icon="fas fa-shopping-cart">
+              <template slot="value"><h3>150</h3></template>
+              <template slot="text"><p>New Orders</p></template>
+            </CardIndicator>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
+            <CardIndicator class="bg-success" icon="ion ion-stats-bars">
+              <template slot="value"><h3>53<sup style="font-size: 20px">%</sup></h3></template>
+              <template slot="text"><p>Bounce Rate</p></template>
+            </CardIndicator>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
+            <CardIndicator class="bg-warning" icon="fas fa-user-plus">
+              <template slot="value"><h3>44</h3></template>
+              <template slot="text"><p>User Registrations</p></template>
+            </CardIndicator>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-chart-pie"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
+            <CardIndicator class="bg-danger" icon="fas fa-chart-pie">
+              <template slot="value"><h3>65</h3></template>
+              <template slot="text"><p>Unique Visitors</p></template>
+            </CardIndicator>
           </div>
           <!-- ./col -->
         </div>
-        <!-- /.row -->
-
-        <!-- Small Box (Stat card) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-info">
-              <!-- Loading (remove the following to stop the loading)-->
-              <div class="overlay">
-                <i class="fas fa-3x fa-sync-alt"></i>
-              </div>
-              <!-- end loading -->
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-shopping-cart"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
+            <div class="col-lg-3 col-6">
+              <CardIndicator class="bg-info" icon="fas fa-shopping-cart" loading>
+                <template slot="value"><h3>150</h3></template>
+                <template slot="text"><p>New Orders</p></template>
+              </CardIndicator>
             </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-success">
-              <!-- Loading (remove the following to stop the loading)-->
-              <div class="overlay dark">
-                <i class="fas fa-3x fa-sync-alt"></i>
-              </div>
-              <!-- end loading -->
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fas fa-arrow-circle-right"></i>
-              </a>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <CardIndicator class="bg-success" icon="ion ion-stats-bars" loading>
+                <template slot="value"><h3>53<sup style="font-size: 20px">%</sup></h3></template>
+                <template slot="text"><p>Bounce Rate</p></template>
+              </CardIndicator>
             </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <CardIndicator class="bg-warning" icon="fas fa-user-plus" loading>
+                <template slot="value"><h3>44</h3></template>
+                <template slot="text"><p>User Registrations</p></template>
+              </CardIndicator>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <CardIndicator class="bg-danger" icon="fas fa-chart-pie" loading>
+                <template slot="value"><h3>65</h3></template>
+                <template slot="text"><p>Unique Visitors</p></template>
+              </CardIndicator>
+            </div>
+            <!-- ./col -->
           </div>
-          <!-- ./col -->
-        </div>
-        <!-- /.row -->
-
         <!-- =========================================================== -->
         <h4 class="mb-2 mt-4">Cards</h4>
         <h5 class="mb-2">Abilities</h5>
         <div class="row">
           <div class="col-md-3">
-            <div class="card card-primary collapsed-card">
-              <div class="card-header">
-                <h3 class="card-title">Expandable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
+            <CardExpandable title="Expandable" body="The body of the card"/>
             <!-- /.card -->
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Collapsable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <CardCollapsable class="card-success" title="Collapsable" body="The body of the card"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-warning">
-              <div class="card-header">
-                <h3 class="card-title">Removable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <CardRemovable class="card-warning" title="Removable" body="The body of the card"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Maximizable</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <CardMaximizable class="card-danger" title="Maximizable" body="The body of the card"/>
           </div>
           <!-- /.col -->
         </div>
@@ -1563,7 +1323,7 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
+
     </section>
     <!-- /.content -->
 
@@ -1573,7 +1333,21 @@
   </div>
 </template>
 <script>
+import InfoBox from '../Widget/InfoBox'
+import CardIndicator from '../Widget/CardIndicator'
+import CardExpandable from '../Widget/CardExpandable/CardExpandable'
+import CardCollapsable from '../Widget/CardExpandable/CardCollapsable'
+import CardRemovable from '../Widget/CardExpandable/CardRemovable'
+import CardMaximizable from '../Widget/CardExpandable/CardMaximizable'
 export default {
+  components: {
+    InfoBox,
+    CardIndicator,
+    CardExpandable,
+    CardCollapsable,
+    CardRemovable,
+    CardMaximizable
+  },
   data () { return { } },
   props: { }
 }
