@@ -1,8 +1,8 @@
 <template>
-  <Card class="direct-chat direct-chat-warning">
-    <template slot="card_header">
+  <Card class="direct-chat">
+    <template slot="header">
       <CardHeader title="Direct Chat">
-        <template slot="card_tools">
+        <template slot="tools">
           <span data-toggle="tooltip" title="3 New Messages" class="badge badge-warning">3</span>
           <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
           </button>
@@ -14,7 +14,7 @@
         </template>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <CardBody>
         <!-- Conversations are loaded here -->
         <div class="direct-chat-messages">
@@ -184,7 +184,7 @@
         <!-- /.direct-chat-pane -->
       </CardBody>
     </template>
-    <template slot="card_footer">
+    <template slot="footer">
       <CardFooter>
         <form action="#" method="post">
           <div class="input-group">

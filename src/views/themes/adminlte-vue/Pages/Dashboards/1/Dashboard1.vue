@@ -59,111 +59,12 @@
           <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
             <SaleChart/>
-            <Card class="direct-chat direct-chat-primary">
-              <template slot="card_header">
-                <CardHeader title="Direct Chat">
-                  <template slot="card_tools">
-                    <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
-                            data-widget="chat-pane-toggle">
-                      <i class="fas fa-comments"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                    </button>
-                  </template>
-                </CardHeader>
-              </template>
-              <template slot="card_body">
-                <CardBody>
-                  <div class="direct-chat-messages">
-                    <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left">Alexander Pierce</span>
-                        <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-                      </div>
-                      <!-- /.direct-chat-infos -->
-                      <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Is this template really for free? That's unbelievable!
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-right">Sarah Bullock</span>
-                        <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                      </div>
-                      <!-- /.direct-chat-infos -->
-                      <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        You better believe it!
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left">Alexander Pierce</span>
-                        <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
-                      </div>
-                      <!-- /.direct-chat-infos -->
-                      <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Working with AdminLTE on a great new app! Wanna join?
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-right">Sarah Bullock</span>
-                        <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
-                      </div>
-                      <!-- /.direct-chat-infos -->
-                      <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        I would love to.
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                  </div>
-                </CardBody>
-              </template>
-              <template slot="card_footer">
-                <CardFooter>
-                  <form action="#" method="post">
-                    <div class="input-group">
-                      <input type="text" name="message" placeholder="Type Message ..." class="form-control">
-                      <span class="input-group-append">
-                      <button type="button" class="btn btn-primary">Send</button>
-                    </span>
-                    </div>
-                  </form>
-                </CardFooter>
-              </template>
-            </Card>
+            <CardDirectChat class="direct-chat-primary"/>
             <Card>
-              <template slot="card_header">
+              <template slot="header">
                 <CardHeader title="To Do List">
                   <template slot="title_icon"><i class="ion ion-clipboard mr-1"/></template>
-                  <template slot="card_tools">
+                  <template slot="tools">
                     <ul class="pagination pagination-sm">
                       <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
                       <li class="page-item"><a href="#" class="page-link">1</a></li>
@@ -174,7 +75,7 @@
                   </template>
                 </CardHeader>
               </template>
-              <template slot="card_body">
+              <template slot="body">
                 <CardBody>
                   <ul class="todo-list" data-widget="todo-list">
                     <li>
@@ -281,7 +182,7 @@
                   </ul>
                 </CardBody>
               </template>
-              <template slot="card_footer">
+              <template slot="footer">
                 <CardFooter class="clearfix">
                   <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add item</button>
                 </CardFooter>
@@ -318,9 +219,11 @@ import SaleChart from './SaleChart/SaleChart'
 import VisitorsChart from './VisitorsChart/VisitorsChart'
 import SalesGraph from './SalesGraph/SalesGraph'
 import CardCalendar from './CardCalendar'
+import CardDirectChat from '../2/CardDirectChat'
 
 export default {
   components: {
+    CardDirectChat,
     Breadcrumb,
     CardIndicator,
     Card,

@@ -1,8 +1,8 @@
 <template>
   <Card>
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader title="Recently Added Products">
-        <template slot="card_tools">
+        <template slot="tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
             <i class="fas fa-minus"></i>
           </button>
@@ -12,7 +12,7 @@
         </template>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <card-body class="p-0">
         <ul class="products-list product-list-in-card pl-2 pr-2">
           <li class="item">
@@ -73,7 +73,7 @@
         </ul>
       </card-body>
     </template>
-    <template slot="card_footer">
+    <template slot="footer">
       <card-footer class="text-center">
         <a href="javascript:void(0)" class="uppercase">View All Products</a>
       </card-footer>

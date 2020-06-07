@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader title="Latest Members">
         <span class="badge badge-danger">8 New Members</span>
         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -9,7 +9,7 @@
         </button>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <CardBody class="p-0">
         <ul class="users-list clearfix">
           <li>
@@ -55,7 +55,7 @@
         </ul>
       </CardBody>
     </template>
-    <template slot="card_footer">
+    <template slot="footer">
       <CardFooter class="text-center">
         <a href="javascript:">View All Users</a>
       </CardFooter>

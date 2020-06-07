@@ -1,8 +1,8 @@
 <template>
   <Card>
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader title="Browser Usage">
-        <template slot="card_tools">
+        <template slot="tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
           </button>
           <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
@@ -10,7 +10,7 @@
         </template>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <CardBody>
         <div class="row">
           <div class="col-md-8">
@@ -34,7 +34,7 @@
         </div>
       </CardBody>
     </template>
-    <template slot="card_footer">
+    <template slot="footer">
       <CardFooter class="bg-white p-0">
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">

@@ -51,7 +51,7 @@
 
             <div class="row">
               <div class="col-md-6">
-                <CardDirectChat/>
+                <CardDirectChat class="direct-chat-warning"/>
               </div>
               <div class="col-md-6">
                 <CardLastMembers/>

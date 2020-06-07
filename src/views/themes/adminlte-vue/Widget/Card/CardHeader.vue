@@ -1,11 +1,13 @@
 <template>
   <div class="card-header">
-    <h3 class="card-title">
-      <slot name="title_icon"/>
-      {{title}}
-    </h3>
+    <slot>
+      <h3 class="card-title">
+        <slot name="title_icon"/>
+        {{title}}
+      </h3>
+    </slot>
     <div class="card-tools">
-      <slot name="card_tools"/>
+      <slot name="tools"/>
     </div>
   </div>
 </template>

@@ -1,9 +1,9 @@
 <template>
   <Card class="bg-gradient-success" >
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader class="border-0" title="Calendar">
         <template slot="title_icon"><i class="far fa-calendar-alt"></i></template>
-        <template slot="card_tools">
+        <template slot="tools">
           <div class="btn-group">
             <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
               <i class="fas fa-bars"></i></button>
@@ -23,7 +23,7 @@
         </template>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <CardBody class="pt-0">
         <div id="calendar" style="width: 100%"></div>
         <b-calendar v-model="value" @context="onContext" locale="en-US" width="100%" class="bg-transparent"></b-calendar>

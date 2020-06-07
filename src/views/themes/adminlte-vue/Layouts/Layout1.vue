@@ -11,11 +11,11 @@
 import Navbar from '../Navbar'
 import Dashboard1 from '../Pages/Dashboards/1/Dashboard1'
 import Dashboard2 from '../Pages/Dashboards/2/Dashboard2'
+import Dashboard3 from '../Pages/Dashboards/3/Dashboard3'
 export default {
   components: {
     Navbar,
     MenuLeft: () => import('../MenuLeft'),
-    Dashboard1: () => import('../Pages/Dashboards/1/Dashboard1'),
     Footer: () => import('../Footer'),
     MenuRight: () => import('../MenuRight')
   },
@@ -27,6 +27,8 @@ export default {
           return Dashboard1
         case 'dashboard2':
           return Dashboard2
+        case 'dashboard3':
+          return Dashboard3
         default :
           return Dashboard1
       }

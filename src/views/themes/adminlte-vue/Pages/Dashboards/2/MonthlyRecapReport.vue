@@ -1,8 +1,8 @@
 <template>
   <Card>
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader title="Monthly Recap Report">
-        <template slot="card_tools">
+        <template slot="tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
             <i class="fas fa-minus"></i>
           </button>
@@ -24,7 +24,7 @@
         </template>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <CardBody>
         <div class="row">
           <div class="col-md-8">
@@ -84,7 +84,7 @@
         </div>
       </CardBody>
     </template>
-    <template slot="card_footer">
+    <template slot="footer">
       <CardFooter>
         <div class="row">
           <div class="col-sm-3 col-6">

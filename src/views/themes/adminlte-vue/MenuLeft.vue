@@ -38,26 +38,18 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v1</p>
                 </router-link>
-<!--                <a href="./index.html" class="nav-link active">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v1</p>-->
-<!--                </a>-->
               </li>
               <li class="nav-item">
                 <router-link :to="getRoute('dashboard2')" :class="$route.params.page === 'dashboard2' ? 'nav-link active' : 'nav-link'">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v2</p>
                 </router-link>
-<!--                <a href="./index2.html" class="nav-link">-->
-<!--                  <i class="far fa-circle nav-icon"></i>-->
-<!--                  <p>Dashboard v2</p>-->
-<!--                </a>-->
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <router-link :to="getRoute('dashboard3')" :class="$route.params.page === 'dashboard2' ? 'nav-link active' : 'nav-link'">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v3</p>
-                </a>
+                </router-link>
               </li>
             </ul>
           </li>

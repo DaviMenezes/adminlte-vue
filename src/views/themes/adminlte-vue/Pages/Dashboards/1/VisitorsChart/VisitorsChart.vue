@@ -1,9 +1,9 @@
 <template>
   <Card class="bg-gradient-primary" >
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader title="Visitors">
         <template slot="title_icon"><i class="fas fa-map-marker-alt mr-1"></i></template>
-        <template slot="card_tools">
+        <template slot="tools">
           <button type="button"
                   class="btn btn-primary btn-sm daterange"
                   data-toggle="tooltip"
@@ -20,12 +20,12 @@
         </template>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <CardBody>
         <div ref="world_map" id="world-map" style="height: 250px; width: 100%;"></div>
       </CardBody>
     </template>
-    <template slot="card_footer">
+    <template slot="footer">
       <CardFooter class="bg-transparent">
         <div class="row">
           <div class="col-4 text-center">

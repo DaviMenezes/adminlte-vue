@@ -1,9 +1,9 @@
 <template>
   <Card class="bg-gradient-info" >
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader title="Sales Graph">
         <template slot="title_icon"><i class="fas fa-th mr-1"></i></template>
-        <template slot="card_tools">
+        <template slot="tools">
           <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
             <i class="fas fa-minus"></i>
           </button>
@@ -13,10 +13,10 @@
         </template>
       </CardHeader>
     </template>
-    <CardBody slot="card_body">
+    <CardBody slot="body">
       <canvas ref="line_chart" class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
     </CardBody>
-    <template slot="card_footer">
+    <template slot="footer">
       <CardFooter class="bg-transparent">
         <div class="row">
           <div class="col-4 text-center">

@@ -1,9 +1,9 @@
 <template>
   <Card>
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader title="Sales">
         <template slot="title_icon"><i class="fas fa-chart-pie mr-1"></i></template>
-        <template slot="card_tools">
+        <template slot="tools">
           <ul class="nav nav-pills ml-auto">
             <li class="nav-item">
               <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
@@ -15,7 +15,7 @@
         </template>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <CardBody>
         <div class="tab-content p-0">
           <!-- Morris chart - Sales -->

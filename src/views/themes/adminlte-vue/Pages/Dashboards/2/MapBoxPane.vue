@@ -1,8 +1,8 @@
 <template>
   <Card>
-    <template slot="card_header">
+    <template slot="header">
       <CardHeader title="US-Visitors Report">
-        <template slot="card_tools">
+        <template slot="tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
             <i class="fas fa-minus"></i>
           </button>
@@ -12,7 +12,7 @@
         </template>
       </CardHeader>
     </template>
-    <template slot="card_body">
+    <template slot="body">
       <CardBody class="p-0">
         <div class="d-md-flex">
           <div class="p-1 flex-fill" style="overflow: hidden">
