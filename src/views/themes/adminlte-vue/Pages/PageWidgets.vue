@@ -223,28 +223,26 @@
 
         <div class="row">
           <div class="col-md-3">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Card Refresh</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="widgets.html" data-source-selector="#card-refresh-content"><i class="fas fa-sync-alt"></i></button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-            <div class="d-none" id="card-refresh-content">
-              The body of the card after card refresh
-            </div>
+            <CardRefresh ref="cardRefreshOne" title="Card Refresh" :body="data.card.refresh.one.body" v-on:refreshBody="updateCardRefreshOneBody()" :loading="data.card.refresh.one.loading"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
+            <Card class="card-success">
+              <CardHeader slot="header" title="All together">
+                <template slot="tools">
+                  <button type="button" ref="cardRefreshTwo" class="btn btn-tool" @click="updateBodyCardRefreshTwo()"><i class="fas fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </template>
+              </CardHeader>
+              <BCardBody slot="body" class="text-center">
+                <div class="spinner-border" role="status" v-if="data.card.refresh.two.loading">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <span v-else>{{data.card.refresh.two.body}}</span>
+              </BCardBody>
+            </Card>
             <div class="card card-success">
               <div class="card-header">
                 <h3 class="card-title">All together</h3>
@@ -1333,14 +1331,24 @@
   </div>
 </template>
 <script>
+import Card from '../Widget/Card/Card'
+import CardHeader from '../Widget/Card/CardHeader'
 import InfoBox from '../Widget/InfoBox'
 import CardIndicator from '../Widget/CardIndicator'
-import CardExpandable from '../Widget/CardExpandable/CardExpandable'
-import CardCollapsable from '../Widget/CardExpandable/CardCollapsable'
-import CardRemovable from '../Widget/CardExpandable/CardRemovable'
-import CardMaximizable from '../Widget/CardExpandable/CardMaximizable'
+import CardExpandable from '../Widget/Specific/CardExpandable'
+import CardCollapsable from '../Widget/Specific/CardCollapsable'
+import CardRemovable from '../Widget/Specific/CardRemovable'
+import CardMaximizable from '../Widget/Specific/CardMaximizable'
+import CardRefresh from '../Widget/Specific/CardRefresh'
+import Vue from 'vue'
+
+const eventBus = new Vue()
+
 export default {
   components: {
+    Card,
+    CardHeader,
+    CardRefresh,
     InfoBox,
     CardIndicator,
     CardExpandable,
@@ -1348,7 +1356,46 @@ export default {
     CardRemovable,
     CardMaximizable
   },
-  data () { return { } },
-  props: { }
+  data () {
+    return {
+      data: {
+        card: {
+          body: 'The body of the card',
+          refresh: {
+            one: { body: 'The body of the card', loading: false },
+            two: { body: 'The body of the card', loading: false }
+          }
+        }
+      }
+    }
+  },
+  provide () {
+    return {
+      eventBus
+    }
+  },
+  props: { },
+  methods: {
+    updateCardRefreshOneBody () {
+      this.$refs.cardRefreshOne.setLoading(true)
+      setTimeout(() => {
+        this.$refs.cardRefreshOne.bodyLocal = 'The body of the card after card refresh'
+        this.$refs.cardRefreshOne.setLoading(false)
+      }, 500)
+
+      setTimeout(() => eventBus.$emit('updateBody', this.data.card.body), 5000)
+    },
+    updateBodyCardRefreshTwo () {
+      this.data.card.refresh.two.loading = true
+      setTimeout(() => {
+        this.data.card.refresh.two.body = 'The body of the card after card refresh'
+        this.data.card.refresh.two.loading = false
+      }, 500)
+
+      setTimeout(() => {
+        this.data.card.refresh.two.body = this.data.card.body
+      }, 5000)
+    }
+  }
 }
 </script>
