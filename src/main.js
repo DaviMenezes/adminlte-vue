@@ -19,10 +19,8 @@ Vue.use(IconsPlugin)
 const components = {}
 Object.keys(LteComponents).forEach(component => {
   const comp = LteComponents[component]
-
   components[comp.name] = Vue.component(comp.name, comp)
 })
-console.log(components)
 new Vue({
   components: {
     ...components
