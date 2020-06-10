@@ -7,7 +7,7 @@
             <h1 class="m-0 text-dark">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <a-breadcrumb :items="[{url:'#', label:'Home'}, {label:'Dashboard v1', class:'active'}]"/>
+            <ABreadcrumb :items="[{url:'#', label:'Home'}, {label:'Dashboard v1', class:'active'}]"/>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -195,32 +195,6 @@
   </div>
 </template>
 <script>
-import AVisitorsChart from './VisitorsChart/AVisitorsChart'
-import ASalesGraph from './SalesGraph/ASalesGraph'
-import ACardCalendar from './ACardCalendar'
-import ABreadcrumb from './ABreadcrumb'
-// import ACardIndicator from '../../../Widget/Specific/ACardIndicator'
-import ASaleChart from './SaleChart/ASaleChart'
-import ACardDirectChat from '../2/ACardDirectChat'
-import ACard from '../../../Widget/Card/ACard'
-import ACardHeader from '../../../Widget/Card/ACardHeader'
-import ACardBody from '../../../Widget/Card/ACardBody'
-import ACardFooter from '../../../Widget/Card/ACardFooter'
-// import ACardIndicator from '../../../Widget/Specific/ACardIndicator'
 export default {
-  components: {
-    // ACardIndicator,
-    ACardFooter,
-    ACard,
-    ACardBody,
-    ACardDirectChat,
-    ASaleChart,
-    // ACardIndicator,
-    ABreadcrumb,
-    ACardCalendar,
-    ASalesGraph,
-    AVisitorsChart,
-    ACardHeader
-  }
 }
 </script>

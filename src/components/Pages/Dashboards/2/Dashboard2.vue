@@ -92,7 +92,7 @@
   </div>
 </template>
 <script>
-import Breadcrumb from '../1/ABreadcrumb'
+import Breadcrumb from '../1/Breadcrumb'
 import InfoBox from '../../../Widget/AInfoBox'
 import CardLastMembers from './ACardLastMembers'
 import CardLatestOrder from './ACardLatestOrder'

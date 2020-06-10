@@ -5,7 +5,7 @@ import APageChartJs from './Pages/Charts/APageChartJs'
 import ASaleChart from './Pages/Dashboards/1/SaleChart/ASaleChart'
 import ASalesGraph from './Pages/Dashboards/1/SalesGraph/ASalesGraph'
 import AVisitorsChart from './Pages/Dashboards/1/VisitorsChart/AVisitorsChart'
-import ABreadcrumb from './Pages/Dashboards/1/ABreadcrumb'
+import ABreadcrumb from './Pages/Dashboards/1/Breadcrumb'
 import ACardCalendar from './Pages/Dashboards/1/ACardCalendar'
 import ABrowserUsage from './Pages/Dashboards/2/ABrowserUsage'
 import ACardDirectChat from './Pages/Dashboards/2/ACardDirectChat'
@@ -81,14 +81,13 @@ import ACardHeader from './Widget/Card/ACardHeader'
 // widget specifics
 import ACardCollapsable from './Widget/Specific/ACardCollapsable'
 import ACardExpandable from './Widget/Specific/ACardExpandable'
-import ACardIndicator from './Widget/Specific/ACardIndicator'
+import CardIndicator from './Widget/Specific/CardIndicator'
 import ACardMaximizable from './Widget/Specific/ACardMaximizable'
 import ACardRefresh from './Widget/Specific/ACardRefresh'
 import ACardRemovable from './Widget/Specific/ACardRemovable'
 import AInfoBox from './Widget/AInfoBox'
-import Vue from 'vue'
 
-const components = {
+const categories = {
   pages: {
     specifics: [
       APageBlank,
@@ -185,7 +184,7 @@ const components = {
       specifics: [
         ACardCollapsable,
         ACardExpandable,
-        ACardIndicator,
+        CardIndicator,
         ACardMaximizable,
         ACardRefresh,
         ACardRemovable,
@@ -194,23 +193,17 @@ const components = {
     }
   }
 }
-const comps = {
-  ...components.pages.charts,
-  ...components.forms,
-  ...components.layouts,
-  ...components.mails,
-  ...components.projects,
-  ...components.tables,
-  ...components.uiElements,
-  ...components.pages.specifics,
-  ...components.widgets.cards.generics,
-  ...components.widgets.cards.specifics
-}
+const LteComponents = Object.assign({}, [
+  ...categories.pages.charts,
+  ...categories.forms,
+  ...categories.layouts,
+  ...categories.mails,
+  ...categories.projects,
+  ...categories.tables,
+  ...categories.uiElements,
+  ...categories.pages.specifics,
+  ...categories.widgets.cards.generics,
+  ...categories.widgets.cards.specifics
+])
 
-Object.keys(comps).forEach(c => {
-  const comp = comps[c]
-  const name = comp.name
-  Vue.component(name, comp)
-})
-
-export default components
+export default LteComponents
