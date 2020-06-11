@@ -86,6 +86,7 @@ import ACardMaximizable from './Widget/Specific/ACardMaximizable'
 import ACardRefresh from './Widget/Specific/ACardRefresh'
 import ACardRemovable from './Widget/Specific/ACardRemovable'
 import AInfoBox from './Widget/AInfoBox'
+import ACardEmptyBodyLoadable from './Widget/Specific/ACardEmptyBodyLoadable'
 
 const categories = {
   pages: {
@@ -183,6 +184,7 @@ const categories = {
       ],
       specifics: [
         ACardCollapsable,
+        ACardEmptyBodyLoadable,
         ACardExpandable,
         CardIndicator,
         ACardMaximizable,

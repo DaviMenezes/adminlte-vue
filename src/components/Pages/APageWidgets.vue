@@ -227,7 +227,7 @@
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <Card class="card-success">
+            <a-card class="card-success">
               <CardHeader slot="header" title="All together">
                 <template slot="tools">
                   <button type="button" ref="cardRefreshTwo" class="btn btn-tool" @click="updateBodyCardRefreshTwo()"><i class="fas fa-sync-alt"></i></button>
@@ -242,7 +242,7 @@
                 </div>
                 <span v-else>{{data.card.refresh.two.body}}</span>
               </BCardBody>
-            </Card>
+            </a-card>
             <div class="card card-success">
               <div class="card-header">
                 <h3 class="card-title">All together</h3>
@@ -265,6 +265,44 @@
           </div>
           <!-- /.col -->
           <div class="col-md-3">
+            <ACardEmptyBodyLoadable
+              btn_ref="card_three_button1"
+              title="Loading state 1"
+              @cardButtonClicked="cardThreeButtonClicked"
+            />
+            <!--<a-card class="card-warning">
+              <a-card-header title="Loading state" slot="header"/>
+              <b-overlay slot="body"
+                :show="data.card.refresh.three.loading"
+                rounded="true"
+                opacity="0.6"
+                spinner-small
+                spinner-variant="primary"
+                :class="data.card.refresh.three.class"
+                @hidden="data.card.refresh.three.onHidden()"
+              >
+                <a-card-body class="text-center">
+                  <b-overlay
+                    :show="data.card.refresh.three.loading_2"
+                    spinner-variant="primary"
+                    spinner-type="none"
+                    spinner-small
+                    rounded="sm"
+                  >
+                    <div v-html="data.card.refresh.three.body"/>
+                  </b-overlay>
+                  <b-button
+                    v-if="!data.card.refresh.three.loaded"
+                    variant="outline-primary"
+                    size="sm"
+                    ref="card_three_button"
+                    :disabled="data.card.refresh.three.loading"
+                    @click="clickCardThreeButon"
+                  >load
+                  </b-button>
+                </a-card-body>
+              </b-overlay>
+            </a-card> -->
             <div class="card card-warning">
               <div class="card-header">
                 <h3 class="card-title">Loading state</h3>
@@ -1331,7 +1369,6 @@
   </div>
 </template>
 <script>
-import Card from '../Widget/Card/ACard'
 import CardHeader from '../Widget/Card/ACardHeader'
 import InfoBox from '../Widget/AInfoBox'
 import CardIndicator from '../Widget/Specific/CardIndicator'
@@ -1341,13 +1378,16 @@ import CardRemovable from '../Widget/Specific/ACardRemovable'
 import CardMaximizable from '../Widget/Specific/ACardMaximizable'
 import CardRefresh from '../Widget/Specific/ACardRefresh'
 import Vue from 'vue'
+import ACard from '../Widget/Card/ACard'
+import ACardEmptyBodyLoadable from '../Widget/Specific/ACardEmptyBodyLoadable'
 
 const eventBus = new Vue()
 
 export default {
   name: 'APageWidgets',
   components: {
-    Card,
+    ACardEmptyBodyLoadable,
+    ACard,
     CardHeader,
     CardRefresh,
     InfoBox,
@@ -1364,7 +1404,15 @@ export default {
           body: 'The body of the card',
           refresh: {
             one: { body: 'The body of the card', loading: false },
-            two: { body: 'The body of the card', loading: false }
+            two: { body: 'The body of the card', loading: false },
+            three: {
+              body: '',
+              loading: false,
+              loading_2: true,
+              loaded: false,
+              class: 'd-inline-block' + this.data.card.refresh.three.loading ? ' disable' : '',
+              onHidden: () => this.$refs.card_three_button.focus()
+            }
           }
         }
       }
@@ -1382,7 +1430,7 @@ export default {
       setTimeout(() => {
         this.$refs.cardRefreshOne.bodyLocal = 'The body of the card after card refresh'
         this.$refs.cardRefreshOne.setLoading(false)
-      }, 500)
+      }, 1000)
 
       setTimeout(() => eventBus.$emit('updateBody', this.data.card.body), 5000)
     },
@@ -1391,10 +1439,43 @@ export default {
       setTimeout(() => {
         this.data.card.refresh.two.body = 'The body of the card after card refresh'
         this.data.card.refresh.two.loading = false
-      }, 500)
+      }, 1000)
 
       setTimeout(() => {
         this.data.card.refresh.two.body = this.data.card.body
+      }, 5000)
+    },
+    clickCardThreeButon () {
+      this.data.card.refresh.three.loading = true
+      const body = 'The body of the card'
+      this.data.card.refresh.three.body = ''
+      setTimeout(() => {
+        this.data.card.refresh.three.body = body + ' <b>updated</b>'
+        this.data.card.refresh.three.loading = false
+        this.data.card.refresh.three.loading_2 = false
+        this.data.card.refresh.three.loaded = true
+      }, 3000)
+    },
+    cardThreeButtonClicked (vm) {
+      console.log(vm)
+      this.data.card.refresh.three.loading = true
+      const body = 'The body of the card'
+      this.data.card.refresh.three.body = ''
+      vm.comp.loading_local = true
+      console.log(vm.comp.$refs.card_three_button1)
+      vm.comp.body_local = ''
+
+      setTimeout(() => {
+        vm.comp.body_local = body + ' <b>has been loaded</b>'
+        vm.comp.loading_local = false
+        vm.comp.body_loading_local = false
+        vm.comp.loaded = true
+      }, 1000)
+
+      setTimeout(() => {
+        vm.comp.body_local = ''
+        vm.comp.loading_local = false
+        vm.comp.loaded = false
       }, 5000)
     }
   }
