@@ -5,6 +5,8 @@
     <slot name="body"/>
 
     <slot name="footer"/>
+
+    <slot/>
   </div>
 </template>
 <script>

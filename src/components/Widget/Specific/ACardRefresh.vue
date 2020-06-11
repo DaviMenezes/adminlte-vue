@@ -2,7 +2,7 @@
   <Card class="card-primary">
     <CardHeader :title="title" slot="header">
       <template slot="tools">
-        <button type="button" @click="refreshBody" class="btn btn-tool"><i class="fas fa-sync-alt"></i></button>
+        <button type="button" @click="refreshBody" :disabled="loadingLocal" class="btn btn-tool"><i class="fas fa-sync-alt"></i></button>
       </template>
     </CardHeader>
     <CardBody slot="body" class="text-center">
