@@ -22,3 +22,4 @@ pnpm-debug.log*
 *.sw?
 public/.github
 src/views/themes/admin-lte
+.netlify

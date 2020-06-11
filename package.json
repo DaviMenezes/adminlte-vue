@@ -2,9 +2,11 @@
   "name": "admin-lte-vue",
   "version": "0.1.0",
   "private": true,
+  "main": "./dist/adminltevue.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-lib": "vue-cli-service build --target lib --name adminltevue ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -22,6 +24,7 @@
     "jquery-ui": "^1.12.1",
     "jqvmap": "^1.5.1",
     "moment": "^2.26.0",
+    "netlify-cli": "^2.53.0",
     "overlayscrollbars": "^1.12.0",
     "peer": "^0.5.3",
     "popper.js": "^1.16.1",

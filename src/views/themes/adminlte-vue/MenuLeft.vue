@@ -562,7 +562,7 @@
 export default {
   methods: {
     getRoute (page) {
-      return '/layout/' + this.$route.params.layout + '/' + page
+      return '/layout/' + (this.$route.params.layout || 'one') + '/' + page
     }
   }
 }
