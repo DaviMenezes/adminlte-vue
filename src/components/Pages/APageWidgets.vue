@@ -228,7 +228,7 @@
           <!-- /.col -->
           <div class="col-md-3">
             <a-card class="card-success">
-              <CardHeader slot="header" title="All">
+              <CardHeader slot="header" title="All together">
                 <template slot="tools">
                   <button type="button" ref="cardRefreshTwo" class="btn btn-tool" @click="updateBodyCardRefreshTwo()"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
