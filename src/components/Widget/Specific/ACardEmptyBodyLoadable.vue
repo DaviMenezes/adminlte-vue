@@ -1,37 +1,26 @@
 <template>
-  <a-card class="card-warning">
+  <a-card>
     <a-card-header :title="title_local" slot="header"/>
-    <b-overlay
-      slot="body"
-      :show="loading_local"
-      rounded="true"
-      opacity="0.10"
-      variant="secondary"
-      spinner-small
-      :spinner-type="spinner_type"
-      spinner-variant="primary"
-      :class="body_class_local"
-    >
-      <a-card-body class="text-center">
-        <b-overlay
-          :show="loading_local"
-          spinner-variant="primary"
-          spinner-type="none"
-          spinner-small
-          rounded="sm"
-          @hidden="onHidden"
-        >
+      <a-card-body class="text-center" slot="body">
           <div v-html="body_local"/>
-        </b-overlay>
-        <b-button
-          v-if="!loaded"
-          variant="outline-primary"
-          size="sm"
-          :ref="btn_ref"
-          @click="clicked()"
-        >load</b-button>
       </a-card-body>
-    </b-overlay>
+      <div :class="overlay_color ? 'overlay ' + overlay_color : 'overlay'" v-if="!loaded">
+<!--        <b-overlay-->
+<!--          :show="loading_local"-->
+<!--          opacity="0.0"-->
+<!--          spinner-variant="primary"-->
+<!--        >-->
+<!--          <p class="h1"-->
+<!--          @click="clicked">-->
+<!--            <b-icon @click="clicked" :icon="!loading_local ? 'arrow-repeat' : ''" class="rounded-circle bg-light p-2 cursor-wait" variant="light"></b-icon>-->
+<!--          </p>-->
+          <b-icon @click="clicked" icon="arrow-repeat" :animation="loading_local ? 'spin' : ''" shift-v="0" class="rounded-circle bg-danger p-2" variant="light" font-scale="3"></b-icon>
+
+<!--        <b-button size="sm" variant="secondary" class="mb-2">-->
+<!--        </b-button>-->
+
+        <!--        </b-overlay>-->
+      </div>
   </a-card>
 </template>
 
@@ -58,7 +47,8 @@ export default {
     body: { },
     body_class: { type: String },
     loading: { type: Boolean, default: false },
-    body_loading: { type: Boolean, default: true }
+    body_loading: { type: Boolean, default: true },
+    overlay_color: { type: String, default: 'light' || 'dark' }
   },
   methods: {
     clicked () {

@@ -1,11 +1,17 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-vue/dist/bootstrap-vue.min.css'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
 import $ from 'jquery/dist/jquery.min'
 import LteComponents from './components'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+
+Object.keys(LteComponents).forEach(component => {
+  const comp = LteComponents[component]
+  Vue.component(comp.name, comp)
+})
 
 window.$ = window.jQuery = $
 $.extend(require('jquery-ui'))
@@ -13,18 +19,10 @@ $.extend(require('jquery-ui'))
 Vue.config.productionTip = false
 
 Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
+// Vue.use(IconsPlugin)
+Vue.use(BootstrapVueIcons)
 
-// register lte-vue-components
-const components = {}
-Object.keys(LteComponents).forEach(component => {
-  const comp = LteComponents[component]
-  components[comp.name] = Vue.component(comp.name, comp)
-})
 new Vue({
-  components: {
-    ...components
-  },
   router,
   render: h => h(App)
 }).$mount('#app')
