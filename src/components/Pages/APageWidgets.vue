@@ -228,7 +228,7 @@
           <!-- /.col -->
           <div class="col-md-3">
             <a-card class="card-success">
-              <CardHeader slot="header" title="All together">
+              <CardHeader slot="header" title="All">
                 <template slot="tools">
                   <button type="button" ref="cardRefreshTwo" class="btn btn-tool" @click="updateBodyCardRefreshTwo()"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
@@ -243,108 +243,29 @@
                 <span v-else>{{data.card.refresh.two.body}}</span>
               </BCardBody>
             </a-card>
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">All together</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="widgets.html" data-source-selector="#card-refresh-content" data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <ACardEmptyBodyLoadable
+              class="card-warning"
               btn_ref="card_three_button1"
               title="Loading state 1"
-              @cardButtonClicked="cardThreeButtonClicked"
+              @cardButtonClicked="updateCardBody"
+              overlay_color="light"
             />
-            <!--<a-card class="card-warning">
-              <a-card-header title="Loading state" slot="header"/>
-              <b-overlay slot="body"
-                :show="data.card.refresh.three.loading"
-                rounded="true"
-                opacity="0.6"
-                spinner-small
-                spinner-variant="primary"
-                :class="data.card.refresh.three.class"
-                @hidden="data.card.refresh.three.onHidden()"
-              >
-                <a-card-body class="text-center">
-                  <b-overlay
-                    :show="data.card.refresh.three.loading_2"
-                    spinner-variant="primary"
-                    spinner-type="none"
-                    spinner-small
-                    rounded="sm"
-                  >
-                    <div v-html="data.card.refresh.three.body"/>
-                  </b-overlay>
-                  <b-button
-                    v-if="!data.card.refresh.three.loaded"
-                    variant="outline-primary"
-                    size="sm"
-                    ref="card_three_button"
-                    :disabled="data.card.refresh.three.loading"
-                    @click="clickCardThreeButon"
-                  >load
-                  </b-button>
-                </a-card-body>
-              </b-overlay>
-            </a-card> -->
-            <div class="card card-warning">
-              <div class="card-header">
-                <h3 class="card-title">Loading state</h3>
-              </div>
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-              <!-- Loading (remove the following to stop the loading)-->
-              <div class="overlay">
-                <i class="fas fa-2x fa-sync-alt"></i>
-              </div>
-              <!-- end loading -->
-            </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Loading state (dark)</h3>
-              </div>
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-              <!-- Loading (remove the following to stop the loading)-->
-              <div class="overlay dark">
-                <i class="fas fa-2x fa-sync-alt"></i>
-              </div>
-              <!-- end loading -->
-            </div>
-            <!-- /.card -->
+            <ACardEmptyBodyLoadable
+              class="card-danger"
+              title="Loading state (dark)"
+              body="Loading state (dark) body"
+              btn_ref="card_three_button1"
+              @cardButtonClicked="updateCardBody"
+              overlay_color="dark"
+            />
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-
-        <!-- =========================================================== -->
 
         <h5 class="mb-2">Colors Variations</h5>
-
         <div class="row">
           <div class="col-md-3">
             <div class="card card-primary">
@@ -420,8 +341,6 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
         <div class="row">
           <div class="col-md-3">
             <div class="card card-outline card-primary">
@@ -497,8 +416,6 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
         <div class="row">
           <div class="col-md-3">
             <div class="card bg-primary">
@@ -574,8 +491,6 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
         <div class="row">
           <div class="col-md-3">
             <div class="card bg-gradient-primary">
@@ -651,11 +566,6 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
-        <!-- =========================================================== -->
-
-        <!-- Direct Chat -->
         <h4 class="mt-4 mb-2">Direct Chat</h4>
         <div class="row">
           <div class="col-md-3">
@@ -1038,10 +948,7 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
         <h3 class="mt-4 mb-4">Social Widgets</h3>
-
         <div class="row">
           <div class="col-md-4">
             <!-- Widget: user widget style 2 -->
@@ -1173,8 +1080,6 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
         <div class="row">
           <div class="col-md-6">
             <!-- Box Comment -->
@@ -1358,11 +1263,7 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
     </section>
-    <!-- /.content -->
-
     <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
       <i class="fas fa-chevron-up"></i>
     </a>
@@ -1456,24 +1357,18 @@ export default {
         this.data.card.refresh.three.loaded = true
       }, 3000)
     },
-    cardThreeButtonClicked (vm) {
-      console.log(vm)
-      this.data.card.refresh.three.loading = true
-      const body = 'The body of the card'
-      this.data.card.refresh.three.body = ''
+    updateCardBody (vm) {
       vm.comp.loading_local = true
-      console.log(vm.comp.$refs.card_three_button1)
-      vm.comp.body_local = ''
 
       setTimeout(() => {
-        vm.comp.body_local = body + ' <b>has been loaded</b>'
+        vm.comp.body_local = vm.comp.title_local + ' <b>has been loaded</b>'
         vm.comp.loading_local = false
         vm.comp.body_loading_local = false
         vm.comp.loaded = true
       }, 1000)
 
       setTimeout(() => {
-        vm.comp.body_local = ''
+        vm.comp.body_local = vm.comp.body
         vm.comp.loading_local = false
         vm.comp.loaded = false
       }, 5000)
