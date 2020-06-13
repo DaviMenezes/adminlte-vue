@@ -7,7 +7,7 @@
       <div :class="overlay_color ? 'overlay ' + overlay_color : 'overlay'" v-if="!loaded">
         <div class="_action_">
           <b-icon @click="clicked" icon="arrow-repeat" :animation="loading_local ? 'spin' : ''" shift-v="0" :class="action_background +` rounded-circle p-1`" variant="light" font-scale="1.8"></b-icon>
-          <b-progress v-if="progress" :value="progress_value" :max="progress_max" class="mt-1" height="3px"/>
+          <b-progress v-if="progress" :value="progress_value" :max="progress_max" class="mt-1" height="3px" variant="warning"/>
         </div>
       </div>
   </a-card>
@@ -99,6 +99,9 @@ export default {
     },
     progress_max () {
       return this.action_local.progress?.max
+    },
+    progress_variant () {
+      return this.action_local?.progress?.variant
     }
   },
   methods: {
