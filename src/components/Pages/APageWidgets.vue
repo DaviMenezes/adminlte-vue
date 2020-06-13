@@ -252,7 +252,7 @@
               @cardButtonClicked="updateCardBodyStateLight"
               overlay_color="light"
               action_background="bg-warning"
-              :action="{progress: {}}"
+              :action="{progress: {variant: 'warning'}}"
             />
           </div>
           <div class="col-md-3">
@@ -1367,7 +1367,7 @@ export default {
       let value = 0
       const step = 300
       const timeTotal = 3000
-      vm.comp.action_local = { progress: { value: value } }
+      vm.comp.$set(vm.comp.action_local.progress, 'value', value)
       vm.comp.action_local.progress.max = timeTotal
 
       const interval = setInterval(() => {
