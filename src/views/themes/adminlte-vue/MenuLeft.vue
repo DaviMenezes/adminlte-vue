@@ -26,7 +26,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" :class="['dashboard1', 'dashboard2', 'dashboard3'].indexOf($route.params.page) !== -1 ? 'nav-link active' : 'nav-link' ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -47,7 +47,7 @@
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link :to="getRoute('dashboard3')" :class="$route.params.page === 'dashboard2' ? 'nav-link active' : 'nav-link'">
+                <router-link :to="getRoute('dashboard3')" :class="$route.params.page === 'dashboard3' ? 'nav-link active' : 'nav-link'">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v3</p>
                 </router-link>
@@ -55,13 +55,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <router-link :to="getRoute('widgets')" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </router-link>
+            <a-router-link page="widgets" label="Widgets" info_label="New" info_direction="right" info_icon="fas fa-th" info_type="danger"/>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -559,7 +553,9 @@
 
 <script>
 
+import ARouterLink from './Sidebar/ARouterLink/ARouterLink'
 export default {
+  components: { ARouterLink },
   methods: {
     getRoute (page) {
       return '/layout/' + (this.$route.params.layout || 'one') + '/' + page
