@@ -41,21 +41,16 @@
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link :to="getRoute('dashboard2')" :class="$route.params.page === 'dashboard2' ? 'nav-link active' : 'nav-link'">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </router-link>
+                <a-router-link page="dashboard2" label="Dashboard v2" icon="far fa-circle nav-icon"/>
               </li>
               <li class="nav-item">
-                <router-link :to="getRoute('dashboard3')" :class="$route.params.page === 'dashboard3' ? 'nav-link active' : 'nav-link'">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </router-link>
+                <a-router-link page="dashboard3" label="Dashboard v3" icon="far fa-circle nav-icon"/>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a-router-link page="widgets" label="Widgets" info_label="New" info_direction="right" info_icon="fas fa-th" info_type="danger"/>
+            <a-router-link page="widgets" label="Widgets" info_label="New" info_direction="right" icon="fas fa-th"
+                           info_type="danger"/>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
