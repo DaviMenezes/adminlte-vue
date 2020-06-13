@@ -1,6 +1,6 @@
 <template>
   <router-link :to="getRoute()" :class="isActive">
-    <i :class="'nav-icon ' + info_icon"></i>
+    <i :class="'nav-icon ' + icon"></i>
     <p>
       {{label_local}}
       <slot name="info">
@@ -29,9 +29,7 @@ export default {
         return ['left', 'right'].indexOf(direction) !== -1
       }
     },
-    info_icon: {
-      type: String
-    },
+    icon: String,
     info_type: {
       type: String,
       default: 'primary',
