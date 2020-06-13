@@ -1,5 +1,5 @@
 {
-  "name": "admin-lte-vue",
+  "name": "adminlte-vue",
   "version": "0.1.0",
   "private": true,
   "main": "./dist/adminltevue.common.js",
@@ -65,6 +65,10 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/array-bracket-spacing": "warn",
+      "vue/camelcase": "off"
     }
   },
   "browserslist": [
