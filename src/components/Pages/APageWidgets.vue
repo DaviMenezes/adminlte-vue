@@ -249,8 +249,10 @@
               class="card-warning"
               btn_ref="card_three_button1"
               title="Loading state 1"
-              @cardButtonClicked="updateCardBody"
+              @cardButtonClicked="updateCardBodyStateLight"
               overlay_color="light"
+              action_background="bg-warning"
+              :action="{progress: {}}"
             />
           </div>
           <div class="col-md-3">
@@ -261,6 +263,7 @@
               btn_ref="card_three_button1"
               @cardButtonClicked="updateCardBody"
               overlay_color="dark"
+              action_background="bg-danger"
             />
           </div>
         </div>
@@ -1357,21 +1360,57 @@ export default {
         this.data.card.refresh.three.loaded = true
       }, 3000)
     },
-    updateCardBody (vm) {
+    updateCardBodyStateLight (vm) {
       vm.comp.loading_local = true
 
+      // loading progress
+      let value = 0
+      const step = 300
+      const timeTotal = 3000
+      vm.comp.action_local = { progress: { value: value } }
+      vm.comp.action_local.progress.max = timeTotal
+
+      const interval = setInterval(() => {
+        value += 300
+        if (value >= timeTotal) {
+          clear()
+        }
+        vm.comp.action_local.progress.value = value
+      }, step)
+
+      const clear = () => clearInterval(interval)
+
+      this.loadCardBodyContent(vm)
+
+      this.resetCardBodyContent(vm, () => {
+        vm.comp.action_local.progress.value = 0
+      })
+    },
+    loadCardBodyContent (vm) {
       setTimeout(() => {
         vm.comp.body_local = vm.comp.title_local + ' <b>has been loaded</b>'
         vm.comp.loading_local = false
         vm.comp.body_loading_local = false
         vm.comp.loaded = true
-      }, 1000)
-
+      }, 3000)
+    },
+    resetCardBodyContent (vm, callback = null) {
       setTimeout(() => {
         vm.comp.body_local = vm.comp.body
         vm.comp.loading_local = false
         vm.comp.loaded = false
+
+        if (callback) {
+          callback()
+        }
       }, 5000)
+    },
+    updateCardBody (vm) {
+      vm.comp.loading_local = true
+
+      this.loadCardBodyContent(vm)
+
+      this.resetCardBodyContent(vm)
     }
   }
 }
