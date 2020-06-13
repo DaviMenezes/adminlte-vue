@@ -35,10 +35,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link :to="getRoute('dashboard1')" :class="$route.params.page === 'dashboard1' ? 'nav-link active' : 'nav-link'">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </router-link>
+                <a-router-link page="dashboard1" label="Dashboard v1" icon="far fa-circle nav-icon"/>
               </li>
               <li class="nav-item">
                 <a-router-link page="dashboard2" label="Dashboard v2" icon="far fa-circle nav-icon"/>
@@ -49,7 +46,9 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a-router-link page="widgets" label="Widgets" info_label="New" info_direction="right" icon="fas fa-th"
+            <a-router-link page="widgets" label="Widgets" icon="fas fa-th"
+                           info_label="New"
+                           info_direction="right"
                            info_type="danger"/>
           </li>
           <li class="nav-item has-treeview">
@@ -67,6 +66,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Top Navigation</p>
                 </a>
+                <a-router-link page="top-navigation" label="Top Navigation" icon="far fa-circle nav-icon"/>
               </li>
               <li class="nav-item">
                 <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
@@ -549,9 +549,422 @@
 <script>
 
 import ARouterLink from './Sidebar/ARouterLink/ARouterLink'
+import Dashboard1 from '../../../components/Pages/Dashboards/1/Dashboard1'
+import Dashboard2 from '../../../components/Pages/Dashboards/2/Dashboard2'
+import Dashboard3 from '../../../components/Pages/Dashboards/3/Dashboard3'
+import PageWidgets from '../../../components/Pages/APageWidgets'
+import APageLayoutTopNav from '../../../components/Pages/Layout/APageLayoutTopNav'
+import APageLayoutTopNavSidebar from '../../../components/Pages/Layout/APageLayoutTopNavSidebar'
+import APageLayoutBoxed from '../../../components/Pages/Layout/APageLayoutBoxed'
+import APageLayoutFixedSidebar from '../../../components/Pages/Layout/APageLayoutFixedSidebar'
+import APageLayoutFixedNavbar from '../../../components/Pages/Layout/APageLayoutFixedNavbar'
+import APageLayoutFixedFooter from '../../../components/Pages/Layout/APageLayoutFixedFooter'
+import APageLayoutCollapsedSidebar from '../../../components/Pages/Layout/APageLayoutCollapsedSidebar'
+import APageChartJs from '../../../components/Pages/Charts/APageChartJs'
+import APageChartFlot from '../../../components/Pages/Charts/APageChartFlot'
+import APageChartInline from '../../../components/Pages/Charts/APageChartInline'
+import APageUiElementGeneral from '../../../components/Pages/UiElements/APageUiElementGeneral'
+import APageUiElementIcons from '../../../components/Pages/UiElements/APageUiElementIcons'
+import APageUiElementButtons from '../../../components/Pages/UiElements/APageUiElementButtons'
+import APageUiElementSliders from '../../../components/Pages/UiElements/APageUiElementSliders'
+import APageUiElementModalAlerts from '../../../components/Pages/UiElements/APageUiElementModalAlerts'
+import APageUiElementNavbarTabs from '../../../components/Pages/UiElements/APageUiElementNavbarTabs'
+import APageUiElementTimeline from '../../../components/Pages/UiElements/APageUiElementTimeline'
+import APageUiElementRibbons from '../../../components/Pages/UiElements/APageUiElementRibbons'
+import APageFormGeneralElements from '../../../components/Pages/Forms/APageFormGeneralElements'
+import APageFormAdvancedElements from '../../../components/Pages/Forms/APageFormAdvancedElements'
+import APageFormEditors from '../../../components/Pages/Forms/APageFormEditors'
+import APageFormValidation from '../../../components/Pages/Forms/APageFormValidation'
+import APageSimpleTables from '../../../components/Pages/Tables/APageSimpleTables'
+import APageTableJsGrid from '../../../components/Pages/Tables/APageTableJsGrid'
+import APageCalendar from '../../../components/Pages/APageCalendar'
+import APageGallery from '../../../components/Pages/APageGallery'
+import APageMailInbox from '../../../components/Pages/Mailbox/APageMailInbox'
+import APageMailCompose from '../../../components/Pages/Mailbox/APageMailCompose'
+import APageMailRead from '../../../components/Pages/Mailbox/APageMailRead'
+import APageInvoice from '../../../components/Pages/APageInvoice'
+import APageProfile from '../../../components/Pages/APageProfile'
+import APageEcommerce from '../../../components/Pages/APageEcommerce'
+import APageProjects from '../../../components/Pages/Project/APageProjects'
+import APageProjectAdd from '../../../components/Pages/Project/APageProjectAdd'
+import APageProjectEdit from '../../../components/Pages/Project/APageProjectEdit'
+import APageProjectDetail from '../../../components/Pages/Project/APageProjectDetail'
+import APageContact from '../../../components/Pages/APageContact'
+import APageLogin from '../../../components/Pages/APageLogin'
+import APageRegister from '../../../components/Pages/APageRegister'
+import APageForgotPassword from '../../../components/Pages/APageForgotPassword'
+import APageRecoverPassword from '../../../components/Pages/APageRecoverPassword'
+import APageLockscreen from '../../../components/Pages/APageLockscreen'
+import APageLegacyUserMenu from '../../../components/Pages/APageLegacyUserMenu'
+import APageLanguageMenu from '../../../components/Pages/APageLanguageMenu'
+import APageError404 from '../../../components/Pages/APageError404'
+import APageError500 from '../../../components/Pages/APageError500'
+import APagePace from '../../../components/Pages/APagePace'
+import APageBlank from '../../../components/Pages/APageBlank'
+import APageStarter from '../../../components/Pages/APageStarter'
 export default {
   components: { ARouterLink },
+  data () {
+    return {
+
+    }
+  },
   methods: {
+    items () {
+      return {
+        dashboards: {
+          type: 'menuitem',
+          label: 'Dashboard',
+          icon: 'right fas fa-angle-left',
+          items: [
+            {
+              type: 'menuitem',
+              page: 'dashboard1',
+              label: 'Dashboard v1',
+              component: Dashboard1,
+              icon: 'right fas fa-angle-left'
+            },
+            {
+              type: 'menuitem',
+              label: 'Dashboard v2',
+              page: 'dashboard2',
+              component: Dashboard2,
+              icon: 'far fa-circle nav-icon'
+            },
+            {
+              type: 'menuitem',
+              label: 'Dashboard v3',
+              page: 'dashboard3',
+              component: Dashboard3,
+              icon: 'far fa-circle nav-icon'
+            }
+          ]
+        },
+        widgets: {
+          type: 'menuitem',
+          label: 'Widgets',
+          page: 'widgets',
+          icon: 'fas fa-th',
+          component: PageWidgets,
+          info: {
+            label: "New",
+            direction: "right",
+            type: "danger"
+          }
+        },
+        layouts: {
+          type: 'menuitem',
+          icon: 'nav-icon fas fa-copy',
+          label: 'Layout Options',
+          info: {
+            label: 6,
+            direction: 'right',
+            type: 'info'
+          },
+          items: [
+            {
+              type: 'menuitem',
+              icon: 'far fa-circle nav-icon',
+              page: 'top-navigation',
+              component: APageLayoutTopNav
+            },
+            {
+              type: 'menuitem',
+              icon: 'far fa-circle nav-icon',
+              page: 'top-navigation-sidebar',
+              component: APageLayoutTopNavSidebar
+            },
+            {
+              type: 'menuitem',
+              icon: 'far fa-circle nav-icon',
+              page: 'boxed',
+              component: APageLayoutBoxed
+            },
+            {
+              type: 'menuitem',
+              icon: 'far fa-circle nav-icon',
+              page: 'fixed-sidebar',
+              component: APageLayoutFixedSidebar
+            },
+            {
+              type: 'menuitem',
+              icon: 'far fa-circle nav-icon',
+              page: 'fixed-navbar',
+              component: APageLayoutFixedNavbar
+            },
+            {
+              type: 'menuitem',
+              icon: 'far fa-circle nav-icon',
+              page: 'fixed-footer',
+              component: APageLayoutFixedFooter
+            },
+            {
+              type: 'menuitem',
+              icon: 'far fa-circle nav-icon',
+              page: 'layout-collapsed-sidebar',
+              component: APageLayoutCollapsedSidebar
+            }
+          ]
+        },
+        charts: {
+          type: 'menuitem',
+          label: 'Carhs',
+          icon: 'nav-icon fas fa-chart-pie',
+          items: [
+            {
+              type: 'menuitem',
+              label: 'ChartJS',
+              icon: 'far fa-circle nav-icon',
+              page: 'chart-js',
+              component: APageChartJs
+            },
+            {
+              type: 'menuitem',
+              label: 'Flot',
+              icon: 'far fa-circle nav-icon',
+              page: 'chart-flot',
+              component: APageChartFlot
+            },
+            {
+              type: 'menuitem',
+              label: 'Inline',
+              icon: 'far fa-circle nav-icon',
+              page: 'chart-inline',
+              component: APageChartInline
+            }
+          ]
+        },
+        'ui-elements': {
+          label: '',
+          icon: '',
+          items: [
+            {
+              type: 'menuitem',
+              label: 'General',
+              icon: 'nav-icon fas fa-chart-pie',
+              page: 'ui-element-general',
+              component: APageUiElementGeneral
+            },
+            {
+              type: 'menuitem',
+              label: 'Icons',
+              icon: 'nav-icon fas fa-chart-pie',
+              page: 'ui-element-icons',
+              component: APageUiElementIcons
+            },
+            {
+              type: 'menuitem',
+              label: 'Buttons',
+              icon: 'nav-icon fas fa-chart-pie',
+              page: 'ui-element-buttons',
+              component: APageUiElementButtons
+            },
+            {
+              type: 'menuitem',
+              label: 'Sliders',
+              icon: 'nav-icon fas fa-chart-pie',
+              page: 'ui-element-sliders',
+              component: APageUiElementSliders
+            },
+            {
+              type: 'menuitem',
+              label: 'Modal & Alerts',
+              icon: 'nav-icon fas fa-chart-pie',
+              page: 'ui-element-modal-alert',
+              component: APageUiElementModalAlerts
+            },
+            {
+              type: 'menuitem',
+              label: 'Navbar & Tabs',
+              icon: 'nav-icon fas fa-chart-pie',
+              page: 'ui-element-navbar-tabs',
+              component: APageUiElementNavbarTabs
+            },
+            {
+              type: 'menuitem',
+              label: 'Timeline',
+              icon: 'nav-icon fas fa-chart-pie',
+              page: 'ui-element-timeline',
+              component: APageUiElementTimeline
+            },
+            {
+              type: 'menuitem',
+              label: 'Ribbons',
+              icon: 'nav-icon fas fa-chart-pie',
+              page: 'ui-element-ribbons',
+              component: APageUiElementRibbons
+            }
+          ]
+        },
+        form: [
+          {
+            type: 'menuitem',
+            page: 'form-general',
+            component: APageFormGeneralElements
+          },
+          {
+            type: 'menuitem',
+            page: 'form-advanced',
+            component: APageFormAdvancedElements
+          },
+          {
+            type: 'menuitem',
+            page: 'form-editors',
+            component: APageFormEditors
+          },
+          {
+            type: 'menuitem',
+            page: 'form-validation',
+            component: APageFormValidation
+          }
+        ],
+        tables: [
+          {
+            type: 'menuitem',
+            page: 'table-simple',
+            component: APageSimpleTables
+          },
+          {
+            type: 'menuitem',
+            page: 'table-datatable',
+            component: APageTableJsGrid
+          }
+        ],
+        examples: [
+          {
+            type: 'category',
+            items: [
+              {
+                type: 'menuitem',
+                page: 'calendar',
+                component: APageCalendar
+              },
+              {
+                type: 'menuitem',
+                page: 'gallery',
+                component: APageGallery
+              },
+              {
+                type: 'menuitem',
+                page: 'mail-inbox',
+                component: APageMailInbox
+              },
+              {
+                type: 'menuitem',
+                page: 'mail-compose',
+                component: APageMailCompose
+              },
+              {
+                type: 'menuitem',
+                page: 'mail-read',
+                component: APageMailRead
+              },
+              {
+                type: 'menuitem',
+                page: 'invoice',
+                component: APageInvoice
+              },
+              {
+                type: 'menuitem',
+                page: 'profile',
+                component: APageProfile
+              },
+              {
+                type: 'menuitem',
+                page: 'ecommerce',
+                component: APageEcommerce
+              },
+              {
+                type: 'menuitem',
+                page: 'projects',
+                component: APageProjects
+              },
+              {
+                type: 'menuitem',
+                page: 'project-add',
+                component: APageProjectAdd
+              },
+              {
+                type: 'menuitem',
+                page: 'project-edit',
+                component: APageProjectEdit
+              },
+              {
+                type: 'menuitem',
+                page: 'project-detail',
+                component: APageProjectDetail
+              },
+              {
+                type: 'menuitem',
+                page: 'contact',
+                component: APageContact
+              },
+              {
+                type: 'menuitem',
+                page: 'login',
+                component: APageLogin
+              },
+              {
+                type: 'menuitem',
+                page: 'register',
+                component: APageRegister
+              },
+              {
+                type: 'menuitem',
+                page: 'forgot-password',
+                component: APageForgotPassword
+              },
+              {
+                type: 'menuitem',
+                page: 'recover-password',
+                component: APageRecoverPassword
+              },
+              {
+                type: 'menuitem',
+                page: 'lockscreen',
+                component: APageLockscreen
+              },
+              {
+                type: 'menuitem',
+                page: 'legacy-user-menu',
+                component: APageLegacyUserMenu
+              },
+              {
+                type: 'menuitem',
+                page: 'language-menu',
+                component: APageLanguageMenu
+              },
+              {
+                type: 'menuitem',
+                page: 'error-404',
+                component: APageError404
+              },
+              {
+                type: 'menuitem',
+                page: 'error-500',
+                component: APageError500
+              },
+              {
+                type: 'menuitem',
+                page: 'pace',
+                component: APagePace
+              },
+              {
+                type: 'menuitem',
+                page: 'black',
+                component: APageBlank
+              },
+              {
+                type: 'menuitem',
+                page: 'starter',
+                component: APageStarter
+              }
+            ]
+          }
+        ]
+
+      }
+    },
     getRoute (page) {
       return '/layout/' + (this.$route.params.layout || 'one') + '/' + page
     }
