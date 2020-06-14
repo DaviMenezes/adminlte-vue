@@ -5,6 +5,7 @@
       {{label_local}}
       <slot name="info">
         <span :class="infoClasses">{{info_label}}</span>
+        <i class="right fas fa-angle-left" v-if="has_items"></i>
       </slot>
     </p>
   </router-link>
@@ -21,6 +22,7 @@ export default {
   props: {
     page: { type: String },
     label: {},
+    has_items: {},
     info_label: {},
     info_direction: {
       type: String,
