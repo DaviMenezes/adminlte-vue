@@ -32,15 +32,22 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <a-router-link :page="item.page" :label="item.label" :icon="item.icon" v-if="item.type !== 'header' && !item.items"
+              <a-router-link :page="item.page || $route.params.page + '#'" :label="item.label" :icon="item.icon" v-if="item.type !== 'header' && !item.items"
                              :info_label="item.info ? item.info.label : undefined"
                              :info_direction="item.info ? item.info.direction : undefined"
                              :info_type="item.info ? item.info.type : undefined"
               />
 
               <ul class="nav nav-treeview" v-if="item.type !== 'header' && item.items">
-                <li class="nav-item" v-for="(item1, indexn1) in item.items" v-bind:key="indexn1">
-                  <a-router-link :page="item1.page" :label="item1.label" :icon="item1.icon"/>
+                <li class="nav-item" v-for="(item1, indexn1) in item.items" v-bind:key="index + '-' + indexn1">
+                  <a-router-link :page="item1.page ? item1.page : $route.params.page + '#'" :label="item1.label"
+                                 :icon="item1.icon" :has_items="!!item1.items"/>
+
+                  <ul class="nav nav-treeview" v-if="item1.items">
+                    <li class="nav-item" v-for="(item2, indexn2) in item1.items" v-bind:key="indexn1 + '-' + indexn2">
+                      <a-router-link :page="item2.page || $route.params.page + '#'" :label="item2.label" :icon="item2.icon" :has_items="item2.items && item2.items.length > 0"/>
+                    </li>
+                  </ul>
                 </li>
               </ul>
           </li>
@@ -621,22 +628,22 @@ export default {
               type: 'menuitem',
               page: 'dashboard1',
               label: 'Dashboard v1',
-              component: Dashboard1,
-              icon: 'right fas fa-angle-left'
+              icon: 'far fa-circle nav-icon',
+              component: Dashboard1
             },
             {
               type: 'menuitem',
               label: 'Dashboard v2',
               page: 'dashboard2',
-              component: Dashboard2,
-              icon: 'far fa-circle nav-icon'
+              icon: 'far fa-circle nav-icon',
+              component: Dashboard2
             },
             {
               type: 'menuitem',
               label: 'Dashboard v3',
               page: 'dashboard3',
-              component: Dashboard3,
-              icon: 'far fa-circle nav-icon'
+              icon: 'far fa-circle nav-icon',
+              component: Dashboard3
             }
           ]
         },
@@ -1068,7 +1075,8 @@ export default {
           ]
         },
         {
-          type: 'head'
+          type: 'header',
+          label: 'MISCELLANEOUS'
         },
         {
           type: 'menuitem',
@@ -1076,7 +1084,8 @@ export default {
           icon: 'nav-icon fas fa-file'
         },
         {
-          type: 'head'
+          type: 'header',
+          label: 'MULTI LEVEL EXAMPLE'
         },
         {
           type: 'menuitem',
@@ -1090,34 +1099,34 @@ export default {
           items: [
             {
               type: 'menuitem',
-              label: 'Level 2',
+              label: 'Level 2.1',
               icon: 'fas fa-circle nav-icon'
             },
             {
               type: 'menuitem',
-              label: 'Level 2',
+              label: 'Level 2.2',
               icon: 'fas fa-circle nav-icon',
               items: [
                 {
                   type: 'menuitem',
-                  label: 'Level 3',
+                  label: 'Level 3.1',
                   icon: 'far fa-dot-circle nav-icon'
                 },
                 {
                   type: 'menuitem',
-                  label: 'Level 3',
+                  label: 'Level 3.2',
                   icon: 'far fa-dot-circle nav-icon'
                 },
                 {
                   type: 'menuitem',
-                  label: 'Level 3',
+                  label: 'Level 3.3',
                   icon: 'far fa-dot-circle nav-icon'
                 }
               ]
             },
             {
               type: 'menuitem',
-              label: 'Level 2',
+              label: 'Level 2.3',
               icon: 'fas fa-circle nav-icon'
             }
           ]
@@ -1128,7 +1137,8 @@ export default {
           icon: 'far fa-circle nav-icon'
         },
         {
-          type: 'head'
+          type: 'head',
+          label: 'Labels'
         },
         {
           type: 'menuitem',
