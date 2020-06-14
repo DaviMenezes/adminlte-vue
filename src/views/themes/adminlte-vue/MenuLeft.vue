@@ -23,28 +23,28 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" :class="['dashboard1', 'dashboard2', 'dashboard3'].indexOf($route.params.page) !== -1 ? 'nav-link active' : 'nav-link' ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a-router-link page="dashboard1" label="Dashboard v1" icon="far fa-circle nav-icon"/>
-              </li>
-              <li class="nav-item">
-                <a-router-link page="dashboard2" label="Dashboard v2" icon="far fa-circle nav-icon"/>
-              </li>
-              <li class="nav-item">
-                <a-router-link page="dashboard3" label="Dashboard v3" icon="far fa-circle nav-icon"/>
-              </li>
-            </ul>
+          <li v-for="(item, index) in items()" v-bind:key="index" :class="itemClass(item)">
+            <span v-if="item.type === 'header'">{{item.label}}</span>
+              <a href="#" :class="linkClass(item)" v-else-if="item.items">
+                <i :class="item.icon"></i>
+                <p>
+                  {{item.label}}
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <a-router-link :page="item.page" :label="item.label" :icon="item.icon" v-if="item.type !== 'header' && !item.items"
+                             :info_label="item.info ? item.info.label : undefined"
+                             :info_direction="item.info ? item.info.direction : undefined"
+                             :info_type="item.info ? item.info.type : undefined"
+              />
+
+              <ul class="nav nav-treeview" v-if="item.type !== 'header' && item.items">
+                <li class="nav-item" v-for="(item1, indexn1) in item.items" v-bind:key="indexn1">
+                  <a-router-link :page="item1.page" :label="item1.label" :icon="item1.icon"/>
+                </li>
+              </ul>
           </li>
+
           <li class="nav-item">
             <a-router-link page="widgets" label="Widgets" icon="fas fa-th"
                            info_label="New"
@@ -545,7 +545,6 @@
     <!-- /.sidebar -->
   </aside>
 </template>
-
 <script>
 
 import ARouterLink from './Sidebar/ARouterLink/ARouterLink'
@@ -602,6 +601,7 @@ import APageError500 from '../../../components/Pages/APageError500'
 import APagePace from '../../../components/Pages/APagePace'
 import APageBlank from '../../../components/Pages/APageBlank'
 import APageStarter from '../../../components/Pages/APageStarter'
+import APageDatatables from '../../../components/Pages/Tables/APageDatatables'
 export default {
   components: { ARouterLink },
   data () {
@@ -611,11 +611,11 @@ export default {
   },
   methods: {
     items () {
-      return {
-        dashboards: {
+      return [
+        {
           type: 'menuitem',
           label: 'Dashboard',
-          icon: 'right fas fa-angle-left',
+          icon: 'nav-icon fas fa-tachometer-alt',
           items: [
             {
               type: 'menuitem',
@@ -640,19 +640,19 @@ export default {
             }
           ]
         },
-        widgets: {
+        {
           type: 'menuitem',
           label: 'Widgets',
           page: 'widgets',
           icon: 'fas fa-th',
           component: PageWidgets,
           info: {
-            label: "New",
-            direction: "right",
-            type: "danger"
+            label: 'New',
+            direction: 'right',
+            type: 'danger'
           }
         },
-        layouts: {
+        {
           type: 'menuitem',
           icon: 'nav-icon fas fa-copy',
           label: 'Layout Options',
@@ -664,51 +664,58 @@ export default {
           items: [
             {
               type: 'menuitem',
+              label: 'Top Navigation',
               icon: 'far fa-circle nav-icon',
               page: 'top-navigation',
               component: APageLayoutTopNav
             },
             {
               type: 'menuitem',
+              label: 'Top Navigation + Sidebar',
               icon: 'far fa-circle nav-icon',
               page: 'top-navigation-sidebar',
               component: APageLayoutTopNavSidebar
             },
             {
               type: 'menuitem',
+              label: 'Boxed',
               icon: 'far fa-circle nav-icon',
               page: 'boxed',
               component: APageLayoutBoxed
             },
             {
               type: 'menuitem',
+              label: 'Fixed Sidebar',
               icon: 'far fa-circle nav-icon',
               page: 'fixed-sidebar',
               component: APageLayoutFixedSidebar
             },
             {
               type: 'menuitem',
+              label: 'Fixed Navbar',
               icon: 'far fa-circle nav-icon',
               page: 'fixed-navbar',
               component: APageLayoutFixedNavbar
             },
             {
               type: 'menuitem',
+              label: 'Fixed Footer',
               icon: 'far fa-circle nav-icon',
               page: 'fixed-footer',
               component: APageLayoutFixedFooter
             },
             {
               type: 'menuitem',
+              label: 'Collapsed Sidebar',
               icon: 'far fa-circle nav-icon',
               page: 'layout-collapsed-sidebar',
               component: APageLayoutCollapsedSidebar
             }
           ]
         },
-        charts: {
+        {
           type: 'menuitem',
-          label: 'Carhs',
+          label: 'Charts',
           icon: 'nav-icon fas fa-chart-pie',
           items: [
             {
@@ -734,239 +741,435 @@ export default {
             }
           ]
         },
-        'ui-elements': {
-          label: '',
-          icon: '',
+        {
+          label: 'UI Elements',
+          icon: 'nav-icon fas fa-tree',
           items: [
             {
               type: 'menuitem',
               label: 'General',
-              icon: 'nav-icon fas fa-chart-pie',
+              icon: 'far fa-circle nav-icon',
               page: 'ui-element-general',
               component: APageUiElementGeneral
             },
             {
               type: 'menuitem',
               label: 'Icons',
-              icon: 'nav-icon fas fa-chart-pie',
+              icon: 'far fa-circle nav-icon',
               page: 'ui-element-icons',
               component: APageUiElementIcons
             },
             {
               type: 'menuitem',
               label: 'Buttons',
-              icon: 'nav-icon fas fa-chart-pie',
+              icon: 'far fa-circle nav-icon',
               page: 'ui-element-buttons',
               component: APageUiElementButtons
             },
             {
               type: 'menuitem',
               label: 'Sliders',
-              icon: 'nav-icon fas fa-chart-pie',
+              icon: 'far fa-circle nav-icon',
               page: 'ui-element-sliders',
               component: APageUiElementSliders
             },
             {
               type: 'menuitem',
               label: 'Modal & Alerts',
-              icon: 'nav-icon fas fa-chart-pie',
+              icon: 'far fa-circle nav-icon',
               page: 'ui-element-modal-alert',
               component: APageUiElementModalAlerts
             },
             {
               type: 'menuitem',
               label: 'Navbar & Tabs',
-              icon: 'nav-icon fas fa-chart-pie',
+              icon: 'far fa-circle nav-icon',
               page: 'ui-element-navbar-tabs',
               component: APageUiElementNavbarTabs
             },
             {
               type: 'menuitem',
               label: 'Timeline',
-              icon: 'nav-icon fas fa-chart-pie',
+              icon: 'far fa-circle nav-icon',
               page: 'ui-element-timeline',
               component: APageUiElementTimeline
             },
             {
               type: 'menuitem',
               label: 'Ribbons',
-              icon: 'nav-icon fas fa-chart-pie',
+              icon: 'far fa-circle nav-icon',
               page: 'ui-element-ribbons',
               component: APageUiElementRibbons
             }
           ]
         },
-        form: [
-          {
-            type: 'menuitem',
-            page: 'form-general',
-            component: APageFormGeneralElements
+        {
+          type: 'menuitem',
+          label: 'Forms',
+          icon: 'nav-icon fas fa-edit',
+          items: [
+            {
+              type: 'menuitem',
+              label: 'General Elements',
+              icon: 'far fa-circle nav-icon',
+              page: 'form-general',
+              component: APageFormGeneralElements
+            },
+            {
+              type: 'menuitem',
+              label: 'Advanced Elements',
+              icon: 'far fa-circle nav-icon',
+              page: 'form-advanced',
+              component: APageFormAdvancedElements
+            },
+            {
+              type: 'menuitem',
+              label: 'Editors',
+              icon: 'far fa-circle nav-icon',
+              page: 'form-editors',
+              component: APageFormEditors
+            },
+            {
+              type: 'menuitem',
+              label: 'Validation',
+              icon: 'far fa-circle nav-icon',
+              page: 'form-validation',
+              component: APageFormValidation
+            }
+          ]
+        },
+        {
+          type: 'menuitem',
+          label: 'Tables',
+          icon: 'nav-icon fas fa-table',
+          items: [
+            {
+              type: 'menuitem',
+              label: 'Simple Tables',
+              page: 'table-simple',
+              component: APageSimpleTables
+            },
+            {
+              type: 'menuitem',
+              label: 'DataTables',
+              page: 'table-datatable',
+              component: APageDatatables
+            },
+            {
+              type: 'menuitem',
+              label: 'jsGrid',
+              page: 'js-grid',
+              component: APageTableJsGrid
+            }
+          ]
+        },
+        {
+          type: 'header',
+          label: 'EXAMPLES'
+        },
+        {
+          type: 'menuitem',
+          label: 'Calendar',
+          icon: 'nav-icon far fa-calendar-alt',
+          info: {
+            label: 2,
+            type: 'info',
+            direction: 'right'
           },
-          {
-            type: 'menuitem',
-            page: 'form-advanced',
-            component: APageFormAdvancedElements
-          },
-          {
-            type: 'menuitem',
-            page: 'form-editors',
-            component: APageFormEditors
-          },
-          {
-            type: 'menuitem',
-            page: 'form-validation',
-            component: APageFormValidation
-          }
-        ],
-        tables: [
-          {
-            type: 'menuitem',
-            page: 'table-simple',
-            component: APageSimpleTables
-          },
-          {
-            type: 'menuitem',
-            page: 'table-datatable',
-            component: APageTableJsGrid
-          }
-        ],
-        examples: [
-          {
-            type: 'category',
-            items: [
-              {
-                type: 'menuitem',
-                page: 'calendar',
-                component: APageCalendar
-              },
-              {
-                type: 'menuitem',
-                page: 'gallery',
-                component: APageGallery
-              },
-              {
-                type: 'menuitem',
-                page: 'mail-inbox',
-                component: APageMailInbox
-              },
-              {
-                type: 'menuitem',
-                page: 'mail-compose',
-                component: APageMailCompose
-              },
-              {
-                type: 'menuitem',
-                page: 'mail-read',
-                component: APageMailRead
-              },
-              {
-                type: 'menuitem',
-                page: 'invoice',
-                component: APageInvoice
-              },
-              {
-                type: 'menuitem',
-                page: 'profile',
-                component: APageProfile
-              },
-              {
-                type: 'menuitem',
-                page: 'ecommerce',
-                component: APageEcommerce
-              },
-              {
-                type: 'menuitem',
-                page: 'projects',
-                component: APageProjects
-              },
-              {
-                type: 'menuitem',
-                page: 'project-add',
-                component: APageProjectAdd
-              },
-              {
-                type: 'menuitem',
-                page: 'project-edit',
-                component: APageProjectEdit
-              },
-              {
-                type: 'menuitem',
-                page: 'project-detail',
-                component: APageProjectDetail
-              },
-              {
-                type: 'menuitem',
-                page: 'contact',
-                component: APageContact
-              },
-              {
-                type: 'menuitem',
-                page: 'login',
-                component: APageLogin
-              },
-              {
-                type: 'menuitem',
-                page: 'register',
-                component: APageRegister
-              },
-              {
-                type: 'menuitem',
-                page: 'forgot-password',
-                component: APageForgotPassword
-              },
-              {
-                type: 'menuitem',
-                page: 'recover-password',
-                component: APageRecoverPassword
-              },
-              {
-                type: 'menuitem',
-                page: 'lockscreen',
-                component: APageLockscreen
-              },
-              {
-                type: 'menuitem',
-                page: 'legacy-user-menu',
-                component: APageLegacyUserMenu
-              },
-              {
-                type: 'menuitem',
-                page: 'language-menu',
-                component: APageLanguageMenu
-              },
-              {
-                type: 'menuitem',
-                page: 'error-404',
-                component: APageError404
-              },
-              {
-                type: 'menuitem',
-                page: 'error-500',
-                component: APageError500
-              },
-              {
-                type: 'menuitem',
-                page: 'pace',
-                component: APagePace
-              },
-              {
-                type: 'menuitem',
-                page: 'black',
-                component: APageBlank
-              },
-              {
-                type: 'menuitem',
-                page: 'starter',
-                component: APageStarter
-              }
-            ]
-          }
-        ]
-
-      }
+          component: APageCalendar
+        },
+        {
+          type: 'menuitem',
+          page: 'gallery',
+          label: 'Gallery',
+          icon: 'nav-icon far fa-image',
+          component: APageGallery
+        },
+        {
+          type: 'menuitem',
+          label: 'Mailbox',
+          icon: 'nav-icon far fa-envelope',
+          items: [
+            {
+              type: 'menuitem',
+              label: 'Inbox',
+              page: 'mail-inbox',
+              icon: 'far fa-circle nav-icon',
+              component: APageMailInbox
+            },
+            {
+              type: 'menuitem',
+              label: 'Compose',
+              page: 'mail-compose',
+              icon: 'far fa-circle nav-icon',
+              component: APageMailCompose
+            },
+            {
+              type: 'menuitem',
+              label: 'Read',
+              page: 'mail-read',
+              icon: 'far fa-circle nav-icon',
+              component: APageMailRead
+            }
+          ]
+        },
+        {
+          type: 'menuitem',
+          label: 'Pages',
+          icon: 'nav-icon fas fa-book',
+          items: [
+            {
+              type: 'menuitem',
+              label: 'Invoice',
+              page: 'invoice',
+              icon: 'far fa-circle nav-icon',
+              component: APageInvoice
+            },
+            {
+              type: 'menuitem',
+              label: 'Profile',
+              page: 'profile',
+              icon: 'far fa-circle nav-icon',
+              component: APageProfile
+            },
+            {
+              type: 'menuitem',
+              label: 'Ecommerce',
+              page: 'ecommerce',
+              icon: 'far fa-circle nav-icon',
+              component: APageEcommerce
+            },
+            {
+              type: 'menuitem',
+              label: 'Projects',
+              page: 'projects',
+              icon: 'far fa-circle nav-icon',
+              component: APageProjects
+            },
+            {
+              type: 'menuitem',
+              label: 'Project Add',
+              page: 'project-add',
+              icon: 'far fa-circle nav-icon',
+              component: APageProjectAdd
+            },
+            {
+              type: 'menuitem',
+              label: 'Project Edit',
+              page: 'project-edit',
+              icon: 'far fa-circle nav-icon',
+              component: APageProjectEdit
+            },
+            {
+              type: 'menuitem',
+              label: 'Project Detail',
+              page: 'project-detail',
+              icon: 'far fa-circle nav-icon',
+              component: APageProjectDetail
+            },
+            {
+              type: 'menuitem',
+              label: 'Contacts',
+              page: 'contact',
+              icon: 'far fa-circle nav-icon',
+              component: APageContact
+            }
+          ]
+        },
+        {
+          type: 'menuitem',
+          label: 'Extras',
+          icon: 'nav-icon far fa-plus-square',
+          items: [
+            {
+              type: 'menuitem',
+              page: 'login',
+              label: 'Login',
+              icon: 'far fa-circle nav-icon',
+              component: APageLogin
+            },
+            {
+              type: 'menuitem',
+              page: 'register',
+              label: 'Register',
+              icon: 'far fa-circle nav-icon',
+              component: APageRegister
+            },
+            {
+              type: 'menuitem',
+              page: 'forgot-password',
+              label: 'Forgot Password',
+              icon: 'far fa-circle nav-icon',
+              component: APageForgotPassword
+            },
+            {
+              type: 'menuitem',
+              page: 'recover-password',
+              label: 'Recover Password',
+              icon: 'far fa-circle nav-icon',
+              component: APageRecoverPassword
+            },
+            {
+              type: 'menuitem',
+              page: 'lockscreen',
+              label: 'Lockscreen',
+              icon: 'far fa-circle nav-icon',
+              component: APageLockscreen
+            },
+            {
+              type: 'menuitem',
+              page: 'legacy-user-menu',
+              label: 'Legacy User Menu',
+              icon: 'far fa-circle nav-icon',
+              component: APageLegacyUserMenu
+            },
+            {
+              type: 'menuitem',
+              page: 'language-menu',
+              label: 'Language Maneu',
+              icon: 'far fa-circle nav-icon',
+              component: APageLanguageMenu
+            },
+            {
+              type: 'menuitem',
+              page: 'error-404',
+              label: 'Error 404',
+              icon: 'far fa-circle nav-icon',
+              component: APageError404
+            },
+            {
+              type: 'menuitem',
+              page: 'error-500',
+              label: 'Error 500',
+              icon: 'far fa-circle nav-icon',
+              component: APageError500
+            },
+            {
+              type: 'menuitem',
+              page: 'pace',
+              label: 'Pace',
+              icon: 'far fa-circle nav-icon',
+              component: APagePace
+            },
+            {
+              type: 'menuitem',
+              page: 'black',
+              label: 'Blank Page',
+              icon: 'far fa-circle nav-icon',
+              component: APageBlank
+            },
+            {
+              type: 'menuitem',
+              page: 'starter',
+              label: 'Starter Page',
+              icon: 'far fa-circle nav-icon',
+              component: APageStarter
+            }
+          ]
+        },
+        {
+          type: 'head'
+        },
+        {
+          type: 'menuitem',
+          label: 'Documentation',
+          icon: 'nav-icon fas fa-file'
+        },
+        {
+          type: 'head'
+        },
+        {
+          type: 'menuitem',
+          label: 'Level 1',
+          icon: 'far fa-circle nav-icon'
+        },
+        {
+          type: 'menuitem',
+          label: 'Level 1',
+          icon: 'far fa-circle nav-icon',
+          items: [
+            {
+              type: 'menuitem',
+              label: 'Level 2',
+              icon: 'fas fa-circle nav-icon'
+            },
+            {
+              type: 'menuitem',
+              label: 'Level 2',
+              icon: 'fas fa-circle nav-icon',
+              items: [
+                {
+                  type: 'menuitem',
+                  label: 'Level 3',
+                  icon: 'far fa-dot-circle nav-icon'
+                },
+                {
+                  type: 'menuitem',
+                  label: 'Level 3',
+                  icon: 'far fa-dot-circle nav-icon'
+                },
+                {
+                  type: 'menuitem',
+                  label: 'Level 3',
+                  icon: 'far fa-dot-circle nav-icon'
+                }
+              ]
+            },
+            {
+              type: 'menuitem',
+              label: 'Level 2',
+              icon: 'fas fa-circle nav-icon'
+            }
+          ]
+        },
+        {
+          type: 'menuitem',
+          label: 'Level 1',
+          icon: 'far fa-circle nav-icon'
+        },
+        {
+          type: 'head'
+        },
+        {
+          type: 'menuitem',
+          label: 'Important',
+          icon: 'nav-icon far fa-circle text-danger'
+        },
+        {
+          type: 'menuitem',
+          label: 'Warning',
+          icon: 'nav-icon far fa-circle text-warning'
+        },
+        {
+          type: 'menuitem',
+          label: 'Informational',
+          icon: 'nav-icon far fa-circle text-info'
+        }
+      ]
     },
     getRoute (page) {
       return '/layout/' + (this.$route.params.layout || 'one') + '/' + page
+    },
+    itemClass (item) {
+      if (item.type === 'header') {
+        return 'nav-header'
+      }
+
+      let itemClass = 'nav-item'
+      if (item.items?.length > 0) {
+        itemClass += ' has-treeview'
+
+        const routePageIsItemDaughter = item.items.find(item => {
+          return item.page === this.$route.params.page
+        })
+        if (routePageIsItemDaughter) {
+          itemClass += ' menu-open'
+        }
+      }
+      return itemClass
+    },
+    linkClass (item) {
+      return item.items?.find(i => i.page === this.$route.params.page) ? 'nav-link active' : 'nav-link'
     }
   }
 }
