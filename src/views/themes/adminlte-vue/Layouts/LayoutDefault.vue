@@ -10,9 +10,9 @@
 <script>
 export default {
   components: {
-    Navbar: () => import('../Navbar'),
+    Navbar: () => import('../../../../../src/components/Navbar'),
     MenuLeft: () => import('../MenuLeft'),
-    Dashboard1: () => import('../Pages/Dashboards/1/Dashboard1'),
+    Dashboard1: () => import('../../../../../src/components/Pages/Dashboards/1/Dashboard1'),
     Footer: () => import('../Footer'),
     MenuRight: () => import('../MenuRight')
   },
