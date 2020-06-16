@@ -202,20 +202,20 @@
         <h5 class="mb-2">Abilities</h5>
         <div class="row">
           <div class="col-md-3">
-            <CardExpandable title="Expandable" body="The body of the card"/>
+            <CardExpandable title="Expandable" :body="body_default" collapsed/>
             <!-- /.card -->
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <CardCollapsable class="card-success" title="Collapsable" body="The body of the card"/>
+            <CardCollapsable class="card-success" title="Collapsable" :body="body_default"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <CardRemovable class="card-warning" title="Removable" body="The body of the card"/>
+            <CardRemovable class="card-warning" title="Removable" :body="body_default"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <CardMaximizable class="card-danger" title="Maximizable" body="The body of the card"/>
+            <CardMaximizable class="card-danger" title="Maximizable" :body="body_default"/>
           </div>
           <!-- /.col -->
         </div>
@@ -270,302 +270,87 @@
 
         <h5 class="mb-2">Colors Variations</h5>
         <div class="row">
-          <div class="col-md-3">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Primary Outline</h3>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+          <div class="col-md-3">
+            <a-card-primary title="Primary" :body="body_default"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Success Outline</h3>
+            <a-card-success title="Success" :body="body_default"/>
+          </div>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+          <div class="col-md-3">
+            <a-card-warning title="Warning" :body="body_default"/>
+          </div>
+
+          <div class="col-md-3">
+            <a-card-danger title="Danger" :body="body_default"/>
+          </div>
+
+        </div>
+        <!--default card abilities-->
+        <div class="row">
+          <div class="col-md-3">
+            <a-card-default title="Default" :body="body_default"/>
+          </div>
+          <div class="col-md-3">
+            <a-card-default collapsable title="Collapsable" :body="body_default"/>
+          </div>
+          <div class="col-md-3">
+            <a-card-default removable title="Removable" :body="body_default"/>
+          </div>
+          <div class="col-md-3">
+            <a-card-default maximizable title="Maximizable" :body="body_default"/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <a-card-primary outline title="Primary Outline" :body="body_default"/>
+          </div>
+          <div class="col-md-3">
+            <a-card-success outline title="Success Outline" :body="body_default"/>
+          </div>
+          <div class="col-md-3">
+            <a-card-warning outline title="Warning Outline" :body="body_default"/>
+          </div>
+          <div class="col-md-3">
+            <a-card-danger outline title="Danger Outline" :body="body_default"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <a-card-primary title="Primary" :body="body_default" all_painted/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-warning">
-              <div class="card-header">
-                <h3 class="card-title">Warning Outline</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-success title="Success" :body="body_default" all_painted/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Danger Outline</h3>
-              </div>
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-warning title="Warning" :body="body_default" all_painted/>
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <a-card-danger title="Danger" :body="body_default" all_painted/>
           </div>
           <!-- /.col -->
         </div>
         <div class="row">
           <div class="col-md-3">
-            <div class="card card-outline card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Primary Outline</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-primary title="Primary Gradient" :body="body_default" all_painted gradient/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-outline card-success">
-              <div class="card-header">
-                <h3 class="card-title">Success Outline</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-success title="Primary Gradient" :body="body_default" all_painted gradient/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-outline card-warning">
-              <div class="card-header">
-                <h3 class="card-title">Warning Outline</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-warning title="Primary Gradient" :body="body_default" all_painted gradient/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">
-            <div class="card card-outline card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Danger Outline</h3>
-              </div>
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card bg-primary">
-              <div class="card-header">
-                <h3 class="card-title">Primary</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3">
-            <div class="card bg-success">
-              <div class="card-header">
-                <h3 class="card-title">Success</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3">
-            <div class="card bg-warning">
-              <div class="card-header">
-                <h3 class="card-title">Warning</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3">
-            <div class="card bg-danger">
-              <div class="card-header">
-                <h3 class="card-title">Danger</h3>
-              </div>
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card bg-gradient-primary">
-              <div class="card-header">
-                <h3 class="card-title">Primary Gradient</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3">
-            <div class="card bg-gradient-success">
-              <div class="card-header">
-                <h3 class="card-title">Success Gradient</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3">
-            <div class="card bg-gradient-warning">
-              <div class="card-header">
-                <h3 class="card-title">Warning Gradient</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-3">
-            <div class="card bg-gradient-danger">
-              <div class="card-header">
-                <h3 class="card-title">Danger Gradient</h3>
-              </div>
-              <div class="card-body">
-                The body of the card
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-danger title="Primary Gradient" :body="body_default" all_painted gradient/>
           </div>
           <!-- /.col -->
         </div>
@@ -1284,12 +1069,22 @@ import CardRefresh from '../Widget/Specific/ACardRefresh'
 import Vue from 'vue'
 import ACard from '../Widget/Card/ACard'
 import ACardEmptyBodyLoadable from '../Widget/Specific/ACardEmptyBodyLoadable'
+import ACardWarning from '../Widget/Card/Color/ACardWarning'
+import ACardDanger from '../Widget/Card/Color/ACardDanger'
+import ACardPrimary from '../Widget/Card/Color/ACardPrimary'
+import ACardDefault from '../Widget/Card/Color/ACardDefault'
+import ACardSuccess from '../Widget/Card/Color/ACardSuccess'
 
 const eventBus = new Vue()
 
 export default {
   name: 'APageWidgets',
   components: {
+    ACardSuccess,
+    ACardDefault,
+    ACardPrimary,
+    ACardDanger,
+    ACardWarning,
     ACardEmptyBodyLoadable,
     ACard,
     CardHeader,
@@ -1303,6 +1098,7 @@ export default {
   },
   data () {
     return {
+      body_default: 'The body of the card',
       data: {
         card: {
           body: 'The body of the card',

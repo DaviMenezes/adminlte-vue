@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div :class="getClasses">
     <slot name="header"/>
 
     <slot name="body"/>
@@ -11,6 +11,19 @@
 </template>
 <script>
 export default {
-  name: 'ACard'
+  name: 'ACard',
+  data () {
+    return {
+      collapsed_local: this.collapsed
+    }
+  },
+  props: {
+    collapsed: Boolean
+  },
+  computed: {
+    getClasses () {
+      return 'card' + (this.collapsed_local ? ' collapsed-card' : '')
+    }
+  }
 }
 </script>

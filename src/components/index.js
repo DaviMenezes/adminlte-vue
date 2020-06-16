@@ -87,6 +87,11 @@ import ACardRefresh from './Widget/Specific/ACardRefresh'
 import ACardRemovable from './Widget/Specific/ACardRemovable'
 import AInfoBox from './Widget/AInfoBox'
 import ACardEmptyBodyLoadable from './Widget/Specific/ACardEmptyBodyLoadable'
+import ACardPrimary from './Widget/Card/Color/ACardPrimary'
+import ACardSuccess from './Widget/Card/Color/ACardSuccess'
+import ACardWarning from './Widget/Card/Color/ACardWarning'
+import ACardDanger from './Widget/Card/Color/ACardDanger'
+import ACardDefault from './Widget/Card/Color/ACardDefault'
 
 const categories = {
   pages: {
@@ -191,6 +196,13 @@ const categories = {
         ACardRefresh,
         ACardRemovable,
         AInfoBox
+      ],
+      colors: [
+        ACardDefault,
+        ACardPrimary,
+        ACardSuccess,
+        ACardWarning,
+        ACardDanger
       ]
     }
   }
@@ -205,7 +217,8 @@ const LteComponents = Object.assign({}, [
   ...categories.uiElements,
   ...categories.pages.specifics,
   ...categories.widgets.cards.generics,
-  ...categories.widgets.cards.specifics
+  ...categories.widgets.cards.specifics,
+  ...categories.widgets.cards.colors
 ])
 
 export default LteComponents
