@@ -14,7 +14,7 @@
             </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
     <section class="content">
@@ -53,8 +53,6 @@
               </template>
             </InfoBox>
           </div>
-
-          <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
             <InfoBox class="bg-success" text="Likes" number="41,410" icon="far fa-thumbs-up">
               <template slot="content_footer">
@@ -101,7 +99,6 @@
             </InfoBox>
           </div>
 
-          <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
             <InfoBox class="bg-gradient-success" text="Likes" number="41,410" icon="far fa-thumbs-up">
               <template slot="content_footer">
@@ -144,28 +141,24 @@
               <template slot="text"><p>New Orders</p></template>
             </CardIndicator>
           </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
             <CardIndicator class="bg-success" icon="ion ion-stats-bars">
               <template slot="value"><h3>53<sup style="font-size: 20px">%</sup></h3></template>
               <template slot="text"><p>Bounce Rate</p></template>
             </CardIndicator>
           </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
             <CardIndicator class="bg-warning" icon="fas fa-user-plus">
               <template slot="value"><h3>44</h3></template>
               <template slot="text"><p>User Registrations</p></template>
             </CardIndicator>
           </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
             <CardIndicator class="bg-danger" icon="fas fa-chart-pie">
               <template slot="value"><h3>65</h3></template>
               <template slot="text"><p>Unique Visitors</p></template>
             </CardIndicator>
           </div>
-          <!-- ./col -->
         </div>
         <div class="row">
             <div class="col-lg-3 col-6">
@@ -174,28 +167,24 @@
                 <template slot="text"><p>New Orders</p></template>
               </CardIndicator>
             </div>
-            <!-- ./col -->
             <div class="col-lg-3 col-6">
               <CardIndicator class="bg-success" icon="ion ion-stats-bars" loading>
                 <template slot="value"><h3>53<sup style="font-size: 20px">%</sup></h3></template>
                 <template slot="text"><p>Bounce Rate</p></template>
               </CardIndicator>
             </div>
-            <!-- ./col -->
             <div class="col-lg-3 col-6">
               <CardIndicator class="bg-warning" icon="fas fa-user-plus" loading>
                 <template slot="value"><h3>44</h3></template>
                 <template slot="text"><p>User Registrations</p></template>
               </CardIndicator>
             </div>
-            <!-- ./col -->
             <div class="col-lg-3 col-6">
               <CardIndicator class="bg-danger" icon="fas fa-chart-pie" loading>
                 <template slot="value"><h3>65</h3></template>
                 <template slot="text"><p>Unique Visitors</p></template>
               </CardIndicator>
             </div>
-            <!-- ./col -->
           </div>
         <!-- =========================================================== -->
         <h4 class="mb-2 mt-4">Cards</h4>
@@ -203,29 +192,21 @@
         <div class="row">
           <div class="col-md-3">
             <CardExpandable title="Expandable" :body="body_default" collapsed/>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <CardCollapsable class="card-success" title="Collapsable" :body="body_default"/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <CardRemovable class="card-warning" title="Removable" :body="body_default"/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <CardMaximizable class="card-danger" title="Maximizable" :body="body_default"/>
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-
         <div class="row">
           <div class="col-md-3">
             <CardRefresh ref="cardRefreshOne" title="Card Refresh" :body="data.card.refresh.one.body" v-on:refreshBody="updateCardRefreshOneBody()" :loading="data.card.refresh.one.loading"/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <a-card class="card-success">
               <CardHeader slot="header" title="All together">
@@ -270,11 +251,9 @@
 
         <h5 class="mb-2">Colors Variations</h5>
         <div class="row">
-
           <div class="col-md-3">
             <a-card-primary title="Primary" :body="body_default"/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <a-card-success title="Success" :body="body_default"/>
           </div>
@@ -322,19 +301,15 @@
           <div class="col-md-3">
             <a-card-primary title="Primary" :body="body_default" all_painted/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <a-card-success title="Success" :body="body_default" all_painted/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <a-card-warning title="Warning" :body="body_default" all_painted/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <a-card-danger title="Danger" :body="body_default" all_painted/>
           </div>
-          <!-- /.col -->
         </div>
         <div class="row">
           <div class="col-md-3">
