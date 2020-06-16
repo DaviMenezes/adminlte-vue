@@ -1,21 +1,12 @@
 <template>
-  <BCard class="card-primary collapsed-card">
-    <template slot="header">
-      <h3 class="card-title">{{title}}</h3>
-      <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
-        </button>
-      </div>
-    </template>
-      <slot name="body">{{body}}</slot>
-  </BCard>
+  <a-card-default :collapsed="collapsed" collapsable :title="title_local" :body="body_local"></a-card-default>
 </template>
 <script>
+import ACardDefault from '../Card/Color/ACardDefault'
+
 export default {
   name: 'ACardExpandable',
-  props: {
-    title: { type: String },
-    body: { type: String }
-  }
+  components: { ACardDefault },
+  extends: ACardDefault
 }
 </script>
