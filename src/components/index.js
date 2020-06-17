@@ -92,6 +92,9 @@ import ACardSuccess from './Widget/Card/Color/ACardSuccess'
 import ACardWarning from './Widget/Card/Color/ACardWarning'
 import ACardDanger from './Widget/Card/Color/ACardDanger'
 import ACardDefault from './Widget/Card/Color/ACardDefault'
+import ACardProfileActivities from './Widget/Card/Profile/ACardProfileActivities'
+import AUserImage from './Widget/UserImage/AUserImage'
+import ACardProfile from './Widget/Card/Profile/ACardProfile'
 
 const categories = {
   pages: {
@@ -195,7 +198,10 @@ const categories = {
         ACardMaximizable,
         ACardRefresh,
         ACardRemovable,
-        AInfoBox
+        AInfoBox,
+        ACardProfileActivities,
+        AUserImage,
+        ACardProfile
       ],
       colors: [
         ACardDefault,
