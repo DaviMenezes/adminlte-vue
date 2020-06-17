@@ -1,16 +1,15 @@
 <template>
   <Card class="direct-chat">
     <template slot="header">
-      <CardHeader title="Direct Chat">
+      <CardHeader :title="title_local">
         <template slot="tools">
-          <span data-toggle="tooltip" title="3 New Messages" class="badge badge-warning">3</span>
-          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-          </button>
+          <span data-toggle="tooltip" :title="messageLocal.title" :class="'badge badge-'+(messageLocal.msg_type || messageLocal.type)">{{messageLocal.amount}}</span>
+          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
           <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
                   data-widget="chat-pane-toggle">
-            <i class="fas fa-comments"></i></button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+            <i class="fas fa-comments"></i>
           </button>
+          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
         </template>
       </CardHeader>
     </template>
@@ -190,8 +189,8 @@
           <div class="input-group">
             <input type="text" name="message" placeholder="Type Message ..." class="form-control">
             <span class="input-group-append">
-                          <button type="button" class="btn btn-warning">Send</button>
-                        </span>
+              <button type="button" :class="'btn btn-' +messageLocal.type">Send</button>
+            </span>
           </div>
         </form>
       </CardFooter>
@@ -213,8 +212,14 @@ export default {
     CardFooter
   },
   data () {
-    return {}
+    return {
+      title_local: this.title,
+      messageLocal: this.message
+    }
   },
-  props: {}
+  props: {
+    title: String,
+    message: Object
+  }
 }
 </script>
