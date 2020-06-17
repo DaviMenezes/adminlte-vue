@@ -1,12 +1,10 @@
 <template>
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
     <router-link :to="getRoute('dashboard1')" class="brand-link">
-      <img src="/dist/img/dvi_logo.png" alt="Dvi Logo" class="brand-image img-circle elevation-3"
+      <img src="/dist/img/dvi_logo.png" alt="Dvi Logo" title="Dvi" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">AdminLTE 3 - <i class=" fab fa-vuejs fa-1.5x" title="Vuejs"/></span>
     </router-link>
-    <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -55,7 +53,6 @@
       </nav>
       <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
   </aside>
 </template>
 <script>
@@ -117,11 +114,6 @@ import APageStarter from '../../../components/Pages/APageStarter'
 import APageDatatables from '../../../components/Pages/Tables/APageDatatables'
 export default {
   components: { ARouterLink },
-  data () {
-    return {
-
-    }
-  },
   methods: {
     items () {
       return [

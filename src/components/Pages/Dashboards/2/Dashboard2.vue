@@ -51,7 +51,7 @@
 
             <div class="row">
               <div class="col-md-6">
-                <CardDirectChat class="direct-chat-warning"/>
+                <CardDirectChat class="direct-chat-warning" title="Direct Chat" :message="directChat"/>
               </div>
               <div class="col-md-6">
                 <CardLastMembers/>
@@ -114,7 +114,10 @@ export default {
     CardLastMembers,
     CardLatestOrder
   },
-  data () { return { } },
-  props: { }
+  data () {
+    return {
+      directChat: { title: '3 New Messages', amount: 3, type: 'warning' }
+    }
+  }
 }
 </script>
