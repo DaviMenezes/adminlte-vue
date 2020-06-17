@@ -1,5 +1,7 @@
 # adminlte-vue
 
+See Demo https://adminlte.vuejs.ml
+
 Dashboard v1
 ![dashboardv1](https://user-images.githubusercontent.com/3998868/84902623-6d596180-b083-11ea-955a-958441691742.gif)
 
