@@ -95,7 +95,7 @@ import ACardDefault from './Widget/Card/Color/ACardDefault'
 import ACardProfileActivities from './Widget/Card/Profile/ACardProfileActivities'
 import AUserImage from './Widget/UserImage/AUserImage'
 import ACardProfile from './Widget/Card/Profile/ACardProfile'
-
+import AImgCircle from './Widget/AImgCircle'
 const categories = {
   pages: {
     specifics: [
@@ -201,7 +201,8 @@ const categories = {
         AInfoBox,
         ACardProfileActivities,
         AUserImage,
-        ACardProfile
+        ACardProfile,
+        AImgCircle
       ],
       colors: [
         ACardDefault,
