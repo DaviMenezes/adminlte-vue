@@ -70,7 +70,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                <a-chart-js-pie/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -152,9 +152,10 @@
 
 import AChartArea from '../../Widget/Chart/AChartArea'
 import AChartJsDonut from '../../Widget/Chart/AChartJsDonut/AChartJsDonut'
+import AChartJsPie from '../../Widget/Chart/AChartJsPie/AChartJsPie'
 export default {
   name: 'APageChartJs',
-  components: { AChartJsDonut, AChartArea },
+  components: { AChartJsPie, AChartJsDonut, AChartArea },
   data () { return { } },
   props: { }
 }
