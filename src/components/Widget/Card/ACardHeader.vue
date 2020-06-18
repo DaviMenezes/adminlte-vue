@@ -7,7 +7,7 @@
     </slot>
     <div class="card-tools">
       <slot name="tools">
-        <button v-if="collapsable_local" type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+        <button v-if="collapsable_local" type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
         <button v-if="removable_local" type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
         <button v-if="maximizable_local" type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
       </slot>
