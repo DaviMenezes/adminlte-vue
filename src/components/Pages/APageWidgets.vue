@@ -347,215 +347,53 @@
         <h3 class="mt-4 mb-4">Social Widgets</h3>
         <div class="row">
           <div class="col-md-4">
-            <!-- Widget: user widget style 2 -->
-            <div class="card card-widget widget-user-2">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header bg-warning">
-                <div class="widget-user-image">
-                  <img class="img-circle elevation-2" src="/dist/img/user7-128x128.jpg" alt="User Avatar">
-                </div>
-                <!-- /.widget-user-image -->
-                <h3 class="widget-user-username">Nadia Carmichael</h3>
-                <h5 class="widget-user-desc">Lead Developer</h5>
-              </div>
-              <div class="card-footer p-0">
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      Projects <span class="float-right badge bg-primary">31</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      Tasks <span class="float-right badge bg-info">5</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      Completed Projects <span class="float-right badge bg-success">12</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      Followers <span class="float-right badge bg-danger">842</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- /.widget-user -->
+            <a-card-profile-activities type="warning"
+                 user_name="Nadia Carmichael"
+                 user_desc="Lead Developer"
+                 :items="cardProfileActivities"
+              >
+                <template slot="usr_img">
+                  <a-user-image src="/dist/img/user7-128x128.jpg" alt="User Avatar"/>
+                </template>
+              </a-card-profile-activities>
           </div>
-          <!-- /.col -->
           <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header bg-info">
-                <h3 class="widget-user-username">Alexander Pierce</h3>
-                <h5 class="widget-user-desc">Founder & CEO</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle elevation-2" src="/dist/img/user1-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
+            <a-card-profile :items="carProfileItems" user_name="Alexander Pierce" user_desc="Founder & CEO">
+              <a-user-image src="/dist/img/user1-128x128.jpg" alt="User Avatar" slot="usr_img"/>
+            </a-card-profile>
           </div>
-          <!-- /.col -->
           <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   style="background: url('/dist/img/photo1.png') center center;">
-                <h3 class="widget-user-username text-right">Elizabeth Pierce</h3>
-                <h5 class="widget-user-desc text-right">Web Designer</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle" src="/dist/img/user3-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
+            <a-card-profile :items="carProfileItems"
+              user_name="Elizabeth Pierce" user_desc="Web Designer"
+              header_img="background: url('/dist/img/photo1.png') center center;"
+              user_info_direction="text-right"
+            >
+              <a-user-image src="/dist/img/user3-128x128.jpg" alt="User Avatar" slot="usr_img" elevation=""/>
+            </a-card-profile>
           </div>
-          <!-- /.col -->
         </div>
         <div class="row">
           <div class="col-md-6">
             <!-- Box Comment -->
-            <div class="card card-widget">
-              <div class="card-header">
-                <div class="user-block">
-                  <img class="img-circle" src="/dist/img/user1-128x128.jpg" alt="User Image">
-                  <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                  <span class="description">Shared publicly - 7:30 PM Today</span>
-                </div>
-                <!-- /.user-block -->
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Mark as read">
-                    <i class="far fa-circle"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <img class="img-fluid pad" src="/dist/img/photo2.png" alt="Photo">
-
-                <p>I took this photo this morning. What do you guys think?</p>
-                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                <span class="float-right text-muted">127 likes - 3 comments</span>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer card-comments">
-                <div class="card-comment">
-                  <!-- User image -->
-                  <img class="img-circle img-sm" src="/dist/img/user3-128x128.jpg" alt="User Image">
-
-                  <div class="comment-text">
-                    <span class="username">
-                      Maria Gonzales
-                      <span class="text-muted float-right">8:03 PM Today</span>
-                    </span><!-- /.username -->
-                    It is a long established fact that a reader will be distracted
-                    by the readable content of a page when looking at its layout.
-                  </div>
-                  <!-- /.comment-text -->
-                </div>
-                <!-- /.card-comment -->
-                <div class="card-comment">
-                  <!-- User image -->
-                  <img class="img-circle img-sm" src="/dist/img/user4-128x128.jpg" alt="User Image">
-
-                  <div class="comment-text">
-                    <span class="username">
-                      Luna Stark
-                      <span class="text-muted float-right">8:03 PM Today</span>
-                    </span><!-- /.username -->
-                    It is a long established fact that a reader will be distracted
-                    by the readable content of a page when looking at its layout.
-                  </div>
-                  <!-- /.comment-text -->
-                </div>
-                <!-- /.card-comment -->
-              </div>
-              <!-- /.card-footer -->
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <img class="img-fluid img-circle img-sm" src="/dist/img/user4-128x128.jpg" alt="Alt Text">
-                  <!-- .img-push is used to add margin to elements next to floating images -->
-                  <div class="img-push">
-                    <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
+            <a-social-post
+              user_img="/dist/img/user1-128x128.jpg"
+              user_name="Jonathan Burke Jr."
+              user_desc="Shared publicly - 7:30 PM Today"
+              v-bind="socialPosts[1]"
+              user_logged_name="Davi Menezes"
+              user_logged_img="https://avatars3.githubusercontent.com/u/3998868?s=460&v=4"
+            />
           </div>
           <!-- /.col -->
           <div class="col-md-6">
-            <!-- Box Comment -->
+            <a-social-post
+              user_img="/dist/img/user1-128x128.jpg"
+              user_name="Jonathan Burke Jr."
+              user_desc="Shared publicly - 7:30 PM Today"
+              user_logged_name="Davi Menezes"
+              user_logged_img="https://avatars3.githubusercontent.com/u/3998868?s=460&v=4"
+              v-bind="socialPosts[2]"
+            />
             <div class="card card-widget">
               <div class="card-header">
                 <div class="user-block">
@@ -566,11 +404,10 @@
                 <!-- /.user-block -->
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Mark as read">
-                    <i class="far fa-circle"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                    <i class="far fa-circle"></i>
                   </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                 </div>
                 <!-- /.card-tools -->
               </div>
@@ -683,12 +520,18 @@ import ACardPrimary from '../Widget/Card/Color/ACardPrimary'
 import ACardDefault from '../Widget/Card/Color/ACardDefault'
 import ACardSuccess from '../Widget/Card/Color/ACardSuccess'
 import ACardDirectChat from './Dashboards/2/ACardDirectChat'
+import ACardProfileActivities from '../Widget/Card/Profile/ACardProfileActivities'
+import ACardProfile from '../Widget/Card/Profile/ACardProfile'
+import ASocialPost from '../Widget/Card/Social/Post/ASocialPost'
 
 const eventBus = new Vue()
 
 export default {
   name: 'APageWidgets',
   components: {
+    ASocialPost,
+    ACardProfile,
+    ACardProfileActivities,
     ACardDirectChat,
     ACardSuccess,
     ACardDefault,
@@ -731,6 +574,81 @@ export default {
             }
           }
         }
+      },
+      cardProfileActivities: [
+        { title: 'Projects', url: '#', amount: 31, type: 'primary' },
+        { title: 'Tasks', url: '#', amount: 5, type: 'info' },
+        { title: 'Completed Projects', url: '#', amount: 12, type: 'success' },
+        { title: 'Followers', url: '#', amount: 842, type: 'danger' }
+      ],
+      carProfileItems: [
+        { header: '3,200', text: 'SALES' },
+        { header: '13,000', text: 'FOLLOWERS' },
+        { header: '35', text: 'PRODUCTS' }
+      ],
+      socialPosts: {
+        1: {
+          img: '/dist/img/photo2.png',
+          content: 'I took this photo this morning. What do you guys think?',
+          likes: '127',
+          comments: [
+            {
+              content: 'It is a long established fact that a reader will be distracted\n' +
+                'by the readable content of a page when looking at its layout.',
+              when: new Date().toLocaleString(),
+              user: { name: 'Maria Gonzales', img: '/dist/img/user3-128x128.jpg' }
+            },
+            {
+              user: { name: 'Davi Menezes', img: 'https://avatars3.githubusercontent.com/u/3998868?s=460&v=4' },
+              content: 'likee https://adminlte.vuejs.ml/',
+              when: new Date().toLocaleString()
+            },
+            {
+              content: 'It is a long established fact that a reader will be distracted\n' +
+                'by the readable content of a page when looking at its layout.',
+              when: new Date().toLocaleString(),
+              user: { name: 'Luna Stark', img: '/dist/img/user4-128x128.jpg' }
+            }
+          ]
+        },
+        2: {
+          content: '<p>Far far away, behind the word mountains, far from the\n' +
+            'countries Vokalia and Consonantia, there live the blind\n' +
+            'texts. Separated they live in Bookmarksgrove right at\n</p>' +
+            '\n' +
+            'the coast of the Semantics, a large language ocean.\n' +
+            'A small river named Duden flows by their place and supplies\n' +
+            'it with the necessary regelialia. It is a paradisematic\n' +
+            'country, in which roasted parts of sentences fly into\n' +
+            'your mouth.',
+          likes: '45',
+          attachment: {
+            img: '/dist/img/photo1.png',
+            url: 'https://www.lipsum.com/',
+            title: 'Lorem ipsum text generator',
+            content: 'Description about the attachment can be placed here.\n' +
+              'Lorem Ipsum is simply dummy text of the printing and typesetting industry...'
+          },
+          comments: [
+            {
+              content: 'It is a long established fact that a reader will be distracted\n' +
+                'by the readable content of a page when looking at its layout.',
+              when: new Date().toLocaleString(),
+              user: { name: 'Maria Gonzales', img: '/dist/img/user3-128x128.jpg' }
+            },
+            {
+              user: { name: 'Davi Menezes', img: 'https://avatars3.githubusercontent.com/u/3998868?s=460&v=4' },
+              content: 'likee https://adminlte.vuejs.ml/',
+              when: new Date().toLocaleString()
+            },
+            {
+              content: 'It is a long established fact that a reader will be distracted\n' +
+                'by the readable content of a page when looking at its layout.',
+              when: new Date().toLocaleString(),
+              user: { name: 'Luna Stark', img: '/dist/img/user4-128x128.jpg' }
+            }
+          ]
+        }
       }
     }
   },
@@ -739,7 +657,6 @@ export default {
       eventBus
     }
   },
-  props: { },
   methods: {
     updateCardRefreshOneBody () {
       this.$refs.cardRefreshOne.setLoading(true)

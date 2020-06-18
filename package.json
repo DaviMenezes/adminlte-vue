@@ -1,12 +1,12 @@
 {
-  "name": "adminlte-vue",
+  "name": "@davimenezes/adminlte-vue",
   "version": "0.1.0",
   "private": true,
   "main": "./dist/adminltevue.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name adminltevue ./src/index.js",
+    "build-lib": "vue-cli-service build --target lib --name adminlte-vue ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "tempusdominus-bootstrap-4": "^5.1.2",
     "tempusdominus-core": "^5.0.3",
     "utf-8-validate": "^5.0.2",
+    "v-emoji-picker": "^2.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
