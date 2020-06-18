@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                <a-chart-js-donut/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -151,9 +151,10 @@
 <script>
 
 import AChartArea from '../../Widget/Chart/AChartArea'
+import AChartJsDonut from '../../Widget/Chart/AChartJsDonut/AChartJsDonut'
 export default {
   name: 'APageChartJs',
-  components: { AChartArea },
+  components: { AChartJsDonut, AChartArea },
   data () { return { } },
   props: { }
 }
