@@ -375,79 +375,16 @@
         <div class="row">
           <div class="col-md-6">
             <!-- Box Comment -->
-            <div class="card card-widget">
-              <div class="card-header">
-                <div class="user-block">
-                  <img class="img-circle" src="/dist/img/user1-128x128.jpg" alt="User Image">
-                  <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                  <span class="description">Shared publicly - 7:30 PM Today</span>
-                </div>
-                <!-- /.user-block -->
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Mark as read">
-                    <i class="far fa-circle"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <img class="img-fluid pad" src="/dist/img/photo2.png" alt="Photo">
-
-                <p>I took this photo this morning. What do you guys think?</p>
-                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                <span class="float-right text-muted">127 likes - 3 comments</span>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer card-comments">
-                <div class="card-comment">
-                  <!-- User image -->
-                  <img class="img-circle img-sm" src="/dist/img/user3-128x128.jpg" alt="User Image">
-
-                  <div class="comment-text">
-                    <span class="username">
-                      Maria Gonzales
-                      <span class="text-muted float-right">8:03 PM Today</span>
-                    </span><!-- /.username -->
-                    It is a long established fact that a reader will be distracted
-                    by the readable content of a page when looking at its layout.
-                  </div>
-                  <!-- /.comment-text -->
-                </div>
-                <!-- /.card-comment -->
-                <div class="card-comment">
-                  <!-- User image -->
-                  <img class="img-circle img-sm" src="/dist/img/user4-128x128.jpg" alt="User Image">
-
-                  <div class="comment-text">
-                    <span class="username">
-                      Luna Stark
-                      <span class="text-muted float-right">8:03 PM Today</span>
-                    </span><!-- /.username -->
-                    It is a long established fact that a reader will be distracted
-                    by the readable content of a page when looking at its layout.
-                  </div>
-                  <!-- /.comment-text -->
-                </div>
-                <!-- /.card-comment -->
-              </div>
-              <!-- /.card-footer -->
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <img class="img-fluid img-circle img-sm" src="/dist/img/user4-128x128.jpg" alt="Alt Text">
-                  <!-- .img-push is used to add margin to elements next to floating images -->
-                  <div class="img-push">
-                    <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
+            <a-social-post
+              user_img="/dist/img/user1-128x128.jpg"
+              user_name="Jonathan Burke Jr."
+              user_desc="Shared publicly - 7:30 PM Today"
+              post_content="I took this photo this morning. What do you guys think?"
+              likes="127" :comments="socialPost.comments"
+              post_img="/dist/img/photo2.png"
+              user_logged_name="Davi Menezes"
+              user_logged_img="https://avatars3.githubusercontent.com/u/3998868?s=460&v=4"
+            />
           </div>
           <!-- /.col -->
           <div class="col-md-6">
@@ -581,12 +518,14 @@ import ACardSuccess from '../Widget/Card/Color/ACardSuccess'
 import ACardDirectChat from './Dashboards/2/ACardDirectChat'
 import ACardProfileActivities from '../Widget/Card/Profile/ACardProfileActivities'
 import ACardProfile from '../Widget/Card/Profile/ACardProfile'
+import ASocialPost from '../Widget/Card/Social/Post/ASocialPost'
 
 const eventBus = new Vue()
 
 export default {
   name: 'APageWidgets',
   components: {
+    ASocialPost,
     ACardProfile,
     ACardProfileActivities,
     ACardDirectChat,
@@ -642,7 +581,28 @@ export default {
         { header: '3,200', text: 'SALES' },
         { header: '13,000', text: 'FOLLOWERS' },
         { header: '35', text: 'PRODUCTS' }
-      ]
+      ],
+      socialPost: {
+        comments: [
+          {
+            content: 'It is a long established fact that a reader will be distracted\n' +
+              '                    by the readable content of a page when looking at its layout.',
+            when: new Date().toLocaleString(),
+            user: { name: 'Maria Gonzales', img: '/dist/img/user3-128x128.jpg' }
+          },
+          {
+            user: { name: 'Davi Menezes', img: 'https://avatars3.githubusercontent.com/u/3998868?s=460&v=4' },
+            content: 'likee https://adminlte.vuejs.ml/',
+            when: new Date().toLocaleString()
+          },
+          {
+            content: 'It is a long established fact that a reader will be distracted\n' +
+              '                    by the readable content of a page when looking at its layout.',
+            when: new Date().toLocaleString(),
+            user: { name: 'Luna Stark', img: '/dist/img/user4-128x128.jpg' }
+          }
+        ]
+      }
     }
   },
   provide () {
@@ -650,7 +610,6 @@ export default {
       eventBus
     }
   },
-  props: { },
   methods: {
     updateCardRefreshOneBody () {
       this.$refs.cardRefreshOne.setLoading(true)
