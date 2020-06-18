@@ -34,9 +34,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
+                <a-chart-area/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -151,8 +149,11 @@
   </div>
 </template>
 <script>
+
+import AChartArea from '../../Widget/Chart/AChartArea'
 export default {
   name: 'APageChartJs',
+  components: { AChartArea },
   data () { return { } },
   props: { }
 }
