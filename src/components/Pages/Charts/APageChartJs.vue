@@ -91,9 +91,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
+                <a-chart-js-line/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -111,9 +109,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
+                  <a-chart-js-bar/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -131,9 +127,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
+                <a-chart-js-stacked/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -153,9 +147,12 @@
 import AChartArea from '../../Widget/Chart/AChartArea'
 import AChartJsDonut from '../../Widget/Chart/AChartJsDonut/AChartJsDonut'
 import AChartJsPie from '../../Widget/Chart/AChartJsPie/AChartJsPie'
+import AChartJsLine from '../../Widget/Chart/AChartJsLine/AChartJsLine'
+import AChartJsBar from '../../Widget/Chart/AChartJsBar/AChartJsBar'
+import AChartJsStacked from '../../Widget/Chart/AChartJsStacked/AChartJsStacked'
 export default {
   name: 'APageChartJs',
-  components: { AChartJsPie, AChartJsDonut, AChartArea },
+  components: { AChartJsStacked, AChartJsBar, AChartJsLine, AChartJsPie, AChartJsDonut, AChartArea },
   data () { return { } },
   props: { }
 }
