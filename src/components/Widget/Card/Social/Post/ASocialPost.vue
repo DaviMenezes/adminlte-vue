@@ -18,13 +18,21 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      <img class="img-fluid pad" :src="post_img_local">
-
-      <p>{{post_content_local}}</p>
+      <img class="img-fluid pad" :src="img_local" v-if="img_local">
+      <p v-html="content_local" v-if="content_local"></p>
+      <div class="attachment-block clearfix" v-if="attachment">
+        <a :href="attachment.url"><img class="attachment-img" :src="attachment.img" :alt="attachment.title"></a>
+        <div class="attachment-pushed">
+          <h4 class="attachment-heading"><a :href="attachment.url">{{attachment.title}}</a></h4>
+          <div class="attachment-text">
+            {{attachment.content}}<a href="#">more</a>
+          </div>
+        </div>
+      </div>
       <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
       <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
       <span class="float-right text-muted">
-        {{likes_local}} likes - <a href="#">{{commentsLength}} comments</a>
+        {{likes_local}} likes - {{commentsLength}} comments
       </span>
     </div>
     <div class="card-footer card-comments _comment_container">
@@ -62,7 +70,10 @@
   </div>
 </template>
 <script>
-import VEmojiPicker, { emojisDefault, categoriesDefault } from 'v-emoji-picker'
+import VEmojiPicker, {
+// emojisDefault,
+// categoriesDefault
+} from 'v-emoji-picker'
 
 import AImgCircle from '../../../AImgCircle'
 export default {
@@ -80,8 +91,8 @@ export default {
       user_name_local: this.user_name,
       user_desc_local: this.user_desc,
       read_local: this.read,
-      post_img_local: this.post_img,
-      post_content_local: this.post_content,
+      img_local: this.img,
+      content_local: this.content,
       likes_local: this.likes,
       comments_local: this.comments,
       user_logged_name_local: this.user_logged_name,
@@ -94,10 +105,11 @@ export default {
     user_name: String,
     user_desc: String,
     read: Boolean,
-    post_img: String,
-    post_content: String,
+    img: String,
+    content: String,
     likes: { type: String || Number },
     comments: Array,
+    attachment: Object,
     user_logged_name: String,
     user_logged_img: String
   },
@@ -113,8 +125,8 @@ export default {
     }
   },
   mounted () {
-    console.log(categoriesDefault)
-    console.log('Total emojis:', emojisDefault.length)
+    // console.log(categoriesDefault)
+    // console.log('Total emojis:', emojisDefault.length)
   },
   methods: {
     postComment (e, c) {

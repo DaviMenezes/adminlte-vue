@@ -379,16 +379,21 @@
               user_img="/dist/img/user1-128x128.jpg"
               user_name="Jonathan Burke Jr."
               user_desc="Shared publicly - 7:30 PM Today"
-              post_content="I took this photo this morning. What do you guys think?"
-              likes="127" :comments="socialPost.comments"
-              post_img="/dist/img/photo2.png"
+              v-bind="socialPosts[1]"
               user_logged_name="Davi Menezes"
               user_logged_img="https://avatars3.githubusercontent.com/u/3998868?s=460&v=4"
             />
           </div>
           <!-- /.col -->
           <div class="col-md-6">
-            <!-- Box Comment -->
+            <a-social-post
+              user_img="/dist/img/user1-128x128.jpg"
+              user_name="Jonathan Burke Jr."
+              user_desc="Shared publicly - 7:30 PM Today"
+              user_logged_name="Davi Menezes"
+              user_logged_img="https://avatars3.githubusercontent.com/u/3998868?s=460&v=4"
+              v-bind="socialPosts[2]"
+            />
             <div class="card card-widget">
               <div class="card-header">
                 <div class="user-block">
@@ -399,11 +404,10 @@
                 <!-- /.user-block -->
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Mark as read">
-                    <i class="far fa-circle"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                    <i class="far fa-circle"></i>
                   </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                 </div>
                 <!-- /.card-tools -->
               </div>
@@ -582,26 +586,69 @@ export default {
         { header: '13,000', text: 'FOLLOWERS' },
         { header: '35', text: 'PRODUCTS' }
       ],
-      socialPost: {
-        comments: [
-          {
-            content: 'It is a long established fact that a reader will be distracted\n' +
-              '                    by the readable content of a page when looking at its layout.',
-            when: new Date().toLocaleString(),
-            user: { name: 'Maria Gonzales', img: '/dist/img/user3-128x128.jpg' }
+      socialPosts: {
+        1: {
+          img: '/dist/img/photo2.png',
+          content: 'I took this photo this morning. What do you guys think?',
+          likes: '127',
+          comments: [
+            {
+              content: 'It is a long established fact that a reader will be distracted\n' +
+                'by the readable content of a page when looking at its layout.',
+              when: new Date().toLocaleString(),
+              user: { name: 'Maria Gonzales', img: '/dist/img/user3-128x128.jpg' }
+            },
+            {
+              user: { name: 'Davi Menezes', img: 'https://avatars3.githubusercontent.com/u/3998868?s=460&v=4' },
+              content: 'likee https://adminlte.vuejs.ml/',
+              when: new Date().toLocaleString()
+            },
+            {
+              content: 'It is a long established fact that a reader will be distracted\n' +
+                'by the readable content of a page when looking at its layout.',
+              when: new Date().toLocaleString(),
+              user: { name: 'Luna Stark', img: '/dist/img/user4-128x128.jpg' }
+            }
+          ]
+        },
+        2: {
+          content: '<p>Far far away, behind the word mountains, far from the\n' +
+            'countries Vokalia and Consonantia, there live the blind\n' +
+            'texts. Separated they live in Bookmarksgrove right at\n</p>' +
+            '\n' +
+            'the coast of the Semantics, a large language ocean.\n' +
+            'A small river named Duden flows by their place and supplies\n' +
+            'it with the necessary regelialia. It is a paradisematic\n' +
+            'country, in which roasted parts of sentences fly into\n' +
+            'your mouth.',
+          likes: '45',
+          attachment: {
+            img: '/dist/img/photo1.png',
+            url: 'https://www.lipsum.com/',
+            title: 'Lorem ipsum text generator',
+            content: 'Description about the attachment can be placed here.\n' +
+              'Lorem Ipsum is simply dummy text of the printing and typesetting industry...'
           },
-          {
-            user: { name: 'Davi Menezes', img: 'https://avatars3.githubusercontent.com/u/3998868?s=460&v=4' },
-            content: 'likee https://adminlte.vuejs.ml/',
-            when: new Date().toLocaleString()
-          },
-          {
-            content: 'It is a long established fact that a reader will be distracted\n' +
-              '                    by the readable content of a page when looking at its layout.',
-            when: new Date().toLocaleString(),
-            user: { name: 'Luna Stark', img: '/dist/img/user4-128x128.jpg' }
-          }
-        ]
+          comments: [
+            {
+              content: 'It is a long established fact that a reader will be distracted\n' +
+                'by the readable content of a page when looking at its layout.',
+              when: new Date().toLocaleString(),
+              user: { name: 'Maria Gonzales', img: '/dist/img/user3-128x128.jpg' }
+            },
+            {
+              user: { name: 'Davi Menezes', img: 'https://avatars3.githubusercontent.com/u/3998868?s=460&v=4' },
+              content: 'likee https://adminlte.vuejs.ml/',
+              when: new Date().toLocaleString()
+            },
+            {
+              content: 'It is a long established fact that a reader will be distracted\n' +
+                'by the readable content of a page when looking at its layout.',
+              when: new Date().toLocaleString(),
+              user: { name: 'Luna Stark', img: '/dist/img/user4-128x128.jpg' }
+            }
+          ]
+        }
       }
     }
   },
