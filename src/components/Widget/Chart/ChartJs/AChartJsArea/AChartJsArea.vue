@@ -3,16 +3,15 @@
 </template>
 <script>
 import ChartJsContainer from '../AChartJs/ChartJsContainer'
-
 export default {
-  name: 'AChartJsPie',
+  name: 'AChartJsArea',
   extends: ChartJsContainer,
   props: {
-    id: { type: String, default: 'chart_pie_' + Math.floor(Math.random() * 1000) }
+    id: { type: String, default: 'chart_area_' + Math.floor(Math.random() * 1000) }
   },
   methods: {
     getType () {
-      return 'pie'
+      return 'line'
     }
   }
 }
