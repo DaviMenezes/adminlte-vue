@@ -1,6 +1,5 @@
 <template>
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -14,7 +13,7 @@
             </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
     <!-- Main content -->
@@ -23,137 +22,201 @@
         <div class="row">
           <div class="col-md-6">
             <!-- AREA CHART -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Area Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-primary title="Area Charts" collapsable removable>
+              <b-card-body slot="body"><a-chart-js-area v-bind="areaChartData"/></b-card-body>
+            </a-card-primary>
 
             <!-- DONUT CHART -->
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Donut Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-danger title="Donut Chart" collapsable removable>
+              <a-card-body slot="body"><a-chart-js-donut v-bind="donutData"/></a-card-body>
+            </a-card-danger>
 
             <!-- PIE CHART -->
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Pie Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
+            <a-card-danger title="Pie Chart" collapsable removable>
+              <a-card-body slot="body"><a-chart-js-pie v-bind="pieChartData"/></a-card-body>
+            </a-card-danger>
           </div>
-          <!-- /.col (LEFT) -->
           <div class="col-md-6">
             <!-- LINE CHART -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Line Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-primary title="Line Chart" collapsable removable>
+              <a-card-body slot="body"><a-chart-js-line v-bind="lineChartData"/></a-card-body>
+            </a-card-primary>
 
             <!-- BAR CHART -->
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Bar Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            <a-card-success title="Bar Chart" collapsable removable>
+              <a-card-body slot="body"><a-chart-js-bar v-bind="barChartData"/></a-card-body>
+            </a-card-success>
 
             <!-- STACKED BAR CHART -->
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Stacked Bar Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
+            <a-card-success title="Stacked Bar Chart" collapsable removable>
+              <a-card-body slot="body"><a-chart-js-stacked v-bind="stackedChartData"/></a-card-body>
+            </a-card-success>
           </div>
-          <!-- /.col (RIGHT) -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
   </div>
 </template>
 <script>
+
+import AChartJsArea from '../../Widget/Chart/ChartJs/AChartJsArea/AChartJsArea'
+import AChartJsDonut from '../../Widget/Chart/ChartJs/AChartJsDonut/AChartJsDonut'
+import AChartJsPie from '../../Widget/Chart/ChartJs/AChartJsPie/AChartJsPie'
+import AChartJsLine from '../../Widget/Chart/ChartJs/AChartJsLine/AChartJsLine'
+import AChartJsBar from '../../Widget/Chart/ChartJs/AChartJsBar/AChartJsBar'
+import AChartJsStacked from '../../Widget/Chart/ChartJs/AChartJsStacked/AChartJsStacked'
+import ACardPrimary from '../../Widget/Card/Color/ACardPrimary'
+import ACardDanger from '../../Widget/Card/Color/ACardDanger'
+import ACardBody from '../../Widget/Card/ACardBody'
+import ACardSuccess from '../../Widget/Card/Color/ACardSuccess'
+
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+const browsers = [
+  'Chrome',
+  'IE',
+  'FireFox',
+  'Safari',
+  'Opera',
+  'Navigator'
+]
+const datasetDigitalGoods = {
+  label: 'Digital Goods',
+  backgroundColor: 'rgba(60,141,188,0.9)',
+  borderColor: 'rgba(60,141,188,0.8)',
+  pointRadius: false,
+  pointColor: '#3b8bba',
+  pointStrokeColor: 'rgba(60,141,188,1)',
+  pointHighlightFill: '#fff',
+  pointHighlightStroke: 'rgba(60,141,188,1)',
+  data: [28, 48, 40, 19, 86, 27, 90]
+}
+const datasetEletronics = {
+  label: 'Electronics',
+  backgroundColor: 'rgba(210, 214, 222, 1)',
+  borderColor: 'rgba(210, 214, 222, 1)',
+  pointRadius: false,
+  pointColor: 'rgba(210, 214, 222, 1)',
+  pointStrokeColor: '#c1c7d1',
+  pointHighlightFill: '#fff',
+  pointHighlightStroke: 'rgba(220,220,220,1)',
+  data: [65, 59, 80, 81, 56, 55, 40]
+}
+
 export default {
   name: 'APageChartJs',
-  data () { return { } },
-  props: { }
+  components: { AChartJsArea, ACardSuccess, ACardBody, ACardDanger, ACardPrimary, AChartJsStacked, AChartJsBar, AChartJsLine, AChartJsPie, AChartJsDonut },
+  data () {
+    return {
+      areaChartData: {
+        labels: months,
+        datasets: [datasetDigitalGoods, datasetEletronics],
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: false
+              }
+            }],
+            yAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          }
+        }
+      },
+      barChartData: {
+        labels: months,
+        datasets: [datasetEletronics, datasetDigitalGoods],
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          datasetFill: false
+        }
+      },
+      donutData: {
+        labels: [
+          'Chrome',
+          'IE',
+          'FireFox',
+          'Safari',
+          'Opera',
+          'Navigator'
+        ],
+        datasets: [
+          {
+            data: [700, 500, 400, 600, 300, 100],
+            backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de']
+          }
+        ],
+        options: {
+          maintainAspectRatio: false,
+          responsive: true
+        }
+      },
+      lineChartData: {
+        labels: months,
+        datasets: [{ ...datasetDigitalGoods, fill: false }, { ...datasetEletronics, fill: false }],
+        options: {
+          datasetFill: false,
+          maintainAspectRatio: false,
+          responsive: true,
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: false
+              }
+            }],
+            yAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          }
+        }
+      },
+      pieChartData: {
+        labels: browsers,
+        datasets: [
+          {
+            data: [700, 500, 400, 600, 300, 100],
+            backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de']
+          }
+        ],
+        options: {
+          maintainAspectRatio: false,
+          responsive: true
+        }
+      },
+      stackedChartData: {
+        labels: months,
+        datasets: [datasetDigitalGoods, datasetEletronics],
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            xAxes: [{
+              stacked: true
+            }],
+            yAxes: [{
+              stacked: true
+            }]
+          }
+        }
+      }
+    }
+  },
+  props: { },
+  mounted () {
+
+  }
 }
 </script>
