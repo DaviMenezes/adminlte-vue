@@ -62,11 +62,7 @@ export default {
       type: Boolean, default: true
     },
   },
-  created () {
-    debugger
-  },
   mounted () {
-    debugger
     $.plot('#line-chart', this.data_local, this.options)
 
     // Initialize tooltip on hover
