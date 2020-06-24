@@ -67,7 +67,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <a-flot-chart-line/>
+                <a-flot-chart-line :data="charts.line.data"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -205,15 +205,26 @@ export default {
           data: [[2, 88.0], [3, 93.3], [4, 102.0], [5, 108.5], [6, 115.7], [7, 115.6],
             [8, 124.6], [9, 130.3], [10, 134.3], [11, 141.4], [12, 146.5], [13, 151.7], [14, 159.9],
             [15, 165.4], [16, 167.8], [17, 168.7], [18, 169.5], [19, 168.0]]
+        },
+        line: {
+          sin: [],
+          cos: [],
+          data: []
         }
       }
     }
   },
-  mounted () {
-    // if (this.charts.interactive.realtime) {
-    // }
+  created () {
+    for (let i = 0; i < 14; i += 0.5) {
+      this.charts.line.sin.push([i, Math.sin(i)])
+      this.charts.line.cos.push([i, Math.cos(i)])
+    }
+    this.charts.line.data.push({ data: this.charts.line.sin, label: 'Example 1', color: '#3c8dbc' })
+    this.charts.line.data.push({ data: this.charts.line.cos, label: 'Example 2', color: '#00c0ef' })
+
     this.chartUpdate()
   },
+
   methods: {
     updateFlotChartRealtime (value) {
       this.charts.interactive.realtime = value

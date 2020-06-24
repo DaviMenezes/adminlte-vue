@@ -12,55 +12,63 @@ export default {
   name: 'AFlotChartLine',
   data () {
     return {
-      sin: [],
-      cos: []
+      data_local: this.data,
+      options: {
+        grid: {
+          hoverable: this.grid_hoverable,
+          borderColor: this.grid_border_color,
+          borderWidth: this.grid_border_width,
+          tickColor: this.grid_tick_color
+        },
+        series: {
+          shadowSize: this.series_shadow_size,
+          lines: {
+            show: this.series_lines_show
+          },
+          points: {
+            show: this.series_points_show
+          }
+        },
+        lines: {
+          fill: this.lines_fill,
+          color: this.lines_color
+        },
+        yaxis: {
+          show: this.yaxis_show
+        },
+        xaxis: {
+          show: this.xaxis_show
+        }
+      }
     }
   },
   props: {
+    data: { type: Array, required: true },
+    grid_hoverable: { type: Boolean, default: true },
+    grid_border_color: { type: String, default: '#f3f3f3' },
+    grid_border_width: { type: [String, Number], default: 1 },
+    grid_tick_color: { type: String, default: '#f3f3f3' },
+    series_shadowSize: { type: [String, Number], default: 0 },
+    series_lines_show: { type: Boolean, default: true },
+    series_points_show: { type: Boolean, default: true },
+    lines_fill: { type: Boolean, default: false },
+    lines_color: {
+      type: Array, default: () => ['#3c8dbc', '#f56954']
+    },
+    yaxis_show: {
+      type: Boolean, default: true
+    },
+    xaxis_show: {
+      type: Boolean, default: true
+    },
+  },
+  created () {
+    debugger
   },
   mounted () {
-    for (let i = 0; i < 14; i += 0.5) {
-      this.sin.push([i, Math.sin(i)])
-      this.cos.push([i, Math.cos(i)])
-    }
-    // eslint-disable-next-line camelcase
-    const line_data1 = {
-      data: this.sin,
-      color: '#3c8dbc'
-    }
-    // eslint-disable-next-line camelcase
-    const line_data2 = {
-      data: this.cos,
-      color: '#00c0ef'
-    }
-    // eslint-disable-next-line camelcase
-    $.plot('#line-chart', [line_data1, line_data2], {
-      grid: {
-        hoverable: true,
-        borderColor: '#f3f3f3',
-        borderWidth: 1,
-        tickColor: '#f3f3f3'
-      },
-      series: {
-        shadowSize: 0,
-        lines: {
-          show: true
-        },
-        points: {
-          show: true
-        }
-      },
-      lines: {
-        fill: false,
-        color: ['#3c8dbc', '#f56954']
-      },
-      yaxis: {
-        show: true
-      },
-      xaxis: {
-        show: true
-      }
-    })
+    debugger
+    $.plot('#line-chart', this.data_local, this.options)
+
     // Initialize tooltip on hover
     $('<div class="tooltip-inner" id="line-chart-tooltip"></div>').css({
       position: 'absolute',
