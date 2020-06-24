@@ -32,13 +32,13 @@
                 <div class="card-tools">
                   Real time
                   <div class="btn-group" id="realtime" data-toggle="btn-toggle">
-                    <button type="button" class="btn btn-default btn-sm active" data-toggle="on">On</button>
-                    <button type="button" class="btn btn-default btn-sm" data-toggle="off">Off</button>
+                    <button type="button" data-toggle="on" @click="updateFlotChartRealtime(true)" class="btn btn-default btn-sm active" >On</button>
+                    <button type="button" data-toggle="off" @click="updateFlotChartRealtime(false)" class="btn btn-default btn-sm" >Off</button>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <div id="interactive" style="height: 300px;"></div>
+                <a-chart-flot-interactive-area v-once :chart_data="getChartInteractiveRandomData()"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -67,7 +67,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="line-chart" style="height: 300px;"></div>
+                <a-flot-chart-line/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="area-chart" style="height: 338px;" class="full-width-chart"></div>
+                <a-flot-area-chart/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -117,7 +117,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="bar-chart" style="height: 300px;"></div>
+                <a-chart-flot-bar/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -139,7 +139,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="donut-chart" style="height: 300px;"></div>
+                <a-chart-flot-donut/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -154,7 +154,73 @@
   </div>
 </template>
 <script>
+import Vue from 'vue'
+import AFlotChartLine from '../../Widget/Chart/Flot/AFlotChartLine/AFlotChartLine'
+import AChartFlotInteractiveArea from '../../Widget/Chart/Flot/AFlotChartInteractiveArea/AChartFlotInteractiveArea'
+import AFlotAreaChart from '../../Widget/Chart/Flot/AFlotAreaChart/AFlotAreaChart'
+import AChartFlotBar from '../../Widget/Chart/Flot/AChartFlotBar/AChartFlotBar'
+import AChartFlotDonut from '../../Widget/Chart/Flot/AChartFlotDonut/AChartFlotDonut'
+
+const eventBus = new Vue()
 export default {
-  name: 'APageChartFlot'
+  name: 'APageChartFlot',
+  components: { AChartFlotDonut, AChartFlotBar, AFlotAreaChart, AChartFlotInteractiveArea, AFlotChartLine },
+  provide: { eventBus },
+  data () {
+    return {
+      charts: {
+        interactive: {
+          totalPoints: 100,
+          realtime: true, // If == to true then fetch data every x seconds. else stop fetching
+          data: []
+        }
+      }
+    }
+  },
+  mounted () {
+    // if (this.charts.interactive.realtime) {
+    // }
+    this.chartUpdate()
+  },
+  methods: {
+    updateFlotChartRealtime (value) {
+      this.charts.interactive.realtime = value
+      this.chartUpdate()
+    },
+    chartUpdate () {
+      eventBus.$emit('chartDataUpdated', this.getChartInteractiveRandomData())
+
+      if (this.charts.interactive.realtime) {
+        setTimeout(this.chartUpdate, 500) // Fetch data ever x milliseconds
+      }
+    },
+    getChartInteractiveRandomData () {
+      if (this.charts.interactive.data.length > 0) {
+        this.charts.interactive.data = this.charts.interactive.data.slice(1)
+      }
+
+      // Do a random walk
+      while (this.charts.interactive.data.length < this.charts.interactive.totalPoints) {
+        const prev = this.charts.interactive.data.length > 0 ? this.charts.interactive.data[this.charts.interactive.data.length - 1] : 50
+        let y = prev + Math.random() * 10 - 5
+
+        if (y < 0) {
+          y = 0
+        } else if (y > 100) {
+          y = 100
+        }
+
+        this.charts.interactive.data.push(y)
+      }
+
+      // Zip the generated y values with the x values
+      const res = []
+      for (let i = 0; i < this.charts.interactive.data.length; ++i) {
+        res.push([i, this.charts.interactive.data[i]])
+      }
+
+      return res
+    }
+  }
 }
 </script>
