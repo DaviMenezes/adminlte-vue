@@ -3,6 +3,3 @@
     <router-view/>
   </keep-alive>
 </template>
-
-<style lang="scss">
-</style>
