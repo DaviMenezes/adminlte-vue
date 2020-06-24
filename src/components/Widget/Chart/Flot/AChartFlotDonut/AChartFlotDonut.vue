@@ -11,45 +11,56 @@ export default {
   name: 'AChartFlotDonut',
   data () {
     return {
-      donutData: [
-        {
-          label: 'Series2',
-          data: 30,
-          color: '#3c8dbc'
+      donutData: this.data,
+      options: {
+        series: {
+          pie: {
+            show: true,
+            radius: 1,
+            innerRadius: 0.5,
+            label: {
+              show: true,
+              radius: 2 / 3,
+              formatter: this.labelFormatter,
+              threshold: 0.1
+            }
+          }
         },
-        {
-          label: 'Series3',
-          data: 20,
-          color: '#0073b7'
-        },
-        {
-          label: 'Series4',
-          data: 50,
-          color: '#00c0ef'
+        legend: {
+          show: false
         }
-      ]
+      }
     }
   },
   props: {
+    data: { type: Array, required: true },
+    series_pie_show: { type: Boolean, default: true },
+    series_pie_radius: { type: Number, default: 1 },
+    series_pie_innerRadius: { type: Number, default: 0.5 },
+    series_pie_label_show: { type: Boolean, default: true },
+    series_pie_label_radius: { type: Number, default: 2 / 3 },
+    series_pie_label_formatter: { type: String },
+    series_pie_label_threshold: { type: Number, default: 0.1 },
+    legend_show: { type: Boolean, default: false }
   },
   mounted () {
     $.plot('#donut-chart', this.donutData, {
       series: {
         pie: {
-          show: true,
-          radius: 1,
-          innerRadius: 0.5,
+          show: this.options.series.pie.show,
+          radius: this.options.series.pie.radius,
+          innerRadius: this.options.series.pie.innerRadius,
           label: {
-            show: true,
-            radius: 2 / 3,
-            formatter: this.labelFormatter,
-            threshold: 0.1
+            show: this.options.series.pie.label.show,
+            radius: this.options.series.pie.label.radius,
+            formatter: this.options.series.pie.label.formatter || this.labelFormatter,
+            threshold: this.options.series.pie.label.threshold
           }
 
         }
       },
       legend: {
-        show: false
+        show: this.options.legend.show
       }
     })
   },

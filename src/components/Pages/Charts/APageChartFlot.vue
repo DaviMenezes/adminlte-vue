@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <a-flot-area-chart/>
+                <a-flot-area-chart :data="charts.area.data"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -117,7 +117,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <a-chart-flot-bar/>
+                <a-chart-flot-bar :data="charts.bar.data" :xaxis_ticks="charts.bar.xaxis"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -139,7 +139,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <a-chart-flot-donut/>
+                <a-chart-flot-donut :data="charts.donut.data"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -173,6 +173,38 @@ export default {
           totalPoints: 100,
           realtime: true, // If == to true then fetch data every x seconds. else stop fetching
           data: []
+        },
+        bar: {
+          data: [[1, 10], [2, 8], [3, 4], [4, 13], [5, 17], [6, 9]],
+          xaxis: [
+            [1, 'January'],
+            [2, 'February'],
+            [3, 'March'], [4, 'April'], [5, 'May'], [6, 'June']
+          ]
+        },
+        donut: {
+          data: [
+            {
+              label: 'Series2',
+              data: 30,
+              color: '#3c8dbc'
+            },
+            {
+              label: 'Series3',
+              data: 20,
+              color: '#0073b7'
+            },
+            {
+              label: 'Series4',
+              data: 50,
+              color: '#00c0ef'
+            }
+          ]
+        },
+        area: {
+          data: [[2, 88.0], [3, 93.3], [4, 102.0], [5, 108.5], [6, 115.7], [7, 115.6],
+            [8, 124.6], [9, 130.3], [10, 134.3], [11, 141.4], [12, 146.5], [13, 151.7], [14, 159.9],
+            [15, 165.4], [16, 167.8], [17, 168.7], [18, 169.5], [19, 168.0]]
         }
       }
     }

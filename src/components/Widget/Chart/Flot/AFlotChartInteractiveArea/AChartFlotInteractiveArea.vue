@@ -59,39 +59,35 @@ export default {
     ],
     {
       grid: {
-        borderColor: '#f3f3f3',
-        borderWidth: 1,
-        tickColor: '#f3f3f3'
+        borderColor: this.grid.borderColor,
+        borderWidth: this.grid.borderWidth,
+        tickColor: this.grid.tickColor
       },
       series: {
-        color: '#3c8dbc',
+        color: this.series.color,
         lines: {
-          lineWidth: 2,
-          show: true,
-          fill: true
+          lineWidth: this.series.lines.width,
+          show: this.series.lines.show,
+          fill: this.series.lines.fill
         }
       },
       yaxis: {
-        min: 0,
-        max: 100,
-        show: true
+        min: this.yaxis.min,
+        max: this.yaxis.max,
+        show: this.yaxis.show
       },
       xaxis: {
-        show: true
+        show: this.xaxis.show
       }
     }
     )
 
     this.eventBus.$on('chartDataUpdated', (value) => {
-      console.log(value)
       this.interactive_plot.setData([value])
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
       this.interactive_plot.draw()
     })
-    // if (this.realtime) {
-    //   this.update()
-    // }
   },
   methods: {
     update () {
@@ -104,33 +100,6 @@ export default {
         setTimeout(this.update, 500) // Fetch data ever x milliseconds
       }
     }
-    // getChartInteractiveRandomData () {
-    //   if (this.data_local.length > 0) {
-    //     this.data_local = this.data_local.slice(1)
-    //   }
-    //
-    //   // Do a random walk
-    //   while (this.data_local.length < 100) {
-    //     const prev = this.data_local.length > 0 ? this.data_local[this.data_local.length - 1] : 50
-    //     let y = prev + Math.random() * 10 - 5
-    //
-    //     if (y < 0) {
-    //       y = 0
-    //     } else if (y > 100) {
-    //       y = 100
-    //     }
-    //
-    //     this.data_local.push(y)
-    //   }
-    //
-    //   // Zip the generated y values with the x values
-    //   const res = []
-    //   for (let i = 0; i < this.data_local.length; ++i) {
-    //     res.push([i, this.data_local[i]])
-    //   }
-    //
-    //   return res
-    // }
   }
 }
 </script>

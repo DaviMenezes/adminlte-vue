@@ -6,28 +6,57 @@
 import $ from 'jquery'
 require('flot')
 export default {
+  data () {
+    return {
+      areaData: this.data,
+      options: {
+        grid: {
+          borderWidth: this.grid_border_width
+        },
+        series: {
+          shadowSize: this.series_shadow_size,
+          color: this.series_color,
+          lines: {
+            fill: this.series_lines_fill
+          }
+        },
+        yaxis: {
+          show: this.yaxis_show
+        },
+        xaxis: {
+          show: this.xaxis_show
+        }
+      }
+    }
+  },
   props: {
+    data: { type: Array, required: true },
+    grid_border_width: { type: Number, default: 0 },
+    /** Drawing is faster without shadows */
+    series_shadow_size: { type: Number, default: 0 },
+    series_color: { type: String, default: '#00c0ef' },
+    /** Converts the line chart to area chart */
+    series_lines_fill: { type: Boolean, default: true },
+    yaxis_show: { type: Boolean, default: false },
+    xaxis_show: { type: Boolean, default: false }
   },
   mounted () {
-    const areaData = [[2, 88.0], [3, 93.3], [4, 102.0], [5, 108.5], [6, 115.7], [7, 115.6],
-      [8, 124.6], [9, 130.3], [10, 134.3], [11, 141.4], [12, 146.5], [13, 151.7], [14, 159.9],
-      [15, 165.4], [16, 167.8], [17, 168.7], [18, 169.5], [19, 168.0]]
-    $.plot('#area-chart', [areaData], {
+    $.plot('#area-chart', [this.areaData], {
       grid: {
-        borderWidth: 0
+        borderWidth: this.options.grid.borderWidth
       },
       series: {
-        shadowSize: 0, // Drawing is faster without shadows
-        color: '#00c0ef',
+        shadowSize: this.options.series.shadowSize,
+        color: this.options.series.color,
         lines: {
-          fill: true // Converts the line chart to area chart
+          fill: this.options.series.lines.fill
         }
       },
       yaxis: {
-        show: false
+        show: this.options.yaxis.show
       },
       xaxis: {
-        show: false
+        show: this.options.xaxis.show
       }
     })
   }
