@@ -214,7 +214,7 @@ export default {
   data () {
     return {
       title_local: this.title,
-      messageLocal: this.message
+      messageLocal: this.message ?? {}
     }
   },
   props: {
