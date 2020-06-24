@@ -47,7 +47,7 @@
           <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
             <a-sale-chart/>
-            <a-card-direct-chat class="direct-chat-primary"/>
+            <a-card-direct-chat title="Direct chat" :message="{type: 'info', amount: 3}" class="direct-chat-primary"/>
             <a-card>
               <template slot="header">
                 <a-card-header title="To Do List">
@@ -195,6 +195,8 @@
   </div>
 </template>
 <script>
+import ACardDirectChat from '../2/ACardDirectChat'
 export default {
+  components: { ACardDirectChat }
 }
 </script>

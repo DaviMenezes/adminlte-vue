@@ -16,6 +16,7 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "daterangepicker": "^3.1.0",
+    "flot": "^4.2.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "jquery-knob": "^1.2.11",

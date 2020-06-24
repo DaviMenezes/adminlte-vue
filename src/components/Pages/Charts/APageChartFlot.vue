@@ -32,13 +32,13 @@
                 <div class="card-tools">
                   Real time
                   <div class="btn-group" id="realtime" data-toggle="btn-toggle">
-                    <button type="button" class="btn btn-default btn-sm active" data-toggle="on">On</button>
-                    <button type="button" class="btn btn-default btn-sm" data-toggle="off">Off</button>
+                    <button type="button" data-toggle="on" @click="updateFlotChartRealtime(true)" class="btn btn-default btn-sm active" >On</button>
+                    <button type="button" data-toggle="off" @click="updateFlotChartRealtime(false)" class="btn btn-default btn-sm" >Off</button>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <div id="interactive" style="height: 300px;"></div>
+                <a-chart-flot-interactive-area v-once :chart_data="getChartInteractiveRandomData()"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -67,7 +67,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="line-chart" style="height: 300px;"></div>
+                <a-flot-chart-line :data="charts.line.data"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="area-chart" style="height: 338px;" class="full-width-chart"></div>
+                <a-flot-area-chart :data="charts.area.data"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -117,7 +117,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="bar-chart" style="height: 300px;"></div>
+                <a-chart-flot-bar :data="charts.bar.data" :xaxis_ticks="charts.bar.xaxis"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -139,7 +139,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="donut-chart" style="height: 300px;"></div>
+                <a-chart-flot-donut :data="charts.donut.data"/>
               </div>
               <!-- /.card-body-->
             </div>
@@ -154,7 +154,116 @@
   </div>
 </template>
 <script>
+import Vue from 'vue'
+import AFlotChartLine from '../../Widget/Chart/Flot/AFlotChartLine/AFlotChartLine'
+import AChartFlotInteractiveArea from '../../Widget/Chart/Flot/AFlotChartInteractiveArea/AChartFlotInteractiveArea'
+import AFlotAreaChart from '../../Widget/Chart/Flot/AFlotAreaChart/AFlotAreaChart'
+import AChartFlotBar from '../../Widget/Chart/Flot/AChartFlotBar/AChartFlotBar'
+import AChartFlotDonut from '../../Widget/Chart/Flot/AChartFlotDonut/AChartFlotDonut'
+
+const eventBus = new Vue()
 export default {
-  name: 'APageChartFlot'
+  name: 'APageChartFlot',
+  components: { AChartFlotDonut, AChartFlotBar, AFlotAreaChart, AChartFlotInteractiveArea, AFlotChartLine },
+  provide: { eventBus },
+  data () {
+    return {
+      charts: {
+        interactive: {
+          totalPoints: 100,
+          realtime: true, // If == to true then fetch data every x seconds. else stop fetching
+          data: []
+        },
+        bar: {
+          data: [[1, 10], [2, 8], [3, 4], [4, 13], [5, 17], [6, 9]],
+          xaxis: [
+            [1, 'January'],
+            [2, 'February'],
+            [3, 'March'], [4, 'April'], [5, 'May'], [6, 'June']
+          ]
+        },
+        donut: {
+          data: [
+            {
+              label: 'Series2',
+              data: 30,
+              color: '#3c8dbc'
+            },
+            {
+              label: 'Series3',
+              data: 20,
+              color: '#0073b7'
+            },
+            {
+              label: 'Series4',
+              data: 50,
+              color: '#00c0ef'
+            }
+          ]
+        },
+        area: {
+          data: [[2, 88.0], [3, 93.3], [4, 102.0], [5, 108.5], [6, 115.7], [7, 115.6],
+            [8, 124.6], [9, 130.3], [10, 134.3], [11, 141.4], [12, 146.5], [13, 151.7], [14, 159.9],
+            [15, 165.4], [16, 167.8], [17, 168.7], [18, 169.5], [19, 168.0]]
+        },
+        line: {
+          sin: [],
+          cos: [],
+          data: []
+        }
+      }
+    }
+  },
+  created () {
+    for (let i = 0; i < 14; i += 0.5) {
+      this.charts.line.sin.push([i, Math.sin(i)])
+      this.charts.line.cos.push([i, Math.cos(i)])
+    }
+    this.charts.line.data.push({ data: this.charts.line.sin, label: 'Example 1', color: '#3c8dbc' })
+    this.charts.line.data.push({ data: this.charts.line.cos, label: 'Example 2', color: '#00c0ef' })
+
+    this.chartUpdate()
+  },
+
+  methods: {
+    updateFlotChartRealtime (value) {
+      this.charts.interactive.realtime = value
+      this.chartUpdate()
+    },
+    chartUpdate () {
+      eventBus.$emit('chartDataUpdated', this.getChartInteractiveRandomData())
+
+      if (this.charts.interactive.realtime) {
+        setTimeout(this.chartUpdate, 500) // Fetch data ever x milliseconds
+      }
+    },
+    getChartInteractiveRandomData () {
+      if (this.charts.interactive.data.length > 0) {
+        this.charts.interactive.data = this.charts.interactive.data.slice(1)
+      }
+
+      // Do a random walk
+      while (this.charts.interactive.data.length < this.charts.interactive.totalPoints) {
+        const prev = this.charts.interactive.data.length > 0 ? this.charts.interactive.data[this.charts.interactive.data.length - 1] : 50
+        let y = prev + Math.random() * 10 - 5
+
+        if (y < 0) {
+          y = 0
+        } else if (y > 100) {
+          y = 100
+        }
+
+        this.charts.interactive.data.push(y)
+      }
+
+      // Zip the generated y values with the x values
+      const res = []
+      for (let i = 0; i < this.charts.interactive.data.length; ++i) {
+        res.push([i, this.charts.interactive.data[i]])
+      }
+
+      return res
+    }
+  }
 }
 </script>
