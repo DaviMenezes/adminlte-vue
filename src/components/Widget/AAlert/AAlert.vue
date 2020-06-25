@@ -22,8 +22,8 @@ export default {
     }
   },
   props: {
-    /** valida values: danger, info, warning, success */
-    type: { type: String, validator: (val) => ['danger'].includes(val) },
+    /** valid values: danger, info, warning, success */
+    type: { type: String, validator: (val) => Object.values(typeEnum).includes(val) },
     dismissible: { type: Boolean, default: true },
     icon: { type: String, default: 'fas fa-ban' },
     title: { type: String },

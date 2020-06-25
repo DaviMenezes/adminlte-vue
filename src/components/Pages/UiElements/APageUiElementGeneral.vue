@@ -278,28 +278,22 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="callout callout-danger">
-                  <h5>I am a danger callout!</h5>
-
-                  <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
+                <a-callout type="danger" title="I am a danger callout!">
+                  <p slot="text">There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
                     soul,
                     like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                </div>
-                <div class="callout callout-info">
-                  <h5>I am an info callout!</h5>
-
-                  <p>Follow the steps to continue to payment.</p>
-                </div>
-                <div class="callout callout-warning">
-                  <h5>I am a warning callout!</h5>
-
-                  <p>This is a yellow callout.</p>
-                </div>
-                <div class="callout callout-success">
-                  <h5>I am a success callout!</h5>
-
-                  <p>This is a green callout.</p>
-                </div>
+                </a-callout>
+                <a-callout type="info">
+                  <h5 slot="title">I am an common info callout!</h5>
+                  <p slot="text">Follow the steps to continue to payment.</p>
+                </a-callout>
+                <a-callout type="warning" title="I am a warning callout!">
+                  <h4 slot="title">I am a warning callout with h4!</h4>
+                  <p slot="text">This is a yellow callout.</p>
+                </a-callout>
+                <a-callout type="success">
+                  <p slot="text">I am a success callout without a title!</p>
+                </a-callout>
               </div>
               <!-- /.card-body -->
             </div>
@@ -957,9 +951,10 @@
 </template>
 <script>
 import AAlert from '../../Widget/AAlert/AAlert'
+import ACallout from '../../Widget/ACallout/ACallout'
 export default {
   name: 'APageUiElementGeneral',
-  components: { AAlert },
+  components: { ACallout, AAlert },
   data () {
     return {
       alerts: {

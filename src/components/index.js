@@ -54,6 +54,7 @@ import APageUiElementRibbons from './Pages/UiElements/APageUiElementRibbons'
 import APageUiElementSliders from './Pages/UiElements/APageUiElementSliders'
 import APageUiElementTimeline from './Pages/UiElements/APageUiElementTimeline'
 import AAlert from './Widget/AAlert/AAlert'
+import ACallout from './Widget/ACallout/ACallout'
 // pages
 import APageBlank from './Pages/APageBlank'
 import APageCalendar from './Pages/APageCalendar'
@@ -214,7 +215,8 @@ const categories = {
       ]
     },
     uiElements: [
-      AAlert
+      AAlert,
+      ACallout
     ]
   }
 }
