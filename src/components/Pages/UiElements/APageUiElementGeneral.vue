@@ -308,64 +308,20 @@
         <div class="row">
           <div class="col-12">
             <!-- Custom Tabs -->
-            <div class="card">
-              <div class="card-header d-flex p-0">
+            <a-card>
+              <a-card-header class="d-flex p-0" title="Tabs" :tabs="tabs">
                 <h3 class="card-title p-3">Tabs</h3>
-                <ul class="nav nav-pills ml-auto p-2">
-                  <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Tab 1</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Tab 2</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Tab 3</a></li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
-                      Dropdown <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" tabindex="-1" href="#">Action</a>
-                      <a class="dropdown-item" tabindex="-1" href="#">Another action</a>
-                      <a class="dropdown-item" tabindex="-1" href="#">Something else here</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" tabindex="-1" href="#">Separated link</a>
-                    </div>
-                  </li>
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body">
+              </a-card-header>
+              <a-card-body>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">
-                    A wonderful serenity has taken possession of my entire soul,
-                    like these sweet mornings of spring which I enjoy with my whole heart.
-                    I am alone, and feel the charm of existence in this spot,
-                    which was created for the bliss of souls like mine. I am so happy,
-                    my dear friend, so absorbed in the exquisite sense of mere tranquil existence,
-                    that I neglect my talents. I should be incapable of drawing a single stroke
-                    at the present moment; and yet I feel that I never was a greater artist than now.
-                  </div>
-                  <!-- /.tab-pane -->
-                  <div class="tab-pane" id="tab_2">
-                    The European languages are members of the same family. Their separate existence is a myth.
-                    For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                    in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                    new common language would be desirable: one could refuse to pay expensive translators. To
-                    achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                    words. If several languages coalesce, the grammar of the resulting language is more simple
-                    and regular than that of the individual languages.
-                  </div>
-                  <!-- /.tab-pane -->
-                  <div class="tab-pane" id="tab_3">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
-                  </div>
-                  <!-- /.tab-pane -->
+                  <div v-for="(tab, index) in tabs" :key="index"
+                     :class="tab.active ? 'tab-pane active' : 'tab-pane'"
+                     :id="tab.url"
+                     v-html="tab.content"
+                  />
                 </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
-            </div>
-            <!-- ./card -->
+              </a-card-body>
+            </a-card>
           </div>
           <!-- /.col -->
         </div>
@@ -382,38 +338,18 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <p><code>.progress</code></p>
+                <p><code>show-progress animated</code></p>
+                <b-progress value="40" max="100" show-progress animated/>
 
-                <div class="progress">
-                  <div class="progress-bar bg-primary progress-bar-striped" role="progressbar"
-                       aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                    <span class="sr-only">40% Complete (success)</span>
-                  </div>
-                </div>
-                <p><code>.progress-sm</code></p>
+                <p><code>height="10px"</code></p>
+                <b-progress value="40" max="100" show-progress animated variant="success" height="10px"/>
 
-                <div class="progress progress-sm active">
-                  <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
-                       aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                    <span class="sr-only">20% Complete</span>
-                  </div>
-                </div>
-                <p><code>.progress-xs</code></p>
+                <p><code>height="6px"</code></p>
+                <b-progress value="60" max="100" animated variant="warning" height="6px"/>
 
-                <div class="progress progress-xs">
-                  <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                       aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                    <span class="sr-only">60% Complete (warning)</span>
-                  </div>
-                </div>
-                <p><code>.progress-xxs</code></p>
+                <p><code>height="3px"</code></p>
 
-                <div class="progress progress-xxs">
-                  <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
-                       aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                    <span class="sr-only">60% Complete (warning)</span>
-                  </div>
-                </div>
+                <b-progress value="60" max="100" animated variant="danger" height="3px"/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -427,30 +363,10 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="progress mb-3">
-                  <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                       aria-valuemax="100" style="width: 40%">
-                    <span class="sr-only">40% Complete (success)</span>
-                  </div>
-                </div>
-                <div class="progress mb-3">
-                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                       aria-valuemax="100" style="width: 20%">
-                    <span class="sr-only">20% Complete</span>
-                  </div>
-                </div>
-                <div class="progress mb-3">
-                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                       aria-valuemax="100" style="width: 60%">
-                    <span class="sr-only">60% Complete (warning)</span>
-                  </div>
-                </div>
-                <div class="progress mb-3">
-                  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                       aria-valuemax="100" style="width: 80%">
-                    <span class="sr-only">80% Complete</span>
-                  </div>
-                </div>
+                <b-progress value="40" variant="success" class="mb-3"/>
+                <b-progress value="60" variant="info" class="mb-3"/>
+                <b-progress value="80" variant="warning" class="mb-3"/>
+                <b-progress value="90" variant="danger" class="mb-3"/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -471,30 +387,10 @@
                   or
                   <code>.progress-xxs</code> we achieve:</p>
 
-                <div class="progress vertical active">
-                  <div class="progress-bar bg-primary progress-bar-striped" role="progressbar"
-                       aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="height: 40%">
-                    <span class="sr-only">40%</span>
-                  </div>
-                </div>
-                <div class="progress vertical progress-sm">
-                  <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                       aria-valuemax="100" style="height: 100%">
-                    <span class="sr-only">100%</span>
-                  </div>
-                </div>
-                <div class="progress vertical progress-xs">
-                  <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                       aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
-                    <span class="sr-only">60%</span>
-                  </div>
-                </div>
-                <div class="progress vertical progress-xxs">
-                  <div class="progress-bar bg-info progress-bar-striped" role="progressbar" aria-valuenow="60"
-                       aria-valuemin="0" aria-valuemax="100" style="height: 60%">
-                    <span class="sr-only">60%</span>
-                  </div>
-                </div>
+                <a-progressbar vertical value="40" type="primary" striped/>
+                <a-progressbar vertical value="20" type="success" striped size="sm"/>
+                <a-progressbar vertical value="60" type="warning" striped size="xs"/>
+                <a-progressbar vertical value="40" type="danger" striped size="xxs"/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -510,30 +406,10 @@
               <div class="card-body text-center">
                 <p>By adding the class <code>.vertical</code> we achieve:</p>
 
-                <div class="progress vertical">
-                  <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                       aria-valuemax="100" style="height: 40%">
-                    <span class="sr-only">40%</span>
-                  </div>
-                </div>
-                <div class="progress vertical">
-                  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                       aria-valuemax="100" style="height: 20%">
-                    <span class="sr-only">20%</span>
-                  </div>
-                </div>
-                <div class="progress vertical">
-                  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                       aria-valuemax="100" style="height: 60%">
-                    <span class="sr-only">60%</span>
-                  </div>
-                </div>
-                <div class="progress vertical">
-                  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                       aria-valuemax="100" style="height: 80%">
-                    <span class="sr-only">80%</span>
-                  </div>
-                </div>
+                <a-progressbar vertical value="40" type="success"/>
+                <a-progressbar vertical value="20" type="info"/>
+                <a-progressbar vertical value="60" type="warning"/>
+                <a-progressbar vertical value="80" type="danger"/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -952,9 +828,13 @@
 <script>
 import AAlert from '../../Widget/AAlert/AAlert'
 import ACallout from '../../Widget/ACallout/ACallout'
+import ACard from '../../Widget/Card/ACard'
+import ACardHeader from '../../Widget/Card/ACardHeader'
+import ACardBody from '../../Widget/Card/ACardBody'
+import AProgressbar from '../../Widget/AProgressbar/AProgressbar'
 export default {
   name: 'APageUiElementGeneral',
-  components: { ACallout, AAlert },
+  components: { AProgressbar, ACardBody, ACardHeader, ACard, ACallout, AAlert },
   data () {
     return {
       alerts: {
@@ -963,10 +843,59 @@ export default {
           '                  entire\n' +
           '                  soul, <b>like</b> these sweet mornings of spring which I enjoy with my whole heart.'
         },
-        info: { data: 'Info alert preview. This alert is dismissable.' },
-        warning: { data: 'Warning alert preview. This alert is dismissable.' },
-        success: { data: 'Success alert preview. This alert is dismissable.' }
-      }
+        info: { data: 'Info alert preview. This alert is dismissible.' },
+        warning: { data: 'Warning alert preview. This alert is dismissible.' },
+        success: { data: 'Success alert preview. This alert is dismissible.' }
+      },
+      tabs: [
+        {
+          type: 'link',
+          title: 'Tab 1',
+          active: true,
+          url: 'tab_11',
+          content: ' A wonderful serenity has taken possession of my entire soul,\n' +
+            'like these sweet mornings of spring which I enjoy with my whole heart.\n' +
+            'I am alone, and feel the charm of existence in this spot,\n' +
+            'which was created for the bliss of souls like mine. I am so happy,\n' +
+            'my dear friend, so absorbed in the exquisite sense of mere tranquil existence,\n' +
+            'that I neglect my talents. I should be incapable of drawing a single stroke\n' +
+            'at the present moment; and yet I feel that I never was a greater artist than now.'
+        },
+        {
+          type: 'link',
+          title: 'Tab 2',
+          url: 'tab_22',
+          content: 'The European languages are members of the same family. Their separate existence is a myth.\n' +
+            'For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ\n' +
+            'in their grammar, their pronunciation and their most common words. Everyone realizes why a\n' +
+            'new common language would be desirable: one could refuse to pay expensive translators. To\n' +
+            'achieve this, it would be necessary to have uniform grammar, pronunciation and more common\n' +
+            'words. If several languages coalesce, the grammar of the resulting language is more simple\n' +
+            'and regular than that of the individual languages.'
+        },
+        {
+          type: 'link',
+          title: 'Tab 3',
+          url: 'tab_33',
+          content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n' +
+          'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,\n' +
+          'when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n' +
+          'It has survived not only five centuries, but also the leap into electronic typesetting,\n' +
+          'remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset\n' +
+          'sheets containing Lorem Ipsum passages, and more recently with desktop publishing software\n' +
+          'like Aldus PageMaker including versions of Lorem Ipsum.'
+        },
+        {
+          type: 'dropdown',
+          title: 'Actions',
+          actions: [
+            { type: 'link', title: 'Action 1', icon: 'fas fa-arrow-circle-up' },
+            { type: 'link', title: 'Action 2', icon: 'fas fa-arrow-circle-left' },
+            { type: 'divider' },
+            { type: 'link', title: 'Action 3', icon: 'fas fa-arrow-circle-right' }
+          ]
+        }
+      ]
     }
   }
 }
