@@ -53,6 +53,9 @@ import APageUiElementNavbarTabs from './Pages/UiElements/APageUiElementNavbarTab
 import APageUiElementRibbons from './Pages/UiElements/APageUiElementRibbons'
 import APageUiElementSliders from './Pages/UiElements/APageUiElementSliders'
 import APageUiElementTimeline from './Pages/UiElements/APageUiElementTimeline'
+import AAlert from './Widget/AAlert/AAlert'
+import ACallout from './Widget/ACallout/ACallout'
+import AProgressbar from './Widget/AProgressbar/AProgressbar'
 // pages
 import APageBlank from './Pages/APageBlank'
 import APageCalendar from './Pages/APageCalendar'
@@ -139,6 +142,16 @@ const categories = {
       ACardOnlineStoreVisitors,
       ACardProducts,
       ACardSales
+    ],
+    uiElements: [
+      APageUiElementButtons,
+      APageUiElementGeneral,
+      APageUiElementIcons,
+      APageUiElementModalAlerts,
+      APageUiElementNavbarTabs,
+      APageUiElementRibbons,
+      APageUiElementSliders,
+      APageUiElementTimeline
     ]
   },
   forms: [
@@ -172,16 +185,6 @@ const categories = {
     APageSimpleTables,
     APageTableJsGrid
   ],
-  uiElements: [
-    APageUiElementButtons,
-    APageUiElementGeneral,
-    APageUiElementIcons,
-    APageUiElementModalAlerts,
-    APageUiElementNavbarTabs,
-    APageUiElementRibbons,
-    APageUiElementSliders,
-    APageUiElementTimeline
-  ],
   widgets: {
     cards: {
       generics: [
@@ -211,18 +214,24 @@ const categories = {
         ACardWarning,
         ACardDanger
       ]
-    }
+    },
+    uiElements: [
+      AAlert,
+      ACallout,
+      AProgressbar
+    ]
   }
 }
 const LteComponents = Object.assign({}, [
   ...categories.pages.charts,
+  ...categories.pages.specifics,
+  ...categories.pages.uiElements,
   ...categories.forms,
   ...categories.layouts,
   ...categories.mails,
   ...categories.projects,
   ...categories.tables,
-  ...categories.uiElements,
-  ...categories.pages.specifics,
+  ...categories.widgets.uiElements,
   ...categories.widgets.cards.generics,
   ...categories.widgets.cards.specifics,
   ...categories.widgets.cards.colors

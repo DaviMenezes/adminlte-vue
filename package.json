@@ -72,7 +72,8 @@
     },
     "rules": {
       "vue/array-bracket-spacing": "warn",
-      "vue/camelcase": "off"
+      "vue/camelcase": "off",
+      "vue/no-use-v-if-with-v-for": "off"
     }
   },
   "browserslist": [
