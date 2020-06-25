@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Inline Charts</h1>
+            <h1>Ui General</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -257,28 +257,10 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="alert alert-danger alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                  Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my
-                  entire
-                  soul, like these sweet mornings of spring which I enjoy with my whole heart.
-                </div>
-                <div class="alert alert-info alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <h5><i class="icon fas fa-info"></i> Alert!</h5>
-                  Info alert preview. This alert is dismissable.
-                </div>
-                <div class="alert alert-warning alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
-                  Warning alert preview. This alert is dismissable.
-                </div>
-                <div class="alert alert-success alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <h5><i class="icon fas fa-check"></i> Alert!</h5>
-                  Success alert preview. This alert is dismissable.
-                </div>
+                <a-alert type="danger" :text="alerts.danger.data"/>
+                <a-alert type="info" :text="alerts.info.data" icon="fas fa-info"/>
+                <a-alert type="warning" :text="alerts.warning.data" icon="fas fa-exclamation-triangle"/>
+                <a-alert type="success" :text="alerts.success.data" icon="fas fa-check"/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -974,7 +956,66 @@
   </div>
 </template>
 <script>
+import AAlert from '../../Widget/AAlert/AAlert'
 export default {
-  name: 'APageUiElementGeneral'
+  name: 'APageUiElementGeneral',
+  components: { AAlert },
+  data () {
+    return {
+      alerts: {
+        danger: {
+          data: 'Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my\n' +
+          '                  entire\n' +
+          '                  soul, <b>like</b> these sweet mornings of spring which I enjoy with my whole heart.'
+        },
+        info: { data: 'Info alert preview. This alert is dismissable.' },
+        warning: { data: 'Warning alert preview. This alert is dismissable.' },
+        success: { data: 'Success alert preview. This alert is dismissable.' }
+      }
+    }
+  }
 }
 </script>
+<style scoped>
+  .color-palette {
+    height: 35px;
+    line-height: 35px;
+    text-align: right;
+    padding-right: .75rem;
+  }
+
+  .color-palette.disabled {
+    text-align: center;
+    padding-right: 0;
+    display: block;
+  }
+
+  .color-palette-set {
+    margin-bottom: 15px;
+  }
+
+  .color-palette span {
+    display: none;
+    font-size: 12px;
+  }
+
+  .color-palette:hover span {
+    display: block;
+  }
+
+  .color-palette.disabled span {
+    display: block;
+    text-align: left;
+    padding-left: .75rem;
+  }
+
+  .color-palette-box h4 {
+    position: absolute;
+    left: 1.25rem;
+    margin-top: .75rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    display: block;
+    z-index: 7;
+  }
+</style>
