@@ -209,14 +209,14 @@
           </div>
           <div class="col-md-3">
             <a-card class="card-success">
-              <CardHeader slot="header" title="All together">
+              <a-card-header slot="header" title="All together">
                 <template slot="tools">
                   <button type="button" ref="cardRefreshTwo" class="btn btn-tool" @click="updateBodyCardRefreshTwo()"><i class="fas fa-sync-alt"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                   <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                 </template>
-              </CardHeader>
+              </a-card-header>
               <BCardBody slot="body" class="text-center">
                 <div class="spinner-border" role="status" v-if="data.card.refresh.two.loading">
                   <span class="sr-only">Loading...</span>
@@ -401,7 +401,6 @@
   </div>
 </template>
 <script>
-import CardHeader from '../Widget/Card/ACardHeader'
 import InfoBox from '../Widget/AInfoBox'
 import CardIndicator from '../Widget/Specific/CardIndicator'
 import CardExpandable from '../Widget/Specific/ACardExpandable'
@@ -422,12 +421,14 @@ import ACardProfileActivities from '../Widget/Card/Profile/ACardProfileActivitie
 import ACardProfile from '../Widget/Card/Profile/ACardProfile'
 import ASocialPost from '../Widget/Card/Social/Post/ASocialPost'
 import ABackToTop from '../ABackToTop'
+import ACardHeader from '../Widget/Card/ACardHeader'
 
 const eventBus = new Vue()
 
 export default {
   name: 'APageWidgets',
   components: {
+    ACardHeader,
     ABackToTop,
     ASocialPost,
     ACardProfile,
@@ -440,7 +441,6 @@ export default {
     ACardWarning,
     ACardEmptyBodyLoadable,
     ACard,
-    CardHeader,
     CardRefresh,
     InfoBox,
     CardIndicator,
