@@ -1,12 +1,13 @@
 <template>
   <a-card :class="getClasses" :collapsed="collapsed_local">
-    <a-card-header
-      :title="title_local"
-      :collapsable="collapsable_local"
-      :removable="removable_local"
-      :maximizable="maximizable_local"
-      slot="header"/>
-
+    <slot name="header">
+      <a-card-header
+        :title="title_local"
+        :collapsable="collapsable_local"
+        :removable="removable_local"
+        :maximizable="maximizable_local"
+        slot="header"/>
+    </slot>
     <slot name="body">
       <BCardBody slot="body">{{body_local}}</BCardBody>
     </slot>

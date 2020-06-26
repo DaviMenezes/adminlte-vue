@@ -431,81 +431,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div id="accordion">
-                  <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
-                  <div class="card card-primary">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                          Collapsible Group Item #1
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3
-                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum
-                        eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                        nulla
-                        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                        beer
-                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                        labore sustainable VHS.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card card-danger">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                          Collapsible Group Danger
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3
-                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum
-                        eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                        nulla
-                        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                        beer
-                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                        labore sustainable VHS.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card card-success">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                          Collapsible Group Success
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3
-                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum
-                        eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                        nulla
-                        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                        beer
-                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                        labore sustainable VHS.
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <a-accordion :items="accordionItems"></a-accordion>
               </div>
               <!-- /.card-body -->
             </div>
@@ -832,11 +758,15 @@ import ACard from '../../Widget/Card/ACard'
 import ACardHeader from '../../Widget/Card/ACardHeader'
 import ACardBody from '../../Widget/Card/ACardBody'
 import AProgressbar from '../../Widget/AProgressbar/AProgressbar'
+import AAccordion from '../../Widget/AAccordion/AAccordion'
+require('animate.css/animate.css')
 export default {
   name: 'APageUiElementGeneral',
-  components: { AProgressbar, ACardBody, ACardHeader, ACard, ACallout, AAlert },
+  components: { AAccordion, AProgressbar, ACardBody, ACardHeader, ACard, ACallout, AAlert },
   data () {
     return {
+      showCollapsePrimary: true,
+      showCollapseDanger: true,
       alerts: {
         danger: {
           data: 'Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my\n' +
@@ -895,6 +825,23 @@ export default {
             { type: 'link', title: 'Action 3', icon: 'fas fa-arrow-circle-right' }
           ]
         }
+      ],
+      accordionItems: [
+        {
+          type: 'primary',
+          title: ' Collapsible Group Item #1',
+          body: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.'
+        },
+        {
+          type: 'danger',
+          title: ' Collapsible Group Item #2',
+          body: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.'
+        },
+        {
+          type: 'success',
+          title: ' Collapsible Group Item #3',
+          body: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.'
+        }
       ]
     }
   }
@@ -941,5 +888,51 @@ export default {
     font-size: 12px;
     display: block;
     z-index: 7;
+  }
+  ._link {cursor: pointer}
+  .slide-enter {
+    color: white;
+    max-height: 30px;
+  }
+  .slide-enter-active {
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+  .slide-enter-to {
+    max-height: 300px;
+  }
+  .slide-leave {
+    color: white;
+    max-height: 100%;
+  }
+  .slide-leave-active {
+    color: white;
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+  .slide-leave-to {
+    max-height: 0;
+  }
+  @keyframes slideUp {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  @keyframes slideDown {
+    0% {
+      transition: height 0.8s;
+      max-height: 200px;
+      /*transform: translateY(0);*/
+    }
+    100% {
+      transition: height 0.8s;
+      max-height: 200px;
+      /*transform: translateY(100%);*/
+    }
   }
 </style>
