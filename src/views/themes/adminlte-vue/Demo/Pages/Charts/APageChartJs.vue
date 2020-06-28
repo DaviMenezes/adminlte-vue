@@ -59,16 +59,16 @@
 </template>
 <script>
 
-import AChartJsArea from '../../Widget/Chart/ChartJs/AChartJsArea/AChartJsArea'
-import AChartJsDonut from '../../Widget/Chart/ChartJs/AChartJsDonut/AChartJsDonut'
-import AChartJsPie from '../../Widget/Chart/ChartJs/AChartJsPie/AChartJsPie'
-import AChartJsLine from '../../Widget/Chart/ChartJs/AChartJsLine/AChartJsLine'
-import AChartJsBar from '../../Widget/Chart/ChartJs/AChartJsBar/AChartJsBar'
-import AChartJsStacked from '../../Widget/Chart/ChartJs/AChartJsStacked/AChartJsStacked'
-import ACardPrimary from '../../Widget/Card/Color/ACardPrimary'
-import ACardDanger from '../../Widget/Card/Color/ACardDanger'
-import ACardBody from '../../Widget/Card/ACardBody'
-import ACardSuccess from '../../Widget/Card/Color/ACardSuccess'
+import AChartJsArea from '../../../../../../components/Widget/Chart/ChartJs/AChartJsArea/AChartJsArea'
+import AChartJsDonut from '../../../../../../components/Widget/Chart/ChartJs/AChartJsDonut/AChartJsDonut'
+import AChartJsPie from '../../../../../../components/Widget/Chart/ChartJs/AChartJsPie/AChartJsPie'
+import AChartJsLine from '../../../../../../components/Widget/Chart/ChartJs/AChartJsLine/AChartJsLine'
+import AChartJsBar from '../../../../../../components/Widget/Chart/ChartJs/AChartJsBar/AChartJsBar'
+import AChartJsStacked from '../../../../../../components/Widget/Chart/ChartJs/AChartJsStacked/AChartJsStacked'
+import ACardPrimary from '../../../../../../components/Widget/Card/Color/ACardPrimary'
+import ACardDanger from '../../../../../../components/Widget/Card/Color/ACardDanger'
+import ACardBody from '../../../../../../components/Widget/Card/ACardBody'
+import ACardSuccess from '../../../../../../components/Widget/Card/Color/ACardSuccess'
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
 const browsers = [

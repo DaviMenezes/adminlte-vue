@@ -198,10 +198,10 @@
   </Card>
 </template>
 <script>
-import Card from '../../../Widget/Card/ACard'
-import CardHeader from '../../../Widget/Card/ACardHeader'
-import CardBody from '../../../Widget/Card/ACardBody'
-import CardFooter from '../../../Widget/Card/ACardFooter'
+import Card from '../../../../../../../components/Widget/Card/ACard'
+import CardHeader from '../../../../../../../components/Widget/Card/ACardHeader'
+import CardBody from '../../../../../../../components/Widget/Card/ACardBody'
+import CardFooter from '../../../../../../../components/Widget/Card/ACardFooter'
 
 export default {
   name: 'ACardDirectChat',

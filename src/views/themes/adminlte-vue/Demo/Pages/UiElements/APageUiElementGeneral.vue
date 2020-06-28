@@ -731,14 +731,14 @@
   </div>
 </template>
 <script>
-import AAlert from '../../Widget/AAlert/AAlert'
-import ACallout from '../../Widget/ACallout/ACallout'
-import ACard from '../../Widget/Card/ACard'
-import ACardHeader from '../../Widget/Card/ACardHeader'
-import ACardBody from '../../Widget/Card/ACardBody'
-import AProgressbar from '../../Widget/AProgressbar/AProgressbar'
-import AAccordion from '../../Widget/AAccordion/AAccordion'
-import ABlockquoteSecondary from '../../Widget/Blockquotes/ABlockquoteSecondary/ABlockquoteSecondary'
+import AAlert from '../../../../../../components/Widget/AAlert/AAlert'
+import ACallout from '../../../../../../components/Widget/ACallout/ACallout'
+import ACard from '../../../../../../components/Widget/Card/ACard'
+import ACardHeader from '../../../../../../components/Widget/Card/ACardHeader'
+import ACardBody from '../../../../../../components/Widget/Card/ACardBody'
+import AProgressbar from '../../../../../../components/Widget/AProgressbar/AProgressbar'
+import AAccordion from '../../../../../../components/Widget/AAccordion/AAccordion'
+import ABlockquoteSecondary from '../../../../../../components/Widget/Blockquotes/ABlockquoteSecondary/ABlockquoteSecondary'
 
 export default {
   name: 'APageUiElementGeneral',

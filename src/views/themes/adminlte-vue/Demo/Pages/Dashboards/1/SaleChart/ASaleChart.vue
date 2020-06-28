@@ -32,9 +32,9 @@
   </Card>
 </template>
 <script>
-import Card from '../../../../Widget/Card/ACard'
-import CardHeader from '../../../../Widget/Card/ACardHeader'
-import CardBody from '../../../../Widget/Card/ACardBody'
+import Card from '../../../../../../../../components/Widget/Card/ACard'
+import CardHeader from '../../../../../../../../components/Widget/Card/ACardHeader'
+import CardBody from '../../../../../../../../components/Widget/Card/ACardBody'
 import Chart from 'chart.js'
 import salesChart from './sale_chart_data'
 import pieChart from './pie_chart_data'

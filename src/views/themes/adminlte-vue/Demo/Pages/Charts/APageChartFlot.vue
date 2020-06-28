@@ -155,11 +155,11 @@
 </template>
 <script>
 import Vue from 'vue'
-import AFlotChartLine from '../../Widget/Chart/Flot/AFlotChartLine/AFlotChartLine'
-import AChartFlotInteractiveArea from '../../Widget/Chart/Flot/AFlotChartInteractiveArea/AChartFlotInteractiveArea'
-import AFlotAreaChart from '../../Widget/Chart/Flot/AFlotAreaChart/AFlotAreaChart'
-import AChartFlotBar from '../../Widget/Chart/Flot/AChartFlotBar/AChartFlotBar'
-import AChartFlotDonut from '../../Widget/Chart/Flot/AChartFlotDonut/AChartFlotDonut'
+import AFlotChartLine from '../../../../../../components/Widget/Chart/Flot/AFlotChartLine/AFlotChartLine'
+import AChartFlotInteractiveArea from '../../../../../../components/Widget/Chart/Flot/AFlotChartInteractiveArea/AChartFlotInteractiveArea'
+import AFlotAreaChart from '../../../../../../components/Widget/Chart/Flot/AFlotAreaChart/AFlotAreaChart'
+import AChartFlotBar from '../../../../../../components/Widget/Chart/Flot/AChartFlotBar/AChartFlotBar'
+import AChartFlotDonut from '../../../../../../components/Widget/Chart/Flot/AChartFlotDonut/AChartFlotDonut'
 
 const eventBus = new Vue()
 export default {
