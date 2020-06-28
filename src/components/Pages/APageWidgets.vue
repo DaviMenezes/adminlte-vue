@@ -313,7 +313,7 @@
         </div>
         <div class="row">
           <div class="col-md-3">
-            <a-card-primary title="Primary Gradient" :body="body_default" all_painted gradient/>
+            <a-card-primary color="" title="Primary Gradient" :body="body_default" all_painted gradient/>
           </div>
           <!-- /.col -->
           <div class="col-md-3">

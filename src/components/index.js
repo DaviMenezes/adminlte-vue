@@ -56,6 +56,7 @@ import APageUiElementTimeline from './Pages/UiElements/APageUiElementTimeline'
 import AAlert from './Widget/AAlert/AAlert'
 import ACallout from './Widget/ACallout/ACallout'
 import AProgressbar from './Widget/AProgressbar/AProgressbar'
+import ABlockQuote from './Widget/Blockquotes/ABlockquote/ABlockquote'
 // pages
 import APageBlank from './Pages/APageBlank'
 import APageCalendar from './Pages/APageCalendar'
@@ -218,7 +219,8 @@ const categories = {
     uiElements: [
       AAlert,
       ACallout,
-      AProgressbar
+      AProgressbar,
+      ABlockQuote
     ]
   }
 }

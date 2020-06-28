@@ -551,10 +551,10 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body clearfix">
-                <blockquote class="quote-secondary">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                </blockquote>
+                <a-blockquote-secondary
+                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
+                  quoted_text="Someone famous in" quoted="Source Title"
+                />
               </div>
               <!-- /.card-body -->
             </div>
@@ -738,10 +738,11 @@ import ACardHeader from '../../Widget/Card/ACardHeader'
 import ACardBody from '../../Widget/Card/ACardBody'
 import AProgressbar from '../../Widget/AProgressbar/AProgressbar'
 import AAccordion from '../../Widget/AAccordion/AAccordion'
-require('animate.css/animate.css')
+import ABlockquoteSecondary from '../../Widget/Blockquotes/ABlockquoteSecondary/ABlockquoteSecondary'
+
 export default {
   name: 'APageUiElementGeneral',
-  components: { AAccordion, AProgressbar, ACardBody, ACardHeader, ACard, ACallout, AAlert },
+  components: { ABlockquoteSecondary, AAccordion, AProgressbar, ACardBody, ACardHeader, ACard, ACallout, AAlert },
   data () {
     return {
       showCollapsePrimary: true,
