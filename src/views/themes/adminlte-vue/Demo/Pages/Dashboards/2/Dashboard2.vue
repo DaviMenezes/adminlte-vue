@@ -93,7 +93,7 @@
 </template>
 <script>
 import Breadcrumb from '../1/Breadcrumb'
-import InfoBox from '../../../../../../../components/Widget/AInfoBox'
+import InfoBox from '@/components/Widget/AInfoBox'
 import CardLastMembers from './ACardLastMembers'
 import CardLatestOrder from './ACardLatestOrder'
 import CardDirectChat from './ACardDirectChat'

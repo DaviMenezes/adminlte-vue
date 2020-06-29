@@ -22,19 +22,19 @@
         <h5 class="mb-2">Info Box</h5>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox text="Messages" number="1,410" icon="far fa-envelope" icon_class="bg-info"/>
+            <a-info-box text="Messages" number="1,410" icon="far fa-envelope" icon_class="bg-info"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox text="Bookmarks" number="410" icon="far fa-flag" icon_class="bg-success"/>
+            <a-info-box text="Bookmarks" number="410" icon="far fa-flag" icon_class="bg-success"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox text="Uploads" number="13,648" icon="far fa-copy" icon_class="bg-warning"/>
+            <a-info-box text="Uploads" number="13,648" icon="far fa-copy" icon_class="bg-warning"/>
           </div>
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox text="Likes" number="93,139" icon="far fa-star" icon_class="bg-danger"/>
+            <a-info-box text="Likes" number="93,139" icon="far fa-star" icon_class="bg-danger"/>
             </div>
             <!-- /.info-box -->
           </div>
@@ -44,44 +44,44 @@
         <h5 class="mt-4 mb-2">Info Box With <code>bg-*</code></h5>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox class="bg-info" text="Bookmarks" number="41,410" icon="far fa-bookmark" no_elevation>
+            <a-info-box class="bg-info" text="Bookmarks" number="41,410" icon="far fa-bookmark" no_elevation>
               <template slot="content_footer">
                 <BProgress ><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                   70% Increase in 30 Days
                 </span>
               </template>
-            </InfoBox>
+            </a-info-box>
           </div>
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox class="bg-success" text="Likes" number="41,410" icon="far fa-thumbs-up">
+            <a-info-box class="bg-success" text="Likes" number="41,410" icon="far fa-thumbs-up">
               <template slot="content_footer">
                 <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                   70% Increase in 30 Days
                 </span>
               </template>
-            </InfoBox>
+            </a-info-box>
           </div>
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox class="bg-warning" text="Events" number="41,410" icon="far fa-calendar-alt">
+            <a-info-box class="bg-warning" text="Events" number="41,410" icon="far fa-calendar-alt">
               <template slot="content_footer">
                 <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                   70% Increase in 30 Days
                 </span>
               </template>
-            </InfoBox>
+            </a-info-box>
           </div>
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox class="bg-danger" text="Comments" number="41,410" icon="fas fa-comments">
+            <a-info-box class="bg-danger" text="Comments" number="41,410" icon="fas fa-comments">
               <template slot="content_footer">
                 <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                   70% Increase in 30 Days
                 </span>
               </template>
-            </InfoBox>
+            </a-info-box>
          </div>
         </div>
 
@@ -89,45 +89,45 @@
         <h5 class="mt-4 mb-2">Info Box With <code>bg-gradient-*</code></h5>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox class="bg-gradient-info" text="Bookmarks" number="41,410" icon="far fa-bookmark" no_elevation>
+            <a-info-box class="bg-gradient-info" text="Bookmarks" number="41,410" icon="far fa-bookmark" no_elevation>
               <template slot="content_footer">
                 <BProgress ><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                       70% Increase in 30 Days
                     </span>
               </template>
-            </InfoBox>
+            </a-info-box>
           </div>
 
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox class="bg-gradient-success" text="Likes" number="41,410" icon="far fa-thumbs-up">
+            <a-info-box class="bg-gradient-success" text="Likes" number="41,410" icon="far fa-thumbs-up">
               <template slot="content_footer">
                 <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                       70% Increase in 30 Days
                     </span>
               </template>
-            </InfoBox>
+            </a-info-box>
           </div>
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox class="bg-gradient-warning" text="Events" number="41,410" icon="far fa-calendar-alt">
+            <a-info-box class="bg-gradient-warning" text="Events" number="41,410" icon="far fa-calendar-alt">
               <template slot="content_footer">
                 <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                       70% Increase in 30 Days
                     </span>
               </template>
-            </InfoBox>
+            </a-info-box>
           </div>
           <div class="col-md-3 col-sm-6 col-12">
-            <InfoBox class="bg-gradient-danger" text="Comments" number="41,410" icon="fas fa-comments">
+            <a-info-box class="bg-gradient-danger" text="Comments" number="41,410" icon="fas fa-comments">
               <template slot="content_footer">
                 <BProgress><BProgressBar value="70%"/></BProgress>
                 <span class="progress-description">
                       70% Increase in 30 Days
                     </span>
               </template>
-            </InfoBox>
+            </a-info-box>
           </div>
         </div>
         <!-- =========================================================== -->
@@ -401,33 +401,34 @@
   </div>
 </template>
 <script>
-import InfoBox from '../../../../../components/Widget/AInfoBox'
-import CardIndicator from '../../../../../components/Widget/Specific/CardIndicator'
-import CardExpandable from '../../../../../components/Widget/Specific/ACardExpandable'
-import CardCollapsable from '../../../../../components/Widget/Specific/ACardCollapsable'
-import CardRemovable from '../../../../../components/Widget/Specific/ACardRemovable'
-import CardMaximizable from '../../../../../components/Widget/Specific/ACardMaximizable'
-import CardRefresh from '../../../../../components/Widget/Specific/ACardRefresh'
+import CardIndicator from '@/components/Widget/Specific/CardIndicator'
+import CardExpandable from '@/components/Widget/Specific/ACardExpandable'
+import CardCollapsable from '@/components/Widget/Specific/ACardCollapsable'
+import CardRemovable from '@/components/Widget/Specific/ACardRemovable'
+import CardMaximizable from '@/components/Widget/Specific/ACardMaximizable'
+import CardRefresh from '@/components/Widget/Specific/ACardRefresh'
 import Vue from 'vue'
-import ACard from '../../../../../components/Widget/Card/ACard'
-import ACardEmptyBodyLoadable from '../../../../../components/Widget/Specific/ACardEmptyBodyLoadable'
-import ACardWarning from '../../../../../components/Widget/Card/Color/ACardWarning'
-import ACardDanger from '../../../../../components/Widget/Card/Color/ACardDanger'
-import ACardPrimary from '../../../../../components/Widget/Card/Color/ACardPrimary'
-import ACardDefault from '../../../../../components/Widget/Card/Color/ACardDefault'
-import ACardSuccess from '../../../../../components/Widget/Card/Color/ACardSuccess'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardEmptyBodyLoadable from '@/components/Widget/Specific/ACardEmptyBodyLoadable'
+import ACardWarning from '@/components/Widget/Card/Color/ACardWarning'
+import ACardDanger from '@/components/Widget/Card/Color/ACardDanger'
+import ACardPrimary from '@/components/Widget/Card/Color/ACardPrimary'
+import ACardDefault from '@/components/Widget/Card/Color/ACardDefault'
+import ACardSuccess from '@/components/Widget/Card/Color/ACardSuccess'
 import ACardDirectChat from './Dashboards/2/ACardDirectChat'
-import ACardProfileActivities from '../../../../../components/Widget/Card/Profile/ACardProfileActivities'
-import ACardProfile from '../../../../../components/Widget/Card/Profile/ACardProfile'
-import ASocialPost from '../../../../../components/Widget/Card/Social/Post/ASocialPost'
-import ABackToTop from '../../../../../components/ABackToTop'
-import ACardHeader from '../../../../../components/Widget/Card/ACardHeader'
+import ACardProfileActivities from '@/components/Widget/Card/Profile/ACardProfileActivities'
+import ACardProfile from '@/components/Widget/Card/Profile/ACardProfile'
+import ASocialPost from '@/components/Widget/Card/Social/Post/ASocialPost'
+import ABackToTop from '@/components/ABackToTop'
+import ACardHeader from '@/components/Widget/Card/ACardHeader'
+import AInfoBox from '@/components/Widget/AInfoBox'
 
 const eventBus = new Vue()
 
 export default {
   name: 'APageWidgets',
   components: {
+    AInfoBox,
     ACardHeader,
     ABackToTop,
     ASocialPost,
@@ -442,7 +443,6 @@ export default {
     ACardEmptyBodyLoadable,
     ACard,
     CardRefresh,
-    InfoBox,
     CardIndicator,
     CardExpandable,
     CardCollapsable,
