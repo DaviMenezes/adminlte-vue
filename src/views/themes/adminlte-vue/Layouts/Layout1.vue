@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import Navbar from '../../../../components/Navbar'
+import Navbar from '@/components/Navbar'
 import Dashboard1 from '../Demo/Pages/Dashboards/1/Dashboard1'
 import Dashboard2 from '../Demo/Pages/Dashboards/2/Dashboard2'
 import Dashboard3 from '../Demo/Pages/Dashboards/3/Dashboard3'

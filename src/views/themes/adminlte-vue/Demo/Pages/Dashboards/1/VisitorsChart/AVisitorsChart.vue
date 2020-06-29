@@ -49,10 +49,10 @@
   </Card>
 </template>
 <script>
-import Card from '../../../../../../../../components/Widget/Card/ACard'
-import CardHeader from '../../../../../../../../components/Widget/Card/ACardHeader'
-import CardBody from '../../../../../../../../components/Widget/Card/ACardBody'
-import CardFooter from '../../../../../../../../components/Widget/Card/ACardFooter'
+import Card from '@/components/Widget/Card/ACard'
+import CardHeader from '@/components/Widget/Card/ACardHeader'
+import CardBody from '@/components/Widget/Card/ACardBody'
+import CardFooter from '@/components/Widget/Card/ACardFooter'
 
 import jQuery from 'jquery'
 window.jQuery = window.$ = jQuery

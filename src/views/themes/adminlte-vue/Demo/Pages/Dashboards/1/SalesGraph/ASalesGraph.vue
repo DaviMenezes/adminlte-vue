@@ -46,10 +46,10 @@
   </Card>
 </template>
 <script>
-import Card from '../../../../../../../../components/Widget/Card/ACard'
-import CardHeader from '../../../../../../../../components/Widget/Card/ACardHeader'
-import CardBody from '../../../../../../../../components/Widget/Card/ACardBody'
-import CardFooter from '../../../../../../../../components/Widget/Card/ACardFooter'
+import Card from '@/components/Widget/Card/ACard'
+import CardHeader from '@/components/Widget/Card/ACardHeader'
+import CardBody from '@/components/Widget/Card/ACardBody'
+import CardFooter from '@/components/Widget/Card/ACardFooter'
 import Chart from 'chart.js'
 import $ from 'jquery'
 require('jquery-knob')
