@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import LayoutDefault from '../views/themes/adminlte-vue/Layouts/LayoutDefault'
 import Layout1 from '../views/themes/adminlte-vue/Layouts/Layout1'
-// import Dashboard1 from '../views/themes/adminlte-vue/Pages/Dashboards/1/Dashboard1'
 
 Vue.use(VueRouter)
 
