@@ -979,207 +979,175 @@
                   <!-- Default -->
                   <tr>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-default">Top</button>
-                        <button type="button" class="btn btn-default">Middle</button>
-                        <button type="button" class="btn btn-default">Bottom</button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.default">Top</b-button>
+                        <b-button :variant="variantEnum.default">Middle</b-button>
+                        <b-button :variant="variantEnum.default">Bottom</b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-default"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-default"><i class="fas fa-align-center"></i></button>
-                        <button type="button" class="btn btn-default"><i class="fas fa-align-right"></i></button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.default"><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.default"><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.default"><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-default btn-flat"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-default btn-flat"><i class="fas fa-align-center"></i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-flat"><i class="fas fa-align-right"></i>
-                        </button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.default" squared><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.default" squared><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.default" squared><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-default">1</button>
-                        <button type="button" class="btn btn-default">2</button>
-
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                          </ul>
-                        </div>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.default">1</b-button>
+                        <b-button :variant="variantEnum.default">2</b-button>
+                        <b-dropdown :variant="variantEnum.default">
+                          <b-dropdown-item>Link</b-dropdown-item>
+                          <b-dropdown-item>Link</b-dropdown-item>
+                        </b-dropdown>
+                      </b-button-group>
                     </td>
                   </tr>
                   <!-- ./default -->
                   <!-- Info -->
                   <tr>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-info">Top</button>
-                        <button type="button" class="btn btn-info">Middle</button>
-                        <button type="button" class="btn btn-info">Bottom</button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.info">Top</b-button>
+                        <b-button :variant="variantEnum.info">Middle</b-button>
+                        <b-button :variant="variantEnum.info">Bottom</b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-info"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-info"><i class="fas fa-align-center"></i></button>
-                        <button type="button" class="btn btn-info"><i class="fas fa-align-right"></i></button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.info"><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.info"><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.info"><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-info btn-flat"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-info btn-flat"><i class="fas fa-align-center"></i></button>
-                        <button type="button" class="btn btn-info btn-flat"><i class="fas fa-align-right"></i></button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.info" squared><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.info" squared><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.info" squared><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-info">1</button>
-                        <button type="button" class="btn btn-info">2</button>
-
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                          </ul>
-                        </div>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.info">1</b-button>
+                        <b-button :variant="variantEnum.info">2</b-button>
+                        <b-dropdown :variant="variantEnum.info">
+                          <b-dropdown-item>Link</b-dropdown-item>
+                          <b-dropdown-item>Link</b-dropdown-item>
+                        </b-dropdown>
+                      </b-button-group>
                     </td>
                   </tr>
                   <!-- /. info -->
                   <!-- /.danger -->
                   <tr>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-danger">Top</button>
-                        <button type="button" class="btn btn-danger">Middle</button>
-                        <button type="button" class="btn btn-danger">Bottom</button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.danger">Top</b-button>
+                        <b-button :variant="variantEnum.danger">Middle</b-button>
+                        <b-button :variant="variantEnum.danger">Bottom</b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-danger"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-align-center"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="fas fa-align-right"></i></button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.danger"><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.danger"><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.danger"><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-danger btn-flat"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-danger btn-flat"><i class="fas fa-align-center"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-flat"><i class="fas fa-align-right"></i></button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.danger" squared><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.danger" squared><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.danger" squared><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-danger">1</button>
-                        <button type="button" class="btn btn-danger">2</button>
-
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                          </ul>
-                        </div>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.danger">1</b-button>
+                        <b-button :variant="variantEnum.danger">2</b-button>
+                        <b-dropdown :variant="variantEnum.danger">
+                          <b-dropdown-item>Link</b-dropdown-item>
+                          <b-dropdown-item>Link</b-dropdown-item>
+                        </b-dropdown>
+                      </b-button-group>
                     </td>
                   </tr>
                   <!-- /.danger -->
                   <!-- warning -->
                   <tr>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-warning">Top</button>
-                        <button type="button" class="btn btn-warning">Middle</button>
-                        <button type="button" class="btn btn-warning">Bottom</button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.warning">Top</b-button>
+                        <b-button :variant="variantEnum.warning">Middle</b-button>
+                        <b-button :variant="variantEnum.warning">Bottom</b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-warning"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-warning"><i class="fas fa-align-center"></i></button>
-                        <button type="button" class="btn btn-warning"><i class="fas fa-align-right"></i></button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.warning"><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.warning"><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.warning"><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-warning btn-flat"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-warning btn-flat"><i class="fas fa-align-center"></i>
-                        </button>
-                        <button type="button" class="btn btn-warning btn-flat"><i class="fas fa-align-right"></i>
-                        </button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.warning" squared><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.warning" squared><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.warning" squared><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-warning">1</button>
-                        <button type="button" class="btn btn-warning">2</button>
-
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                          </ul>
-                        </div>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.warning">1</b-button>
+                        <b-button :variant="variantEnum.warning">2</b-button>
+                        <b-dropdown :variant="variantEnum.warning">
+                          <b-dropdown-item>Link</b-dropdown-item>
+                          <b-dropdown-item>Link</b-dropdown-item>
+                        </b-dropdown>
+                      </b-button-group>
                     </td>
                   </tr>
                   <!-- /.warning -->
                   <!-- success -->
                   <tr>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-success">Top</button>
-                        <button type="button" class="btn btn-success">Middle</button>
-                        <button type="button" class="btn btn-success">Bottom</button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.success">Top</b-button>
+                        <b-button :variant="variantEnum.success">Middle</b-button>
+                        <b-button :variant="variantEnum.success">Bottom</b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-success"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-success"><i class="fas fa-align-center"></i></button>
-                        <button type="button" class="btn btn-success"><i class="fas fa-align-right"></i></button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.success"><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.success"><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.success"><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-success btn-flat"><i class="fas fa-align-left"></i></button>
-                        <button type="button" class="btn btn-success btn-flat"><i class="fas fa-align-center"></i>
-                        </button>
-                        <button type="button" class="btn btn-success btn-flat"><i class="fas fa-align-right"></i>
-                        </button>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.success" squared><i class="fas fa-align-left"></i></b-button>
+                        <b-button :variant="variantEnum.success" squared><i class="fas fa-align-center"></i></b-button>
+                        <b-button :variant="variantEnum.success" squared><i class="fas fa-align-right"></i></b-button>
+                      </b-button-group>
                     </td>
                     <td>
-                      <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-success">1</button>
-                        <button type="button" class="btn btn-success">2</button>
-
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                          </ul>
-                        </div>
-                      </div>
+                      <b-button-group vertical>
+                        <b-button :variant="variantEnum.success">1</b-button>
+                        <b-button :variant="variantEnum.success">2</b-button>
+                        <b-dropdown :variant="variantEnum.success">
+                          <b-dropdown-item>Link</b-dropdown-item>
+                          <b-dropdown-item>Link</b-dropdown-item>
+                        </b-dropdown>
+                      </b-button-group>
                     </td>
                   </tr>
                   <!-- /.success -->
@@ -1196,30 +1164,11 @@
               </div>
               <div class="card-body table-responsive pad">
                 <p class="mb-1">Radio Button Group with <code>.btn-secondary</code></p>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option_a1" autocomplete="off" checked> Active
-                  </label>
-                  <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option_a2" autocomplete="off"> Radio
-                  </label>
-                  <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option_a3" autocomplete="off"> Radio
-                  </label>
-                </div>
+                <b-form-radio-group id="radio1" v-model="radios.select" buttons :options="radios.items"/>
 
                 <p class="mt-3 mb-1">Radio Button Group with <code>.bg-olive</code></p>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                  <label class="btn bg-olive active">
-                    <input type="radio" name="options" id="option_b1" autocomplete="off" checked> Active
-                  </label>
-                  <label class="btn bg-olive">
-                    <input type="radio" name="options" id="option_b2" autocomplete="off"> Radio
-                  </label>
-                  <label class="btn bg-olive">
-                    <input type="radio" name="options" id="option_b3" autocomplete="off"> Radio
-                  </label>
-                </div>
+                <b-form-radio-group id="radio2" v-model="radios.select" buttons :options="radios.items" button-variant=" bg-olive"/>
+
               </div>
               <!-- /.card-body -->
             </div>
@@ -1239,7 +1188,30 @@ export default {
   name: 'APageUiElementButtons',
   components: { AButton },
   data: function () {
-    return { ButtonTypeEnum, variantEnum, sizeEnum }
+    return {
+      ButtonTypeEnum,
+      variantEnum,
+      sizeEnum,
+      radios: {
+        select: 1,
+        items: [
+          {
+            text: 'Active',
+            value: 1,
+            class: 'bg-olive'
+          },
+          {
+            text: 'Disable',
+            value: 2,
+            disabled: true
+          },
+          {
+            text: 'Radio',
+            value: 3
+          }
+        ]
+      }
+    }
   }
 }
 </script>
