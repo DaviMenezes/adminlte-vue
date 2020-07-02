@@ -1,60 +1,50 @@
 <template>
-  <Card class="bg-gradient-primary" >
-    <template slot="header">
-      <CardHeader title="Visitors">
-        <template slot="title_icon"><i class="fas fa-map-marker-alt mr-1"></i></template>
-        <template slot="tools">
-          <button type="button"
-                  class="btn btn-primary btn-sm daterange"
-                  data-toggle="tooltip"
-                  title="Date range">
-            <i class="far fa-calendar-alt"></i>
-          </button>
-          <button type="button"
-                  class="btn btn-primary btn-sm"
-                  data-card-widget="collapse"
-                  data-toggle="tooltip"
-                  title="Collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-        </template>
-      </CardHeader>
-    </template>
-    <template slot="body">
-      <CardBody>
-        <div ref="world_map" id="world-map" style="height: 250px; width: 100%;"></div>
-      </CardBody>
-    </template>
-    <template slot="footer">
-      <CardFooter class="bg-transparent">
-        <div class="row">
-          <div class="col-4 text-center">
-            <div id="sparkline-1"></div>
-            <div class="text-white">Visitors</div>
-          </div>
-          <!-- ./col -->
-          <div class="col-4 text-center">
-            <div id="sparkline-2"></div>
-            <div class="text-white">Online</div>
-          </div>
-          <!-- ./col -->
-          <div class="col-4 text-center">
-            <div id="sparkline-3"></div>
-            <div class="text-white">Sales</div>
-          </div>
-          <!-- ./col -->
+  <a-card class="bg-gradient-primary" >
+    <a-card-header title="Visitors" slot="header">
+      <template slot="title_icon"><i class="fas fa-map-marker-alt mr-1"></i></template>
+      <a-card-header-tools slot="tools">
+        <button type="button"
+                class="btn btn-tool btn-sm daterange"
+                data-toggle="tooltip"
+                title="Date range">
+          <i class="far fa-calendar-alt"></i>
+        </button>
+        <a-card-header-tool-button-collapse/>
+      </a-card-header-tools>
+    </a-card-header>
+    <a-card-body>
+      <div ref="world_map" id="world-map" style="height: 250px; width: 100%;"></div>
+    </a-card-body>
+    <a-card-footer class="bg-transparent" slot="footer">
+      <div class="row">
+        <div class="col-4 text-center">
+          <div id="sparkline-1"></div>
+          <div class="text-white">Visitors</div>
         </div>
-      </CardFooter>
-    </template>
-  </Card>
+        <!-- ./col -->
+        <div class="col-4 text-center">
+          <div id="sparkline-2"></div>
+          <div class="text-white">Online</div>
+        </div>
+        <!-- ./col -->
+        <div class="col-4 text-center">
+          <div id="sparkline-3"></div>
+          <div class="text-white">Sales</div>
+        </div>
+        <!-- ./col -->
+      </div>
+    </a-card-footer>
+  </a-card>
 </template>
 <script>
-import Card from '@/components/Widget/Card/ACard'
-import CardHeader from '@/components/Widget/Card/ACardHeader'
-import CardBody from '@/components/Widget/Card/ACardBody'
-import CardFooter from '@/components/Widget/Card/ACardFooter'
-
 import jQuery from 'jquery'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACardBody from '@/components/Widget/Card/ACardBody'
+import ACardFooter from '@/components/Widget/Card/ACardFooter'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ACardHeaderToolButtonCollapse
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonCollapse'
 window.jQuery = window.$ = jQuery
 require('jqvmap')
 require('jqvmap/dist/maps/jquery.vmap.usa')
@@ -63,15 +53,13 @@ require('jqvmap/dist/maps/jquery.vmap.brazil')
 export default {
   name: 'AVisitorsChart',
   components: {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter
+    ACardHeaderToolButtonCollapse,
+    ACardHeaderTools,
+    ACardFooter,
+    ACardBody,
+    ACardHeader,
+    ACard
   },
-  data () {
-    return {}
-  },
-  props: {},
   mounted () {
     const visitorsData = {
       US: 398, // USA

@@ -23,33 +23,33 @@
           <div class="col-md-6">
             <!-- AREA CHART -->
             <a-card-primary title="Area Charts" collapsable removable>
-              <b-card-body slot="body"><a-chart-js-area v-bind="areaChartData"/></b-card-body>
+              <b-card-body><a-chart-js-area v-bind="areaChartData"/></b-card-body>
             </a-card-primary>
 
             <!-- DONUT CHART -->
             <a-card-danger title="Donut Chart" collapsable removable>
-              <a-card-body slot="body"><a-chart-js-donut v-bind="donutData"/></a-card-body>
+              <a-card-body><a-chart-js-donut v-bind="donutData"/></a-card-body>
             </a-card-danger>
 
             <!-- PIE CHART -->
             <a-card-danger title="Pie Chart" collapsable removable>
-              <a-card-body slot="body"><a-chart-js-pie v-bind="pieChartData"/></a-card-body>
+              <a-card-body><a-chart-js-pie v-bind="pieChartData"/></a-card-body>
             </a-card-danger>
           </div>
           <div class="col-md-6">
             <!-- LINE CHART -->
             <a-card-primary title="Line Chart" collapsable removable>
-              <a-card-body slot="body"><a-chart-js-line v-bind="lineChartData"/></a-card-body>
+              <a-card-body><a-chart-js-line v-bind="lineChartData"/></a-card-body>
             </a-card-primary>
 
             <!-- BAR CHART -->
             <a-card-success title="Bar Chart" collapsable removable>
-              <a-card-body slot="body"><a-chart-js-bar v-bind="barChartData"/></a-card-body>
+              <a-card-body><a-chart-js-bar v-bind="barChartData"/></a-card-body>
             </a-card-success>
 
             <!-- STACKED BAR CHART -->
             <a-card-success title="Stacked Bar Chart" collapsable removable>
-              <a-card-body slot="body"><a-chart-js-stacked v-bind="stackedChartData"/></a-card-body>
+              <a-card-body><a-chart-js-stacked v-bind="stackedChartData"/></a-card-body>
             </a-card-success>
           </div>
         </div>
@@ -213,10 +213,6 @@ export default {
         }
       }
     }
-  },
-  props: { },
-  mounted () {
-
   }
 }
 </script>

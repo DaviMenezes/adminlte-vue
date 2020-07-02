@@ -1,19 +1,12 @@
 <template>
-  <Card>
-    <template slot="header">
-      <CardHeader title="Latest Orders" class=" border-transparent">
-        <template slot="tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </template>
-      </CardHeader>
-    </template>
-    <template slot="body">
-      <CardBody class="p-0">
+  <a-card>
+    <a-card-header title="Latest Orders" class=" border-transparent" slot="header">
+        <a-card-header-tools slot="tools">
+          <a-card-header-tool-button-collapse/>
+          <a-card-header-tools-button-remove/>
+        </a-card-header-tools>
+      </a-card-header>
+    <a-card-body class="p-0">
         <div class="table-responsive">
           <table class="table m-0">
             <thead>
@@ -84,33 +77,34 @@
             </tbody>
           </table>
         </div>
-      </CardBody>
-    </template>
-    <template slot="footer">
-      <CardFooter class="clearfix">
+      </a-card-body>
+    <a-card-footer class="clearfix" >
         <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
         <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
-      </CardFooter>
-    </template>
-  </Card>
+      </a-card-footer>
+  </a-card>
 </template>
 <script>
-import Card from '@/components/Widget/Card/ACard'
-import CardHeader from '@/components/Widget/Card/ACardHeader'
-import CardBody from '@/components/Widget/Card/ACardBody'
-import CardFooter from '@/components/Widget/Card/ACardFooter'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACardBody from '@/components/Widget/Card/ACardBody'
+import ACardFooter from '@/components/Widget/Card/ACardFooter'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ACardHeaderToolButtonCollapse
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonCollapse'
+import ACardHeaderToolsButtonRemove
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonRemove'
 
 export default {
   name: 'ACardLatestOrder',
   components: {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter
-  },
-  data () {
-    return {}
-  },
-  props: {}
+    ACardHeaderToolsButtonRemove,
+    ACardHeaderToolButtonCollapse,
+    ACardHeaderTools,
+    ACard,
+    ACardHeader,
+    ACardBody,
+    ACardFooter
+  }
 }
 </script>

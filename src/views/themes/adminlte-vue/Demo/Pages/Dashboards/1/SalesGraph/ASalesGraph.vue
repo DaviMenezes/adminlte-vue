@@ -1,23 +1,17 @@
 <template>
-  <Card class="bg-gradient-info" >
-    <template slot="header">
-      <CardHeader title="Sales Graph">
+  <a-card class="bg-gradient-info" >
+      <a-card-header title="Sales Graph" slot="header">
         <template slot="title_icon"><i class="fas fa-th mr-1"></i></template>
-        <template slot="tools">
-          <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </template>
-      </CardHeader>
-    </template>
-    <CardBody slot="body">
+        <a-card-header-tools slot="tools">
+          <a-card-header-tool-button-collapse/>
+          <a-card-header-tools-button-remove/>
+        </a-card-header-tools>
+      </a-card-header>
+    <a-card-body>
       <canvas ref="line_chart" class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-    </CardBody>
-    <template slot="footer">
-      <CardFooter class="bg-transparent">
+    </a-card-body>
+    <template >
+      <a-card-footer class="bg-transparent" slot="footer">
         <div class="row">
           <div class="col-4 text-center">
             <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
@@ -41,31 +35,35 @@
           </div>
           <!-- ./col -->
         </div>
-      </CardFooter>
+      </a-card-footer>
     </template>
-  </Card>
+  </a-card>
 </template>
 <script>
-import Card from '@/components/Widget/Card/ACard'
-import CardHeader from '@/components/Widget/Card/ACardHeader'
-import CardBody from '@/components/Widget/Card/ACardBody'
-import CardFooter from '@/components/Widget/Card/ACardFooter'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACardBody from '@/components/Widget/Card/ACardBody'
+import ACardFooter from '@/components/Widget/Card/ACardFooter'
 import Chart from 'chart.js'
 import $ from 'jquery'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ACardHeaderToolButtonCollapse
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonCollapse'
+import ACardHeaderToolsButtonRemove
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonRemove'
 require('jquery-knob')
 
 export default {
   name: 'ASalesGraph',
   components: {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter
+    ACardHeaderToolsButtonRemove,
+    ACardHeaderToolButtonCollapse,
+    ACardHeaderTools,
+    ACard,
+    ACardHeader,
+    ACardBody,
+    ACardFooter
   },
-  data () {
-    return {}
-  },
-  props: {},
   mounted () {
     $('.knob').knob()
 
@@ -123,8 +121,8 @@ export default {
     }
 
     // This will get the first returned node in the jQuery collection.
-    // eslint-disable-next-line no-unused-vars
-    const salesGraphChart = new Chart(salesGraphChartCanvas, {
+    // eslint-disable-next-line no-new
+    new Chart(salesGraphChartCanvas, {
       type: 'line',
       data: salesGraphChartData,
       options: salesGraphChartOptions

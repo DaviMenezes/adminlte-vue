@@ -1,14 +1,10 @@
 <template>
   <a-card>
     <a-card-header title="Recently Added Products" slot="header">
-      <template slot="tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-          <i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove">
-          <i class="fas fa-times"></i>
-        </button>
-      </template>
+      <a-card-header-tools slot="tools">
+        <a-card-header-tool-button-collapse/>
+        <a-card-header-tools-button-remove/>
+      </a-card-header-tools>
     </a-card-header>
     <a-card-body class="p-0">
       <ul class="products-list product-list-in-card pl-2 pr-2">
@@ -78,21 +74,25 @@
 </template>
 <script>
 import ACard from '@/components/Widget/Card/ACard'
-import ACardHeader from '@/components/Widget/Card/ACardHeader'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
 import ACardBody from '@/components/Widget/Card/ACardBody'
 import ACardFooter from '@/components/Widget/Card/ACardFooter'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ACardHeaderToolButtonCollapse
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonCollapse'
+import ACardHeaderToolsButtonRemove
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonRemove'
 
 export default {
   name: 'AProductRecentAdded',
   components: {
+    ACardHeaderToolsButtonRemove,
+    ACardHeaderToolButtonCollapse,
+    ACardHeaderTools,
     ACard,
     ACardHeader,
     ACardBody,
     ACardFooter
-  },
-  data () {
-    return {}
-  },
-  props: {}
+  }
 }
 </script>

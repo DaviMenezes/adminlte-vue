@@ -1,7 +1,7 @@
 <template>
   <a-card>
     <a-card-header :title="title_local" slot="header"/>
-      <a-card-body class="text-center" slot="body">
+      <a-card-body class="text-center">
           <div v-html="body_local"/>
       </a-card-body>
       <div :class="overlay_color ? 'overlay ' + overlay_color : 'overlay'" v-if="!loaded">
@@ -14,8 +14,12 @@
 </template>
 
 <script>
+import ACard from '@/components/Widget/Card/ACard'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACardBody from '@/components/Widget/Card/ACardBody'
 export default {
   name: 'ACardEmptyBodyLoadable',
+  components: { ACardBody, ACardHeader, ACard },
   data () {
     return {
       body_local: this.body,

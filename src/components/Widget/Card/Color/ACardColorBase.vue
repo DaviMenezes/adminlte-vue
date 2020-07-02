@@ -8,10 +8,10 @@
   />
 </template>
 <script>
-  import ACardColor from './ACardColor'
-  export default {
-    name: 'ACardColorBase',
-    extends: ACardColor,
-    components: { ACardColor },
-  }
+import ACardColor from './ACardColor'
+export default {
+  name: 'ACardColorBase',
+  extends: ACardColor,
+  components: { ACardColor }
+}
 </script>

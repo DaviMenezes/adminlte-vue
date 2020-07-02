@@ -1,20 +1,19 @@
 <template>
-  <Card class="direct-chat">
+  <a-card class="direct-chat">
     <template slot="header">
-      <CardHeader :title="title_local">
-        <template slot="tools">
+      <a-card-header :title="title_local">
+        <a-card-header-tools slot="tools">
           <span data-toggle="tooltip" :title="messageLocal.title" :class="'badge badge-'+(messageLocal.msg_type || messageLocal.type)">{{messageLocal.amount}}</span>
-          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+          <a-card-header-tool-button-collapse/>
           <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
                   data-widget="chat-pane-toggle">
             <i class="fas fa-comments"></i>
           </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-        </template>
-      </CardHeader>
+          <a-card-header-tools-button-remove/>
+        </a-card-header-tools>
+      </a-card-header>
     </template>
-    <template slot="body">
-      <CardBody>
+       <a-card-body>
         <!-- Conversations are loaded here -->
         <div class="direct-chat-messages">
           <!-- Message. Default to the left -->
@@ -24,7 +23,7 @@
               <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
             </div>
             <!-- /.direct-chat-infos -->
-            <img class="direct-chat-img" src="/dist/img/user1-128x128.jpg" alt="message user image">
+            <img class="direct-chat-img" src="@/assets/img/user1-128x128.jpg" alt="message user image">
             <!-- /.direct-chat-img -->
             <div class="direct-chat-text">
               Is this template really for free? That's unbelievable!
@@ -181,10 +180,9 @@
           <!-- /.contacts-list -->
         </div>
         <!-- /.direct-chat-pane -->
-      </CardBody>
-    </template>
+      </a-card-body>
     <template slot="footer">
-      <CardFooter>
+      <a-card-footer>
         <form action="#" method="post">
           <div class="input-group">
             <input type="text" name="message" placeholder="Type Message ..." class="form-control">
@@ -193,23 +191,31 @@
             </span>
           </div>
         </form>
-      </CardFooter>
+      </a-card-footer>
     </template>
-  </Card>
+  </a-card>
 </template>
 <script>
-import Card from '@/components/Widget/Card/ACard'
-import CardHeader from '@/components/Widget/Card/ACardHeader'
-import CardBody from '@/components/Widget/Card/ACardBody'
-import CardFooter from '@/components/Widget/Card/ACardFooter'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardBody from '@/components/Widget/Card/ACardBody'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACardFooter from '@/components/Widget/Card/ACardFooter'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ACardHeaderToolButtonCollapse
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonCollapse'
+import ACardHeaderToolsButtonRemove
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonRemove'
 
 export default {
   name: 'ACardDirectChat',
   components: {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter
+    ACardHeaderToolsButtonRemove,
+    ACardHeaderToolButtonCollapse,
+    ACardHeaderTools,
+    ACardFooter,
+    ACardHeader,
+    ACardBody,
+    ACard
   },
   data () {
     return {

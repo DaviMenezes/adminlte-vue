@@ -7,7 +7,7 @@
             <h1 class="m-0 text-dark">Dashboard v1</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ABreadcrumb :items="[{url:'#', label:'Home'}, {label:'Dashboard v1', class:'active'}]"/>
+            <a-breadcrumb :items="[{url:'#', label:'Home'}, {label:'Dashboard v1', class:'active'}]"/>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -16,10 +16,10 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-3 col-6">
-            <ACardIndicator class="bg-info" icon="ion ion-bag">
+            <a-card-indicator class="bg-info" icon="ion ion-bag">
               <template slot="value"><h3>150</h3></template>
               <template slot="text"><p>New Orders</p></template>
-            </ACardIndicator>
+            </a-card-indicator>
           </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -49,10 +49,10 @@
             <a-sale-chart/>
             <a-card-direct-chat title="Direct chat" :message="{type: 'info', amount: 3}" class="direct-chat-primary"/>
             <a-card>
-              <template slot="header">
-                <a-card-header title="To Do List">
+                <a-card-header slot="header" title="To Do List">
                   <template slot="title_icon"><i class="ion ion-clipboard mr-1"/></template>
-                  <template slot="tools">
+
+                  <a-card-header-tools slot="tools">
                     <ul class="pagination pagination-sm">
                       <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
                       <li class="page-item"><a href="#" class="page-link">1</a></li>
@@ -60,10 +60,8 @@
                       <li class="page-item"><a href="#" class="page-link">3</a></li>
                       <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
                     </ul>
-                  </template>
+                  </a-card-header-tools>
                 </a-card-header>
-              </template>
-              <template slot="body">
                 <a-card-body>
                   <ul class="todo-list" data-widget="todo-list">
                     <li>
@@ -169,7 +167,6 @@
                     </li>
                   </ul>
                 </a-card-body>
-              </template>
               <template slot="footer">
                 <a-card-footer class="clearfix">
                   <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add item</button>
@@ -196,7 +193,18 @@
 </template>
 <script>
 import ACardDirectChat from '../2/ACardDirectChat'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACard from '@/components/Widget/Card/ACard'
+import ASaleChart from '@/views/themes/adminlte-vue/Demo/Pages/Dashboards/1/SaleChart/ASaleChart'
+import ACardBody from '@/components/Widget/Card/ACardBody'
+import ACardFooter from '@/components/Widget/Card/ACardFooter'
+import AVisitorsChart from '@/views/themes/adminlte-vue/Demo/Pages/Dashboards/1/VisitorsChart/AVisitorsChart'
+import ASalesGraph from '@/views/themes/adminlte-vue/Demo/Pages/Dashboards/1/SalesGraph/ASalesGraph'
+import ACardCalendar from '@/views/themes/adminlte-vue/Demo/Pages/Dashboards/1/ACardCalendar'
+import ACardIndicator from '@/components/Widget/Specific/ACardIndicator'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ABreadcrumb from '@/views/themes/adminlte-vue/Demo/Pages/Dashboards/1/Breadcrumb'
 export default {
-  components: { ACardDirectChat }
+  components: { ABreadcrumb, ACardHeaderTools, ACardIndicator, ACardCalendar, ASalesGraph, AVisitorsChart, ACardFooter, ACardBody, ASaleChart, ACard, ACardHeader, ACardDirectChat }
 }
 </script>

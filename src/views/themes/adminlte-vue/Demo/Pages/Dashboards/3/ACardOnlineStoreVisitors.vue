@@ -43,7 +43,7 @@
 </template>
 <script>
 import ACard from '@/components/Widget/Card/ACard'
-import ACardHeader from '@/components/Widget/Card/ACardHeader'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
 import ACardBody from '@/components/Widget/Card/ACardBody'
 
 import $ from 'jquery'
@@ -56,10 +56,6 @@ export default {
     ACardHeader,
     ACardBody
   },
-  data () {
-    return {}
-  },
-  props: {},
   mounted () {
     const ticksStyle = {
       fontColor: '#495057',

@@ -1,6 +1,6 @@
 <template>
   <a-card :class="'card-'+type">
-    <a-card-header>
+    <a-card-header slot="header">
       <h4 class="card-title">
         <a data-toggle="collapse" :data-parent="'#'+id" :href="'#collapse_'+id">
           {{title}}
@@ -18,7 +18,7 @@
 </template>
 <script>
 import ACard from '../Card/ACard'
-import ACardHeader from '../Card/ACardHeader'
+import ACardHeader from '../Card/CardHeader/ACardHeader'
 const typeEnum = {
   primary: 'primary',
   success: 'success',

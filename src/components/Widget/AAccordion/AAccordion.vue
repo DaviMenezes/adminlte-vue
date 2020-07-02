@@ -2,9 +2,7 @@
   <div :id="id">
     <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
     <a-accordion-item v-for="(item, index) in items" :key="index" :id="id" :type="item.type" :title="item.title">
-      <template slot="body">
-        <span>{{item.body}}</span>
-      </template>
+      <span slot="body">{{item.body}}</span>
     </a-accordion-item>
   </div>
 </template>

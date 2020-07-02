@@ -1158,6 +1158,15 @@
             <!-- /.card -->
 
             <!-- Radio Buttons -->
+            <a-card title="Radio Button Group">
+              <a-card-body>
+                <p class="mb-1">Radio Button Group with <code>.btn-secondary</code></p>
+                <b-form-radio-group id="radio1" v-model="radios.select" buttons :options="radios.items"/>
+
+                <p class="mt-3 mb-1">Radio Button Group with <code>.bg-olive</code></p>
+                <b-form-radio-group id="radio2" v-model="radios.select" buttons :options="radios.items" button-variant=" bg-olive"/>
+              </a-card-body>
+            </a-card>
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Radio Button Group</h3>
@@ -1184,9 +1193,11 @@ import AButton from '@/components/Widget/Buttons/AButton/AButton'
 import ButtonTypeEnum from '@/components/Widget/Buttons/typeEnum'
 import variantEnum from '@/components/Widget/Buttons/variantEnum'
 import sizeEnum from '@/components/Widget/Buttons/sizeEnum'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardBody from '@/components/Widget/Card/ACardBody'
 export default {
   name: 'APageUiElementButtons',
-  components: { AButton },
+  components: { ACardBody, ACard, AButton },
   data: function () {
     return {
       ButtonTypeEnum,

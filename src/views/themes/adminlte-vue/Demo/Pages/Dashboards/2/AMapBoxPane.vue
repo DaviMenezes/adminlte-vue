@@ -1,14 +1,7 @@
 <template>
   <a-card>
     <a-card-header slot="header" title="US-Visitors Report">
-      <template slot="tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-          <i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove">
-          <i class="fas fa-times"></i>
-        </button>
-      </template>
+      <a-card-header-tools slot="tools" collapsable removable/>
     </a-card-header>
     <a-card-body class="p-0">
       <div class="d-md-flex">
@@ -44,9 +37,10 @@
 </template>
 <script>
 import ACard from '@/components/Widget/Card/ACard'
-import ACardHeader from '@/components/Widget/Card/ACardHeader'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
 import ACardBody from '@/components/Widget/Card/ACardBody'
 import $ from 'jquery'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
 require('raphael')
 require('jquery-mapael')
 require('jquery-mapael/js/maps/usa_states')
@@ -54,12 +48,11 @@ require('jquery-mapael/js/maps/usa_states')
 export default {
   name: 'AMapBoxPane',
   components: {
+    ACardHeaderTools,
     ACard,
     ACardHeader,
     ACardBody
   },
-  data () { return { } },
-  props: { },
   mounted () {
     $('#world-map-markers').mapael({
       map: {

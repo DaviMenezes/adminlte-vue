@@ -44,8 +44,6 @@ export default {
     CardSales,
     CardProducts,
     CardOnlineStoreVisitors
-  },
-  data () { return { } },
-  props: { }
+  }
 }
 </script>

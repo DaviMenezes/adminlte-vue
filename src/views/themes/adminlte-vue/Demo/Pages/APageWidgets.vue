@@ -136,54 +136,54 @@
         <h5 class="mb-2 mt-4">Small Box</h5>
         <div class="row">
           <div class="col-lg-3 col-6">
-            <CardIndicator class="bg-info" icon="fas fa-shopping-cart">
+            <a-card-indicator class="bg-info" icon="fas fa-shopping-cart">
               <template slot="value"><h3>150</h3></template>
               <template slot="text"><p>New Orders</p></template>
-            </CardIndicator>
+            </a-card-indicator>
           </div>
           <div class="col-lg-3 col-6">
-            <CardIndicator class="bg-success" icon="ion ion-stats-bars">
+            <a-card-indicator class="bg-success" icon="ion ion-stats-bars">
               <template slot="value"><h3>53<sup style="font-size: 20px">%</sup></h3></template>
               <template slot="text"><p>Bounce Rate</p></template>
-            </CardIndicator>
+            </a-card-indicator>
           </div>
           <div class="col-lg-3 col-6">
-            <CardIndicator class="bg-warning" icon="fas fa-user-plus">
+            <a-card-indicator class="bg-warning" icon="fas fa-user-plus">
               <template slot="value"><h3>44</h3></template>
               <template slot="text"><p>User Registrations</p></template>
-            </CardIndicator>
+            </a-card-indicator>
           </div>
           <div class="col-lg-3 col-6">
-            <CardIndicator class="bg-danger" icon="fas fa-chart-pie">
+            <a-card-indicator class="bg-danger" icon="fas fa-chart-pie">
               <template slot="value"><h3>65</h3></template>
               <template slot="text"><p>Unique Visitors</p></template>
-            </CardIndicator>
+            </a-card-indicator>
           </div>
         </div>
         <div class="row">
             <div class="col-lg-3 col-6">
-              <CardIndicator class="bg-info" icon="fas fa-shopping-cart" loading>
+              <a-card-indicator class="bg-info" icon="fas fa-shopping-cart" loading>
                 <template slot="value"><h3>150</h3></template>
                 <template slot="text"><p>New Orders</p></template>
-              </CardIndicator>
+              </a-card-indicator>
             </div>
             <div class="col-lg-3 col-6">
-              <CardIndicator class="bg-success" icon="ion ion-stats-bars" loading>
+              <a-card-indicator class="bg-success" icon="ion ion-stats-bars" loading>
                 <template slot="value"><h3>53<sup style="font-size: 20px">%</sup></h3></template>
                 <template slot="text"><p>Bounce Rate</p></template>
-              </CardIndicator>
+              </a-card-indicator>
             </div>
             <div class="col-lg-3 col-6">
-              <CardIndicator class="bg-warning" icon="fas fa-user-plus" loading>
+              <a-card-indicator class="bg-warning" icon="fas fa-user-plus" loading>
                 <template slot="value"><h3>44</h3></template>
                 <template slot="text"><p>User Registrations</p></template>
-              </CardIndicator>
+              </a-card-indicator>
             </div>
             <div class="col-lg-3 col-6">
-              <CardIndicator class="bg-danger" icon="fas fa-chart-pie" loading>
+              <a-card-indicator class="bg-danger" icon="fas fa-chart-pie" loading>
                 <template slot="value"><h3>65</h3></template>
                 <template slot="text"><p>Unique Visitors</p></template>
-              </CardIndicator>
+              </a-card-indicator>
             </div>
           </div>
         <!-- =========================================================== -->
@@ -191,38 +191,38 @@
         <h5 class="mb-2">Abilities</h5>
         <div class="row">
           <div class="col-md-3">
-            <CardExpandable title="Expandable" :body="body_default" collapsed/>
+            <a-card-expandable title="Expandable" :body="body_default" collapsed/>
           </div>
           <div class="col-md-3">
-            <CardCollapsable class="card-success" title="Collapsable" :body="body_default"/>
+            <a-card-success collapsable title="Collapsable" :body="body_default" />
           </div>
           <div class="col-md-3">
-            <CardRemovable class="card-warning" title="Removable" :body="body_default"/>
+            <a-card-removable class="card-warning" title="Removable" :body="body_default"/>
           </div>
           <div class="col-md-3">
-            <CardMaximizable class="card-danger" title="Maximizable" :body="body_default"/>
+            <a-card-primary maximizable title="Maximizable" :body="body_default"/>
           </div>
         </div>
         <div class="row">
           <div class="col-md-3">
-            <CardRefresh ref="cardRefreshOne" title="Card Refresh" :body="data.card.refresh.one.body" v-on:refreshBody="updateCardRefreshOneBody()" :loading="data.card.refresh.one.loading"/>
+            <a-card-refresh :color="CardColors.primary" ref="cardRefreshOne" title="Card Refresh" :body="data.card.refresh.one.body" v-on:refreshBody="updateCardRefreshOneBody()" :loading="data.card.refresh.one.loading"></a-card-refresh>
           </div>
           <div class="col-md-3">
             <a-card class="card-success">
               <a-card-header slot="header" title="All together">
-                <template slot="tools">
-                  <button type="button" ref="cardRefreshTwo" class="btn btn-tool" @click="updateBodyCardRefreshTwo()"><i class="fas fa-sync-alt"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-                </template>
+                <a-card-header-tools slot="tools">
+                  <a-card-header-tool-button-maximize/>
+                  <a-card-header-tool-button-refresh ref="cardRefreshTwo" v-on:click="updateBodyCardRefreshTwo"/>
+                  <a-card-header-tools-button-remove/>
+                  <a-card-header-tool-button-collapse/>
+                </a-card-header-tools>
               </a-card-header>
-              <BCardBody slot="body" class="text-center">
+              <b-card-body class="text-center">
                 <div class="spinner-border" role="status" v-if="data.card.refresh.two.loading">
                   <span class="sr-only">Loading...</span>
                 </div>
                 <span v-else>{{data.card.refresh.two.body}}</span>
-              </BCardBody>
+              </b-card-body>
             </a-card>
           </div>
           <div class="col-md-3">
@@ -297,9 +297,10 @@
             <a-card-danger outline title="Danger Outline" :body="body_default"/>
           </div>
         </div>
+        <!-- all painted -->
         <div class="row">
           <div class="col-md-3">
-            <a-card-primary title="Primary" :body="body_default" all_painted/>
+            <a-card-primary title="Primaryyy" :body="body_default" all_painted/>
           </div>
           <div class="col-md-3">
             <a-card-success title="Success" :body="body_default" all_painted/>
@@ -311,23 +312,20 @@
             <a-card-danger title="Danger" :body="body_default" all_painted/>
           </div>
         </div>
+        <!-- gradient -->
         <div class="row">
           <div class="col-md-3">
-            <a-card-primary color="" title="Primary Gradient" :body="body_default" all_painted gradient/>
+            <a-card-primary title="Primary Gradient" :body="body_default" all_painted gradient/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
-            <a-card-success title="Primary Gradient" :body="body_default" all_painted gradient/>
+            <a-card-success title="Success Gradient" :body="body_default" all_painted gradient/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
-            <a-card-warning title="Primary Gradient" :body="body_default" all_painted gradient/>
+            <a-card-warning title="Warning Gradient" :body="body_default" all_painted gradient/>
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
-            <a-card-danger title="Primary Gradient" :body="body_default" all_painted gradient/>
+            <a-card-danger title="Danger Gradient" :body="body_default" all_painted gradient/>
           </div>
-          <!-- /.col -->
         </div>
         <h4 class="mt-4 mb-2">Direct Chat</h4>
         <div class="row">
@@ -401,12 +399,11 @@
   </div>
 </template>
 <script>
-import CardIndicator from '@/components/Widget/Specific/CardIndicator'
-import CardExpandable from '@/components/Widget/Specific/ACardExpandable'
-import CardCollapsable from '@/components/Widget/Specific/ACardCollapsable'
-import CardRemovable from '@/components/Widget/Specific/ACardRemovable'
-import CardMaximizable from '@/components/Widget/Specific/ACardMaximizable'
-import CardRefresh from '@/components/Widget/Specific/ACardRefresh'
+import CardColors from '@/components/Widget/Card/Color/CardColors'
+import ACardIndicator from '@/components/Widget/Specific/ACardIndicator'
+import ACardExpandable from '@/components/Widget/Specific/ACardExpandable'
+import ACardRemovable from '@/components/Widget/Specific/ACardRemovable'
+import ACardRefresh from '@/components/Widget/Specific/ACardRefresh'
 import Vue from 'vue'
 import ACard from '@/components/Widget/Card/ACard'
 import ACardEmptyBodyLoadable from '@/components/Widget/Specific/ACardEmptyBodyLoadable'
@@ -420,14 +417,30 @@ import ACardProfileActivities from '@/components/Widget/Card/Profile/ACardProfil
 import ACardProfile from '@/components/Widget/Card/Profile/ACardProfile'
 import ASocialPost from '@/components/Widget/Card/Social/Post/ASocialPost'
 import ABackToTop from '@/components/ABackToTop'
-import ACardHeader from '@/components/Widget/Card/ACardHeader'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
 import AInfoBox from '@/components/Widget/AInfoBox'
+import AUserImage from '@/components/Widget/UserImage/AUserImage'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ACardHeaderToolButtonCollapse
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonCollapse'
+import ACardHeaderToolsButtonRemove
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonRemove'
+import ACardHeaderToolButtonRefresh
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonRefresh'
+import ACardHeaderToolButtonMaximize
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonMaximize'
 
 const eventBus = new Vue()
 
 export default {
   name: 'APageWidgets',
   components: {
+    ACardHeaderToolButtonMaximize,
+    ACardHeaderToolButtonRefresh,
+    ACardHeaderToolsButtonRemove,
+    ACardHeaderToolButtonCollapse,
+    ACardHeaderTools,
+    AUserImage,
     AInfoBox,
     ACardHeader,
     ABackToTop,
@@ -442,15 +455,14 @@ export default {
     ACardWarning,
     ACardEmptyBodyLoadable,
     ACard,
-    CardRefresh,
-    CardIndicator,
-    CardExpandable,
-    CardCollapsable,
-    CardRemovable,
-    CardMaximizable
+    ACardRefresh,
+    ACardIndicator,
+    ACardExpandable,
+    ACardRemovable
   },
   data () {
     return {
+      CardColors,
       chats: {
         primary: { title: '3 New Messages', amount: 3, type: 'primary' },
         success: { title: '3 New Messages', amount: 3, type: 'success' },
@@ -559,17 +571,17 @@ export default {
   },
   methods: {
     updateCardRefreshOneBody () {
-      this.$refs.cardRefreshOne.setLoading(true)
+      this.$refs.cardRefreshOne.$emit('updatingBody')
       setTimeout(() => {
-        this.$refs.cardRefreshOne.bodyLocal = 'The body of the card after card refresh'
-        this.$refs.cardRefreshOne.setLoading(false)
+        this.$refs.cardRefreshOne.$emit('updateBody', 'The body of the card after card refresh')
       }, 1000)
 
-      setTimeout(() => eventBus.$emit('updateBody', this.data.card.body), 5000)
+      setTimeout(() => this.$refs.cardRefreshOne.$emit('updateBody', this.data.card.body), 5000)
     },
     updateBodyCardRefreshTwo () {
       this.data.card.refresh.two.loading = true
       setTimeout(() => {
+        this.$refs.cardRefreshTwo.$emit('updated')
         this.data.card.refresh.two.body = 'The body of the card after card refresh'
         this.data.card.refresh.two.loading = false
       }, 1000)

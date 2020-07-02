@@ -1,16 +1,13 @@
 <template>
-  <Card>
-    <template slot="header">
-      <CardHeader title="Latest Members">
-        <span class="badge badge-danger">8 New Members</span>
-        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-        </button>
-      </CardHeader>
-    </template>
-    <template slot="body">
-      <CardBody class="p-0">
+  <a-card>
+    <a-card-header title="Latest Members" slot="header">
+      <span class="badge badge-danger">8 New Members</span>
+      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+      </button>
+    </a-card-header>
+    <a-card-body class="p-0">
         <ul class="users-list clearfix">
           <li>
             <img src="/dist/img/user1-128x128.jpg" alt="User Image">
@@ -53,29 +50,24 @@
             <span class="users-list-date">15 Jan</span>
           </li>
         </ul>
-      </CardBody>
-    </template>
-    <template slot="footer">
-      <CardFooter class="text-center">
-        <a href="javascript:">View All Users</a>
-      </CardFooter>
-    </template>
-  </Card>
+      </a-card-body>
+    <a-card-footer class="text-center" slot="footer">
+      <a href="javascript:">View All Users</a>
+    </a-card-footer>
+  </a-card>
 </template>
 <script>
-import Card from '@/components/Widget/Card/ACard'
-import CardHeader from '@/components/Widget/Card/ACardHeader'
-import CardBody from '@/components/Widget/Card/ACardBody'
-import CardFooter from '@/components/Widget/Card/ACardFooter'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACardBody from '@/components/Widget/Card/ACardBody'
+import ACardFooter from '@/components/Widget/Card/ACardFooter'
 export default {
   name: 'ACardLastMembers',
   components: {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter
-  },
-  data () { return { } },
-  props: { }
+    ACard,
+    ACardHeader,
+    ACardBody,
+    ACardFooter
+  }
 }
 </script>

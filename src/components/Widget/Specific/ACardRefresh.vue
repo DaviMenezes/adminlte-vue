@@ -1,29 +1,34 @@
 <template>
-  <Card class="card-primary">
-    <CardHeader :title="title" slot="header">
-      <template slot="tools">
-        <button type="button" @click="refreshBody" :disabled="loadingLocal" class="btn btn-tool"><i class="fas fa-sync-alt"></i></button>
-      </template>
-    </CardHeader>
-    <CardBody slot="body" class="text-center">
+  <a-card :class="color">
+    <a-card-header :title="title" slot="header">
+      <a-card-header-tools slot="tools">
+        <a-card-header-tool-button-refresh ref="btn" v-on:click="refreshBody" :updating="loadingLocal"/>
+      </a-card-header-tools>
+    </a-card-header>
+    <a-card-body class="text-center">
       <div class="spinner-border" role="status" v-if="loadingLocal">
         <span class="sr-only">Loading...</span>
       </div>
       <span v-else>{{bodyLocal}}</span>
-    </CardBody>
-  </Card>
+    </a-card-body>
+  </a-card>
 </template>
 <script>
-import Card from '../Card/ACard'
-import CardHeader from '../Card/ACardHeader'
-import CardBody from '../Card/ACardBody'
+import ACard from '../Card/ACard'
+import ACardHeader from '../Card/CardHeader/ACardHeader'
+import ACardBody from '../Card/ACardBody'
+import colorProps from '@/components/Widget/Card/Color/Props'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ACardHeaderToolButtonRefresh from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonRefresh'
 
 export default {
   name: 'ACardRefresh',
   components: {
-    Card,
-    CardHeader,
-    CardBody
+    ACardHeaderToolButtonRefresh,
+    ACardHeaderTools,
+    ACard,
+    ACardHeader,
+    ACardBody
   },
   data () {
     return {
@@ -34,17 +39,18 @@ export default {
   props: {
     title: { type: String },
     body: { type: String },
-    loading: { type: Boolean, default: false }
+    loading: { type: Boolean, default: false },
+    ...colorProps.props
   },
-  inject: ['eventBus'],
-  created () {
-    this.eventBus.$on('updatingBody', () => {
-      this.setLoading(true)
+  mounted () {
+    this.$on('updatingBody', () => {
+      this.loadingLocal = true
     })
 
-    this.eventBus.$on('updateBody', (body) => {
+    this.$on('updateBody', (body) => {
       this.bodyLocal = body
       this.loadingLocal = false
+      this.$refs.btn.$emit('updated')
     })
   },
   methods: {

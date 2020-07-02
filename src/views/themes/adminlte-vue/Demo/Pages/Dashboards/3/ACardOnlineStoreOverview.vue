@@ -1,14 +1,14 @@
 <template>
   <a-card>
     <a-card-header title="Online Store Overview" class="border-0" slot="header">
-      <template slot="tools">
+      <a-card-header-tools slot="tools">
         <a href="#" class="btn btn-sm btn-tool">
           <i class="fas fa-download"></i>
         </a>
         <a href="#" class="btn btn-sm btn-tool">
           <i class="fas fa-bars"></i>
         </a>
-      </template>
+      </a-card-header-tools>
     </a-card-header>
     <a-card-body>
       <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
@@ -51,17 +51,17 @@
 </template>
 <script>
 import ACard from '@/components/Widget/Card/ACard'
-import ACardHeader from '@/components/Widget/Card/ACardHeader'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
 import ACardBody from '@/components/Widget/Card/ACardBody'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
 
 export default {
   name: 'ACardOnlineStoreOverview',
   components: {
+    ACardHeaderTools,
     ACard,
     ACardHeader,
     ACardBody
-  },
-  data () { return { } },
-  props: { }
+  }
 }
 </script>

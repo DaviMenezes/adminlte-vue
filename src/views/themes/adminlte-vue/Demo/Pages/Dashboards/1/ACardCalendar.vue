@@ -1,41 +1,38 @@
 <template>
-  <Card class="bg-gradient-success" >
-    <template slot="header">
-      <CardHeader class="border-0" title="Calendar">
-        <template slot="title_icon"><i class="far fa-calendar-alt"></i></template>
-        <template slot="tools">
-          <div class="btn-group">
-            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
-              <i class="fas fa-bars"></i></button>
-            <div class="dropdown-menu" role="menu">
-              <a href="#" class="dropdown-item">Add new event</a>
-              <a href="#" class="dropdown-item">Clear events</a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">View calendar</a>
-            </div>
-          </div>
-          <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </template>
-      </CardHeader>
-    </template>
-    <template slot="body">
-      <CardBody class="pt-0">
+  <a-card class="bg-gradient-success" >
+    <a-card-header class="border-0" title="Calendar" slot="header">
+      <template slot="title_icon"><i class="far fa-calendar-alt"></i></template>
+      <a-card-header-tools slot="tools">
+        <b-dropdown size="sm" variant="success" right>
+          <template v-slot:button-content>
+            <i class="fas fa-bars"></i>
+          </template>
+          <b-dropdown-item>Add new event</b-dropdown-item>
+          <b-dropdown-item>Clear events</b-dropdown-item>
+          <b-dropdown-divider/>
+          <b-dropdown-item>View calendar</b-dropdown-item>
+        </b-dropdown>
+
+        <a-card-header-tool-button-collapse/>
+        <a-card-header-tool-button-remove/>
+      </a-card-header-tools>
+    </a-card-header>
+    <a-card-body class="pt-0">
         <div id="calendar" style="width: 100%"></div>
         <b-calendar v-model="value" @context="onContext" locale="en-US" width="100%" class="bg-transparent"></b-calendar>
-      </CardBody>
-    </template>
-  </Card>
+      </a-card-body>
+  </a-card>
 </template>
 <script>
-import Card from '@/components/Widget/Card/ACard'
-import CardHeader from '@/components/Widget/Card/ACardHeader'
-import CardBody from '@/components/Widget/Card/ACardBody'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACardBody from '@/components/Widget/Card/ACardBody'
 import $ from 'jquery'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
+import ACardHeaderToolButtonCollapse
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonCollapse'
+import ACardHeaderToolButtonRemove
+  from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderToolButtonRemove'
 window.jQuery = window.$ = $
 require('bootstrap-datepicker')
 require('moment')
@@ -43,9 +40,12 @@ require('moment')
 export default {
   name: 'ACardCalendar',
   components: {
-    Card,
-    CardHeader,
-    CardBody
+    ACardHeaderToolButtonRemove,
+    ACardHeaderToolButtonCollapse,
+    ACardHeaderTools,
+    ACard,
+    ACardHeader,
+    ACardBody
   },
   data () {
     return {
@@ -53,7 +53,6 @@ export default {
       context: null
     }
   },
-  props: {},
   mounted () {
     // $(document).ready(function () {
     //   $(function () {

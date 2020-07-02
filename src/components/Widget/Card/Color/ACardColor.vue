@@ -8,13 +8,15 @@
         :maximizable="maximizable_local"
         slot="header"/>
     </slot>
-    <slot name="body">
-      <BCardBody slot="body">{{body_local}}</BCardBody>
+    <slot>
+      <b-card-body>{{body_local}}</b-card-body>
     </slot>
   </a-card>
 </template>
 <script>
-import ACardHeader from '../ACardHeader'
+import CardColors from '@/components/Widget/Card/Color/CardColors'
+import colorProps from '@/components/Widget/Card/Color/Props'
+import ACardHeader from '../CardHeader/ACardHeader'
 import ACard from '../ACard'
 export default {
   name: 'ACardColor',
@@ -41,7 +43,7 @@ export default {
     collapsed: Boolean,
     removable: Boolean,
     maximizable: Boolean,
-    color: { type: String },
+    ...colorProps.props,
     all_painted: Boolean,
     gradient: Boolean
   },
@@ -49,21 +51,12 @@ export default {
     getClasses () {
       let classes = ''
       if (this.color_local) {
-        if (this.all_painted_local) {
-          classes += 'bg-' + (this.gradient_local ? 'gradient-' + this.color_local : this.color_local)
-        } else {
-          classes += 'card-' + this.color_local
-        }
+        classes += this.color_local
       }
       if (this.outline_local) {
-        classes += ' card-outline'
+        classes += ' ' + CardColors.outline
       }
       return classes
-    }
-  },
-  methods: {
-    getColor () {
-      return 'primary'
     }
   }
 }

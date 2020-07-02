@@ -1,19 +1,16 @@
 <template>
-  <Card>
-    <template slot="header">
-      <CardHeader title="Products" class="border-0">
-        <template slot="tools">
-          <a href="#" class="btn btn-tool btn-sm">
-            <i class="fas fa-download"></i>
-          </a>
-          <a href="#" class="btn btn-tool btn-sm">
-            <i class="fas fa-bars"></i>
-          </a>
-        </template>
-      </CardHeader>
-    </template>
-    <template slot="body">
-      <CardBody class="table-responsive p-0">
+  <a-card>
+    <a-card-header title="Products" class="border-0" slot="header">
+      <a-card-header-tools slot="tools">
+        <a href="#" class="btn btn-tool btn-sm">
+          <i class="fas fa-download"></i>
+        </a>
+        <a href="#" class="btn btn-tool btn-sm">
+          <i class="fas fa-bars"></i>
+        </a>
+      </a-card-header-tools>
+    </a-card-header>
+    <a-card-body class="table-responsive p-0">
         <table class="table table-striped table-valign-middle">
           <thead>
           <tr>
@@ -103,23 +100,22 @@
           </tr>
           </tbody>
         </table>
-      </CardBody>
-    </template>
-  </Card>
+      </a-card-body>
+  </a-card>
 </template>
 <script>
-import Card from '@/components/Widget/Card/ACard'
-import CardHeader from '@/components/Widget/Card/ACardHeader'
-import CardBody from '@/components/Widget/Card/ACardBody'
+import ACard from '@/components/Widget/Card/ACard'
+import ACardHeader from '@/components/Widget/Card/CardHeader/ACardHeader'
+import ACardBody from '@/components/Widget/Card/ACardBody'
+import ACardHeaderTools from '@/components/Widget/Card/CardHeader/CardHeaderTools/ACardHeaderTools'
 
 export default {
   name: 'ACardProducts',
   components: {
-    Card,
-    CardHeader,
-    CardBody
-  },
-  data () { return { } },
-  props: { }
+    ACardHeaderTools,
+    ACard,
+    ACardHeader,
+    ACardBody
+  }
 }
 </script>
